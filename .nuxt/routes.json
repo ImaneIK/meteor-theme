@@ -28,6 +28,20 @@
     "_name": "_2c99beaf"
   },
   {
+    "name": "categories-slug",
+    "path": "/categories/:slug?",
+    "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\themes\\\\meteor\\\\pages\\\\categories\\\\_slug.vue",
+    "chunkName": "pages/categories/_slug",
+    "_name": "_bc845a6a"
+  },
+  {
+    "name": "collections-slug",
+    "path": "/collections/:slug?",
+    "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\themes\\\\meteor\\\\pages\\\\collections\\\\_slug.vue",
+    "chunkName": "pages/collections/_slug",
+    "_name": "_cc60c670"
+  },
+  {
     "name": "posts-slug",
     "path": "/posts/:slug?",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\themes\\\\meteor\\\\pages\\\\posts\\\\_slug.vue",

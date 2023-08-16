@@ -2,6 +2,7 @@
   <div>
     <sections-header />
     <sections-spaces />
+    <sections-collections />
     <sections-blog />
   </div>
 </template>

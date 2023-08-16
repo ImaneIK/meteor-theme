@@ -1,21 +1,14 @@
 <template>
-    <div>
-    <Banner />
-    <About/>
-    <ContactSection/>
-    <Blog />
-    <div class="container">
+  <div>
+    <sections-banner />
+    <About />
+    <ContactSection />
+    <sections-blog />
+    <div class="container"></div>
+    <Footer />
   </div>
-    <Footer/>
-    </div>
-    
 </template>
 
 <script>
-
-
-
-export default {
-  
-}
+export default {};
 </script>

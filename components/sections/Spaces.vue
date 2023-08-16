@@ -29,7 +29,7 @@
                     <div class="flex py-4">
                         <div class="pr-4">
                             <span class="bg-black rounded-full px-3 py-1 text-xs text-white font-semibold">
-                            {{ card.collections.name }}
+                            {{ card.collections[0].name }}
                             </span>
                         </div>
 

@@ -1,9 +1,15 @@
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdG9yZSI6eyJfaWQiOiI2NGFkNDQyYzUzZTU3NDIyZGZlYTFlMmQiLCJuYW1lIjoiYm9va2luZyIsInN1YmRvbWFpbiI6ImJvb2tpbmcuc3RvcmVpbm8ud29ybGQifSwidXNlciI6eyJfaWQiOiI2NGFkNDQ4MDUzZTU3NDIyZGZlYTFlOGMiLCJmaXJzdG5hbWUiOiJpbWFuZSIsImxhc3RuYW1lIjoiYm9va2luZyIsImVtYWlsIjoiaW1hbmVpazA5MTBAZ21haWwuY29tIn0sImNvbXBhbnkiOnsic3RhdHVzIjoiVU5DT01QTEVURUQiLCJfaWQiOiI2MDQwYWNlODRlODcyNDA5NTBhN2Q4YzkiLCJuYW1lIjoic3RvcmVpbm8ifSwidG9rZW5JZCI6IjU5MTk1NVRKWEdSTTk1OTk5NUlRSlRVRiIsImlhdCI6MTY5MTQwNDU0OCwiZXhwIjoxNjkyMjY4NTQ4fQ.eK4I64iES2hFnYq8oiDPFJCbL-nYHauFJWtLTB0Q0x0
+
+###
+GET https://admin.storeino.world/stores/api/themes/search?name=METEOR
+X-Auth-Token: {{token}}
+
+###
+POST https://admin.storeino.world/stores/api/themes/update?name=METEOR
+Content-Type: application/json
+X-Auth-Token: {{token}}
+
 {
-	"team": {
-		"_id": "5f21374a175b5e8e309be827",
-		"name": "DEVELOPMENT",
-		"url": "https://market.storeino.com/storeino/"
-	},
 	"config": {
 		"schema": {
 			"fields": {
@@ -217,25 +223,5 @@
 				"collections": []
 			}
 		}
-	},
-	"images": [
-		"https://storeno.b-cdn.net/stores/10-2021/1635522810596.png"
-	],
-	"isActive": true,
-	"autoRenew": false,
-	"_id": "64ad72fde81e2618cd1ef3a4",
-	"expiryDate": "2050-12-12T00:00:00.000Z",
-	"name": "METEOR",
-	"url": "/themes/METEOR",
-	"route": "METEOR",
-	"defaults": [],
-	"paymentType": "yearly",
-	"payments": [],
-	"price": 22,
-	"description": "✔ Simple and easy theme to use ✔ Well presented and convertible store and product page ✔ SEO optimized ✔ Responsive to all devices",
-	"publicName": "Multipurpose Responsive E-commerce Template",
-	"storeId": "64ad442c53e57422dfea1e2d",
-	"createdAt": "2023-07-11T15:19:25.054Z",
-	"updatedAt": "2023-08-15T11:40:00.836Z",
-	"__v": 0
+	}
 }

@@ -61,8 +61,10 @@
           <!-- Categories Block -->
           <div class="mb-8 bg-white text-center p-2 shadow-md rounded-md">
             <h2 class="text-xl font-semibold mb-4 p-2">Categories</h2>
+
+            <sections-test />
   
-            <div :style="`background-image: url(${post.image.url}); filter: brightness(0.8);`" class="bg-cover bg-center bg-no-repeat p-8 m-2 rounded-md">
+            <!-- <div :style="`background-image: url(${post.image.url}); filter: brightness(0.8);`" class="bg-cover bg-center bg-no-repeat p-8 m-2 rounded-md">
               <NuxtLink to="#" class="text-white font-normal text-xs hover:underline">WORKER</NuxtLink>
             </div>
             <div :style="`background-image: url(${post.image.url}); filter: brightness(0.8);`" class="bg-cover bg-center bg-no-repeat p-8 m-2 rounded-md">
@@ -70,7 +72,9 @@
             </div>
             <div :style="`background-image: url(${post.image.url}); filter: brightness(0.8);`" class="bg-cover bg-center bg-no-repeat p-8 m-2 rounded-md">
               <NuxtLink to="#" class="text-white font-normal text-xs hover:underline">WORKER</NuxtLink>
-            </div>
+            </div> -->
+
+            
   
             
   

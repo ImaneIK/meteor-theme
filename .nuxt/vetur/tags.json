@@ -1,6 +1,18 @@
 {
-  "StoreinoWelcome": {
-    "description": "Auto imported from components/StoreinoWelcome.vue"
+  "SiAppLoader": {
+    "description": "Auto imported from components/si/AppLoader.vue"
+  },
+  "SiCarousel": {
+    "description": "Auto imported from components/si/carousel.vue"
+  },
+  "SiCollection": {
+    "description": "Auto imported from components/si/collection.vue"
+  },
+  "SiSearchBar": {
+    "description": "Auto imported from components/si/SearchBar.vue"
+  },
+  "SiStatisticBlock": {
+    "description": "Auto imported from components/si/StatisticBlock.vue"
   },
   "SectionsApplication": {
     "description": "Auto imported from components/sections/Application.vue"
@@ -10,6 +22,9 @@
   },
   "SectionsBlog": {
     "description": "Auto imported from components/sections/Blog.vue"
+  },
+  "SectionsCollections": {
+    "description": "Auto imported from components/sections/Collections.vue"
   },
   "SectionsFetch": {
     "description": "Auto imported from components/sections/Fetch.vue"
@@ -29,16 +44,7 @@
   "SectionsSpaces": {
     "description": "Auto imported from components/sections/Spaces.vue"
   },
-  "SiAppLoader": {
-    "description": "Auto imported from components/si/AppLoader.vue"
-  },
-  "SiCarousel": {
-    "description": "Auto imported from components/si/carousel.vue"
-  },
-  "SiSearchBar": {
-    "description": "Auto imported from components/si/SearchBar.vue"
-  },
-  "SiStatisticBlock": {
-    "description": "Auto imported from components/si/StatisticBlock.vue"
+  "SectionsTest": {
+    "description": "Auto imported from components/sections/Test.vue"
   }
 }

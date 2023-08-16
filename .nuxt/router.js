@@ -8,6 +8,8 @@ const _f623d550 = () => interopDefault(import('..\\pages\\about\\index.vue' /* w
 const _7130b28d = () => interopDefault(import('..\\pages\\blog\\index.vue' /* webpackChunkName: "pages/blog/index" */))
 const _268a6ab9 = () => interopDefault(import('..\\pages\\shop\\index.vue' /* webpackChunkName: "pages/shop/index" */))
 const _2c99beaf = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _bc845a6a = () => interopDefault(import('..\\pages\\categories\\_slug.vue' /* webpackChunkName: "pages/categories/_slug" */))
+const _cc60c670 = () => interopDefault(import('..\\pages\\collections\\_slug.vue' /* webpackChunkName: "pages/collections/_slug" */))
 const _47ab57ec = () => interopDefault(import('..\\pages\\posts\\_slug.vue' /* webpackChunkName: "pages/posts/_slug" */))
 const _7514ce9a = () => interopDefault(import('..\\pages\\spaces\\_slug.vue' /* webpackChunkName: "pages/spaces/_slug" */))
 
@@ -38,6 +40,14 @@ export const routerOptions = {
     path: "/",
     component: _2c99beaf,
     name: "index"
+  }, {
+    path: "/categories/:slug?",
+    component: _bc845a6a,
+    name: "categories-slug"
+  }, {
+    path: "/collections/:slug?",
+    component: _cc60c670,
+    name: "collections-slug"
   }, {
     path: "/posts/:slug?",
     component: _47ab57ec,
