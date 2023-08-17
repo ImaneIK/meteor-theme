@@ -15,6 +15,7 @@ import { createStore } from './store.js'
 
 import nuxt_plugin_plugin_70357084 from 'nuxt_plugin_plugin_70357084' // Source: .\\components\\plugin.js (mode: 'all')
 import nuxt_plugin_axios_5debe8e1 from 'nuxt_plugin_axios_5debe8e1' // Source: .\\axios.js (mode: 'all')
+import nuxt_plugin_fontawesome_11edcf63 from 'nuxt_plugin_fontawesome_11edcf63' // Source: .\\fontawesome.js (mode: 'all')
 import nuxt_plugin_tools_2fec372e from 'nuxt_plugin_tools_2fec372e' // Source: ..\\node_modules\\@storeino\\template-core\\plugins\\tools.js (mode: 'all')
 import nuxt_plugin_http_1aad7586 from 'nuxt_plugin_http_1aad7586' // Source: ..\\node_modules\\@storeino\\template-core\\plugins\\http.js (mode: 'all')
 import nuxt_plugin_storeino_1c6e5088 from 'nuxt_plugin_storeino_1c6e5088' // Source: ..\\node_modules\\@storeino\\template-core\\plugins\\storeino.js (mode: 'all')
@@ -223,6 +224,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_axios_5debe8e1 === 'function') {
     await nuxt_plugin_axios_5debe8e1(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_fontawesome_11edcf63 === 'function') {
+    await nuxt_plugin_fontawesome_11edcf63(app.context, inject)
   }
 
   if (typeof nuxt_plugin_tools_2fec372e === 'function') {

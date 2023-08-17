@@ -3,56 +3,48 @@
     "name": "about",
     "path": "/about",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\themes\\\\meteor\\\\pages\\\\about\\\\index.vue",
-    "chunkName": "pages/about/index",
-    "_name": "_f623d550"
+    "chunkName": "pages/about/index"
   },
   {
     "name": "blog",
     "path": "/blog",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\themes\\\\meteor\\\\pages\\\\blog\\\\index.vue",
-    "chunkName": "pages/blog/index",
-    "_name": "_7130b28d"
+    "chunkName": "pages/blog/index"
   },
   {
     "name": "shop",
     "path": "/shop",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\themes\\\\meteor\\\\pages\\\\shop\\\\index.vue",
-    "chunkName": "pages/shop/index",
-    "_name": "_268a6ab9"
+    "chunkName": "pages/shop/index"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\themes\\\\meteor\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_2c99beaf"
+    "chunkName": "pages/index"
   },
   {
     "name": "categories-slug",
     "path": "/categories/:slug?",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\themes\\\\meteor\\\\pages\\\\categories\\\\_slug.vue",
-    "chunkName": "pages/categories/_slug",
-    "_name": "_bc845a6a"
+    "chunkName": "pages/categories/_slug"
   },
   {
     "name": "collections-slug",
     "path": "/collections/:slug?",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\themes\\\\meteor\\\\pages\\\\collections\\\\_slug.vue",
-    "chunkName": "pages/collections/_slug",
-    "_name": "_cc60c670"
+    "chunkName": "pages/collections/_slug"
   },
   {
     "name": "posts-slug",
     "path": "/posts/:slug?",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\themes\\\\meteor\\\\pages\\\\posts\\\\_slug.vue",
-    "chunkName": "pages/posts/_slug",
-    "_name": "_47ab57ec"
+    "chunkName": "pages/posts/_slug"
   },
   {
     "name": "spaces-slug",
     "path": "/spaces/:slug?",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\themes\\\\meteor\\\\pages\\\\spaces\\\\_slug.vue",
-    "chunkName": "pages/spaces/_slug",
-    "_name": "_7514ce9a"
+    "chunkName": "pages/spaces/_slug"
   }
 ]

@@ -24,7 +24,7 @@ export default {
   ],
   serverMiddleware: ['~/server/index'],
   components: true,
-  buildModules: [],
+  buildModules:['@nuxtjs/fontawesome'],
   modules: [
     '@nuxtjs/axios',
   ],
@@ -40,5 +40,12 @@ export default {
         },
       },
     },
-  }
+  },
+  fontawesome: {
+    icons:{
+     solid:true,
+     brands:true,
+     regular:true,
+    }
+   }
 }

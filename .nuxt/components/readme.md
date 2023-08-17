@@ -6,11 +6,6 @@ You can directly use them in pages and other components without the need to impo
 
 **Tip:** If a component is conditionally rendered with `v-if` and is big, it is better to use `Lazy` or `lazy-` prefix to lazy load.
 
-- `<SiAppLoader>` | `<si-app-loader>` (components/si/AppLoader.vue)
-- `<SiCarousel>` | `<si-carousel>` (components/si/carousel.vue)
-- `<SiCollection>` | `<si-collection>` (components/si/collection.vue)
-- `<SiSearchBar>` | `<si-search-bar>` (components/si/SearchBar.vue)
-- `<SiStatisticBlock>` | `<si-statistic-block>` (components/si/StatisticBlock.vue)
 - `<SectionsApplication>` | `<sections-application>` (components/sections/Application.vue)
 - `<SectionsBanner>` | `<sections-banner>` (components/sections/Banner.vue)
 - `<SectionsBlog>` | `<sections-blog>` (components/sections/Blog.vue)
@@ -22,3 +17,8 @@ You can directly use them in pages and other components without the need to impo
 - `<SectionsSettings>` | `<sections-settings>` (components/sections/Settings.vue)
 - `<SectionsSpaces>` | `<sections-spaces>` (components/sections/Spaces.vue)
 - `<SectionsTest>` | `<sections-test>` (components/sections/Test.vue)
+- `<SiAppLoader>` | `<si-app-loader>` (components/si/AppLoader.vue)
+- `<SiCarousel>` | `<si-carousel>` (components/si/carousel.vue)
+- `<SiCollection>` | `<si-collection>` (components/si/collection.vue)
+- `<SiSearchBar>` | `<si-search-bar>` (components/si/SearchBar.vue)
+- `<SiStatisticBlock>` | `<si-statistic-block>` (components/si/StatisticBlock.vue)

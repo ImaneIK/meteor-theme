@@ -1,8 +1,8 @@
 <template>
   <div>
     <sections-header />
-    <sections-spaces />
     <sections-collections />
+    <sections-spaces />
     <sections-blog />
   </div>
 </template>

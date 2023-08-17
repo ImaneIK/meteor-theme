@@ -1,8 +1,3 @@
-export { default as SiAppLoader } from '../..\\components\\si\\AppLoader.vue'
-export { default as SiCarousel } from '../..\\components\\si\\carousel.vue'
-export { default as SiCollection } from '../..\\components\\si\\collection.vue'
-export { default as SiSearchBar } from '../..\\components\\si\\SearchBar.vue'
-export { default as SiStatisticBlock } from '../..\\components\\si\\StatisticBlock.vue'
 export { default as SectionsApplication } from '../..\\components\\sections\\Application.vue'
 export { default as SectionsBanner } from '../..\\components\\sections\\Banner.vue'
 export { default as SectionsBlog } from '../..\\components\\sections\\Blog.vue'
@@ -14,6 +9,11 @@ export { default as SectionsNavbar } from '../..\\components\\sections\\Navbar.v
 export { default as SectionsSettings } from '../..\\components\\sections\\Settings.vue'
 export { default as SectionsSpaces } from '../..\\components\\sections\\Spaces.vue'
 export { default as SectionsTest } from '../..\\components\\sections\\Test.vue'
+export { default as SiAppLoader } from '../..\\components\\si\\AppLoader.vue'
+export { default as SiCarousel } from '../..\\components\\si\\carousel.vue'
+export { default as SiCollection } from '../..\\components\\si\\collection.vue'
+export { default as SiSearchBar } from '../..\\components\\si\\SearchBar.vue'
+export { default as SiStatisticBlock } from '../..\\components\\si\\StatisticBlock.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {
