@@ -1,0 +1,7 @@
+{
+    "env": "development",
+    "token": {
+        "clientId": "64ad442c53e57422dfea1e2d-booking.storeino.world",
+        "clientSecret": "wkoTEepefdslFLpRl5ZaD35j"
+    }
+}
