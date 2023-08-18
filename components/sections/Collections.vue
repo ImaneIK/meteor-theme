@@ -1,25 +1,33 @@
 <template>
-  <div class="py-16 px-4 md:px-8 lg:px-16">
+  <div class="py-16 mx-12">
     <h2 class="text-3xl font-semibold mb-8">Explore Our Collections</h2>
-    <div class="flex flex-col md:flex-row">
-    
+    <div class="flex flex-wrap justify-center">
       <div
-    v-for="item in $settings.sections.collections"
-      class="w-full m-2"
-    >
-
-      <div :style="`background-image: url(${item.image.src}); height:100%; `" class="block object-cover bg-white shadow-md p-6">
-        <h3 class="text-lg font-semibold mb-2">{{ item.name }}</h3>
-        <!-- <p class="text-gray-600">{{ item }}</p> -->
-        <Nuxt-link class="text-xs" :to="`collections/${item.slug}`"
-          >view spaces</Nuxt-link>
+        v-for="item in $settings.sections.collections"
+        class=" py-6 flex items-center justify-center flex-wrap"
+      >
+        <Nuxt-link :to="`collections/${item.slug}`">
+          <div class="bg-white w-64 h-96 shadow-md rounded m-3">
+            <div class="h-3/4 w-full">
+              <img
+                class="w-full h-full object-cover rounded-t"
+                :style="`background-image: url(${item.image.src}); height:100%; `"
+              />
+            </div>
+            <div class="w-full h-1/4 p-3">
+              <a href="#" class="hover:text-yellow-600 text-gray-700">
+                <span class="text-lg font-semibold uppercase tracking-wide">{{
+                  item.name
+                }}</span>
+              </a>
+              <p class="text-gray-600 text-sm leading-5 mt-1">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+            </div>
+          </div>
+        </Nuxt-link>
       </div>
-
     </div>
-
-    
-    </div>
-    
   </div>
 </template>
 <script>

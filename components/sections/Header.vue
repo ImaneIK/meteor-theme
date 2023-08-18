@@ -17,17 +17,15 @@
         <div class="flex md:px-24 px-8 h-full items-center">
           <div class="text-white">
             
-            <div class="w-full lg:w-1/2">
+            <div class="w-full lg:w-2/3">
             <h1 class="text-xs md:text-sm pb-2">
-              <span class="tracking-wide">WELCOME TO SPACEHUB</span>
+              <span class="tracking-wide">{{$settings.header.content.thirdheading}}</span>
             </h1>
-            <h1 class="mb-6 text-3xl md:text-5xl">
-              The Workplace Will Not Feel Like a Place of Work
-              Anymore.
+            <h1 class="mb-6 text-3xl md:text-5xl text-base/6">
+              {{$settings.header.content.mainheading}}
             </h1>
             <h3 class="mb-8 text-sm md:text-lg">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+              {{$settings.header.content.subheading}}
             </h3>
             </div>
             <si-searchBar class="bg-opacity-20 backdrop-blur-lg backdrop-filter"/>
@@ -43,21 +41,21 @@
       style="z-index: 1"
     >
       <si-statisticBlock
-        title="Active members"
+        :title="$settings.stats.firststat.text"
         :startValue="0"
-        :endValue="100"
+        :endValue="$settings.stats.firststat.number"
         :duration="2000"
       />
       <si-statisticBlock
-        title="Available spaces"
+        :title="$settings.stats.secondstat.text"
         :startValue="0"
-        :endValue="20"
+        :endValue="$settings.stats.secondstat.number"
         :duration="2500"
       />
       <si-statisticBlock
-        title="Positive reviews"
+        :title="$settings.stats.thirdstat.text"
         :startValue="0"
-        :endValue="10"
+        :endValue="$settings.stats.thirdstat.number"
         :duration="1500"
       />
     </div>

@@ -3,6 +3,7 @@
     <sections-header />
     <sections-collections />
     <sections-spaces />
+    <sections-Features />
     <sections-blog />
   </div>
 </template>

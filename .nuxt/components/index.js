@@ -2,6 +2,7 @@ export { default as SectionsApplication } from '../..\\components\\sections\\App
 export { default as SectionsBanner } from '../..\\components\\sections\\Banner.vue'
 export { default as SectionsBlog } from '../..\\components\\sections\\Blog.vue'
 export { default as SectionsCollections } from '../..\\components\\sections\\Collections.vue'
+export { default as SectionsFeatures } from '../..\\components\\sections\\Features.vue'
 export { default as SectionsFetch } from '../..\\components\\sections\\Fetch.vue'
 export { default as SectionsFooter } from '../..\\components\\sections\\Footer.vue'
 export { default as SectionsHeader } from '../..\\components\\sections\\Header.vue'
@@ -14,6 +15,7 @@ export { default as SiCarousel } from '../..\\components\\si\\carousel.vue'
 export { default as SiCollection } from '../..\\components\\si\\collection.vue'
 export { default as SiSearchBar } from '../..\\components\\si\\SearchBar.vue'
 export { default as SiStatisticBlock } from '../..\\components\\si\\StatisticBlock.vue'
+export { default as SiVariantes } from '../..\\components\\si\\Variantes.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

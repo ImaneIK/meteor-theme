@@ -1,7 +1,6 @@
 <template>
-  <div class="m-12 ">
-
-    <div class=" font-semibold mb-12">
+  <div class="m-12">
+    <div class="font-semibold mb-12">
       <h1 class="text-sm">
         <span class="text-orange-600 tracking-wide">BLOG NEWS</span>
       </h1>
@@ -11,33 +10,41 @@
     </div>
 
 
-    <div class="flex flex-col md:flex-row ">
-          <div
-            v-for="post in posts"
-            :key="post.id"
-            class=" max-h-xl m-2 bg-white rounded-sm shadow-md md:w-1/3  "
-          >
-            <div class="h-2/5">
-              <img
-                class="h-full w-full object-cover"
-                :src="post.image.url"
-                :alt="post.title"
-              />
-            </div>
-            <div class="p-2 text-center " >
-              <div v-if="post.categories && post.categories.length > 0" v-for="(category, categoryIndex) in post.categories" class="uppercase tracking-wide text-sm text-amber-600 font-medium">
-                {{ category.name}}
-              </div>
-              <NuxtLink class="text-sm " :to="`/posts/${post.slug}`">{{ post.title }}</NuxtLink>
+    <div class="flex flex-col md:flex-row">
+      <article 
+      v-for="post in posts"
+        :key="post.id"
+      class="relative mx-4 overflow-hidden rounded-md shadow transition hover:shadow-lg"
+    >
+      <img
+        alt="Office"
+        :src="post.image.url"
+        class="absolute inset-0 h-full w-full object-cover"
+      />
 
-              <!-- <p class="mt-2 text-sm text-slate-500">
-                {{ post.excerpt }}  
-              </p>  -->
-            </div> 
-            <NuxtLink class="block underline underline-offset-4 px-3 mx-auto  text-xs font-semibold px-6 my-2" :to="`/posts/${post.slug}`">Read more</NuxtLink>
-         
-          </div>
+      <div
+        class="relative bg-gradient-to-t from-gray-900/50 to-gray-900/25 pt-32 sm:pt-48 lg:pt-64"
+      >
+        <div class="p-4 sm:p-6"  v-if="post.categories && post.categories.length > 0"
+            v-for="(category, categoryIndex) in post.categories">
+          <p class="block text-xs text-white/90">
+            {{ category.name }}
+          </p>
+
+          <a href="#">
+            <h3 class="mt-0.5 text-lg text-white">
+              {{post.title}}
+            </h3>
+          </a>
+
+          <p class="mt-2 line-clamp-3 text-sm/relaxed text-white/95">
+            {{ post.excerpt }}  
+          </p>
         </div>
+      </div>
+    </article>
+    </div>
+   
   </div>
 </template>
 <style>
@@ -56,11 +63,11 @@ export default {
   data() {
     return {
       posts: [],
-      loading: true
+      loading: true,
     };
   },
   async fetch() {
-    let filter = { status: 'PUBLISH' };
+    let filter = { status: "PUBLISH" };
     await this.getPosts(filter);
   },
   methods: {

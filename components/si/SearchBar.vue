@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex-col shadow-md rounded-md search-bar  flex justify-center items-center gap-10 p-5 lg:flex-row"
+    class="flex-col shadow-md rounded-md search-bar flex justify-center items-center gap-10 p-5 lg:flex-row"
   >
     <div
       class="search-field bg-white bg-opacity-30 backdrop-blur rounded-lg p-2 flex items-center gap-5 w-full"
@@ -9,8 +9,8 @@
       <input
         type="date"
         id="from-date"
-        v-model="fromDate"
-        class=" text-white border-none p-2 rounded bg-transparent focus:ring-2 focus:ring-amber-400 w-full"
+        
+        class="text-white border-none p-2 rounded bg-transparent focus:ring-2 focus:ring-amber-400 w-full"
       />
     </div>
 
@@ -21,8 +21,8 @@
       <input
         type="date"
         id="to-date"
-        v-model="toDate"
-        class=" text-white border-none p-2 rounded bg-transparent focus:ring-2 focus:ring-amber-400 w-full"
+       
+        class="text-white border-none p-2 rounded bg-transparent focus:ring-2 focus:ring-amber-400 w-full"
       />
     </div>
 
@@ -30,10 +30,13 @@
       class="search-field bg-white bg-opacity-30 backdrop-blur rounded-lg p-2 flex items-center gap-5 w-full"
     >
       <label for="category" class="text-white">Category:</label>
-      <select v-model="selectedCategory" class= "text-white border-none p-2 rounded bg-transparent focus:ring-2 focus:ring-amber-400"
+      <select
+        v-model="selectedCategory"
+        class="text-white border-none p-2 rounded bg-transparent focus:ring-2 focus:ring-amber-400"
       >
         <option class="text-black bg-gray-200" value="">All Categories</option>
-        <option class="text-black bg-gray-200"
+        <option
+          class="text-black bg-gray-200"
           v-for="collection in collections"
           :key="collection.slug"
           :value="collection.slug"
@@ -43,25 +46,19 @@
       </select>
     </div>
 
-
-
-    <nuxt-link :to="`/collections/${selectedCategory}`">
-    
-    <button 
-      @click="search"
-      class="bg-amber-500 bg-opacity-70 text-white px-4 py-2 rounded hover:bg-opacity-80 backdrop-blur w-full"
-    >
-    Search
-    </button>
-    
+    <nuxt-link :to="selectedCategory ? `/collections/${selectedCategory}` : '/shop'">
+      <button
+        @click="search"
+        class="bg-amber-500 bg-opacity-70 text-white px-4 py-2 rounded hover:bg-opacity-80 backdrop-blur w-full"
+      >
+        Search
+      </button>
     </nuxt-link>
-
-
 
     <!-- Search results section -->
     <div v-if="filteredProducts.length > 0">
       <div v-for="product in filteredProducts" :key="product._id">
-        {{ product.name}}
+        {{ product.name }}
       </div>
     </div>
   </div>
@@ -71,7 +68,7 @@
 export default {
   data() {
     return {
-      selectedCategory: "",
+      selectedCategory:'',
       filteredProducts: [],
       collections: [],
     };
@@ -102,7 +99,6 @@ export default {
   },
 };
 </script>
-
 
 <style>
 .search-bar {

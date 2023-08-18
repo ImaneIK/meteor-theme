@@ -10,6 +10,7 @@ You can directly use them in pages and other components without the need to impo
 - `<SectionsBanner>` | `<sections-banner>` (components/sections/Banner.vue)
 - `<SectionsBlog>` | `<sections-blog>` (components/sections/Blog.vue)
 - `<SectionsCollections>` | `<sections-collections>` (components/sections/Collections.vue)
+- `<SectionsFeatures>` | `<sections-features>` (components/sections/Features.vue)
 - `<SectionsFetch>` | `<sections-fetch>` (components/sections/Fetch.vue)
 - `<SectionsFooter>` | `<sections-footer>` (components/sections/Footer.vue)
 - `<SectionsHeader>` | `<sections-header>` (components/sections/Header.vue)
@@ -22,3 +23,4 @@ You can directly use them in pages and other components without the need to impo
 - `<SiCollection>` | `<si-collection>` (components/si/collection.vue)
 - `<SiSearchBar>` | `<si-search-bar>` (components/si/SearchBar.vue)
 - `<SiStatisticBlock>` | `<si-statistic-block>` (components/si/StatisticBlock.vue)
+- `<SiVariantes>` | `<si-variantes>` (components/si/Variantes.vue)

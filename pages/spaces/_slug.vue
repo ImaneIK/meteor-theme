@@ -6,10 +6,11 @@
       </div>
 
       <!--  -->
-      <section v-if="!loading && space != null"
-        class="text-gray-700 body-font overflow-hidden "
+      <section
+        v-if="!loading && space != null"
+        class="text-gray-700 body-font overflow-hidden"
       >
-      <sections-banner />
+        <sections-banner />
 
         <div class="container py-24 mx-auto flex flex-row justify-center items-center">
           <!--the product details section-->
@@ -28,11 +29,12 @@
 
             <!-- Grouping of other images -->
             <div class="flex flex-row">
-              
-                <div v-for="(image, index) in space.images"
+              <div
+                v-for="(image, index) in space.images"
                 :key="index"
                 @click="selectImage(index)"
-                :class="`w-1/${space.images.length} p-1`">             
+                :class="`w-1/${space.images.length} p-1`"
+              >
                 <!-- Looping on every image -->
                 <img
                   :src="image.src"
@@ -202,71 +204,63 @@
           </div>
         </div>
 
-
-
         <div class="max-w-6xl mx-auto px-4">
-      <!-- Navigation Bar -->
-      <div class="flex justify-center mb-4">
-        <button
-          :class="{
-            'font-semibold': activeSection === 'gallery',
-            'font-normal': activeSection !== 'gallery',
-          }"
-          @click="setActiveSection('gallery')"
-          class="px-4 py-2 mr-2 rounded focus:outline-none"
-        >
-          Image Gallery
-        </button>
-        <button
-          :class="{
-            'font-semibold': activeSection === 'description',
-            'font-normal': activeSection !== 'description',
-          }"
-          @click="setActiveSection('description')"
-          class="px-4 py-2 ml-2 rounded focus:outline-none"
-        >
-          Description
-        </button>
+          <!-- Navigation Bar -->
+          <div class="flex justify-center mb-4">
+            <button
+              :class="{
+                'font-semibold': activeSection === 'gallery',
+                'font-normal': activeSection !== 'gallery',
+              }"
+              @click="setActiveSection('gallery')"
+              class="px-4 py-2 mr-2 rounded focus:outline-none"
+            >
+              Image Gallery
+            </button>
+            <button
+              :class="{
+                'font-semibold': activeSection === 'description',
+                'font-normal': activeSection !== 'description',
+              }"
+              @click="setActiveSection('description')"
+              class="px-4 py-2 ml-2 rounded focus:outline-none"
+            >
+              Description
+            </button>
 
-        <button
-          :class="{
-            'font-semibold ': activeSection === 'reviews',
-            'font-normal': activeSection !== 'reviews',
-          }"
-          @click="setActiveSection('reviews')"
-          class="px-4 py-2 ml-2 rounded focus:outline-none"
-        >
-          Reviews
-        </button>
-      </div>
+            <button
+              :class="{
+                'font-semibold ': activeSection === 'reviews',
+                'font-normal': activeSection !== 'reviews',
+              }"
+              @click="setActiveSection('reviews')"
+              class="px-4 py-2 ml-2 rounded focus:outline-none"
+            >
+              Reviews
+            </button>
+          </div>
 
-      <!-- Image Gallery Section -->
-      <div v-show="activeSection === 'gallery'">
+          <!-- Image Gallery Section -->
+          <div v-show="activeSection === 'gallery'">
+            <si-carousel :list="space.images"></si-carousel>
+          </div>
 
-      <si-carousel :list="space.images" ></si-carousel>
-       
-      </div>
+          <!-- Description Section -->
+          <div v-show="activeSection === 'description'">
+            <p class="mb-6">{{ space.description }}</p>
+          </div>
 
-      <!-- Description Section -->
-      <div v-show="activeSection === 'description'">
-        <p class="mb-6">{{ space.description }}</p>
-      </div>
+          <!-- Reviews section -->
+          <div v-show="activeSection === 'reviews'">
+          </div>
+        </div>
 
-      <!-- Reviews section -->
-      <div v-show="activeSection === 'reviews'">
-        <p class="mb-6">{{ space.reviews }} space reviews comes here</p>
-      </div>
+        <!-- ######################################################### -->
 
-    </div>
-
-    <!-- ######################################################### -->
-
-    <sections-spaces />
+        <sections-spaces />
       </section>
     </div>
     <!-- #######################################################"" -->
-
-
   </div>
 </template>
 
