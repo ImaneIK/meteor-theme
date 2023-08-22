@@ -9,7 +9,6 @@
       <input
         type="date"
         id="from-date"
-        
         class="text-white border-none p-2 rounded bg-transparent focus:ring-2 focus:ring-amber-400 w-full"
       />
     </div>
@@ -17,13 +16,21 @@
     <div
       class="search-field bg-white bg-opacity-30 backdrop-blur rounded-lg p-2 flex items-center gap-5 w-full"
     >
-      <label for="to-date" class="text-white">To:</label>
-      <input
-        type="date"
-        id="to-date"
-       
-        class="text-white border-none p-2 rounded bg-transparent focus:ring-2 focus:ring-amber-400 w-full"
-      />
+      <label for="location" class="text-white">Location:</label>
+      <select
+        v-model="selectedLocation"
+        class="text-white border-none p-2 rounded bg-transparent focus:ring-2 focus:ring-amber-400"
+      >
+        <option class="text-black bg-gray-200" value="">All Categories</option>
+        <option
+          class="text-black bg-gray-200"
+          v-for="location in locations"
+          :key="location.slug"
+          :value="location.slug"
+        >
+          {{ location.name }}
+        </option>
+      </select>
     </div>
 
     <div
@@ -55,12 +62,7 @@
       </button>
     </nuxt-link>
 
-    <!-- Search results section -->
-    <div v-if="filteredProducts.length > 0">
-      <div v-for="product in filteredProducts" :key="product._id">
-        {{ product.name }}
-      </div>
-    </div>
+    
   </div>
 </template>
 
@@ -68,14 +70,17 @@
 export default {
   data() {
     return {
-      selectedCategory:'',
+      selectedCategory: "",
+      selectedLocation: "",
       filteredProducts: [],
       collections: [],
+      locations: [],
     };
   },
 
   async mounted() {
     this.collections = this.$settings.sections.collections;
+    // this.locations = this.$settings.sections.locations;
   },
 
   methods: {
@@ -84,7 +89,7 @@ export default {
         status: "PUBLISH",
       });
 
-      if (!this.selectedCategory) {
+      if (!this.selectedCategory ) {
         // If no category is selected, show all products
         this.filteredProducts = productData.results;
       } else {

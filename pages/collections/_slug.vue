@@ -15,65 +15,76 @@
         </div>
       </div>
 
-      <div class="flex flex-row w-full">
+      <div>
+        <div v-if="loading" class="flex justify-center items-center h-screen">
+          <si-Loader />
+        </div>
 
-        <!-- les variantes -->
-        <si-Variantes></si-Variantes>
+        <div v-if="!loading" class="flex flex-row w-full">
+          <!-- les variantes -->
+          <si-Variantes></si-Variantes>
 
-        <!-- search results -->
+          <!-- search results -->
 
-        <div class="flex flex-col">
-          <!-- <h2 class="block mb-4">{{ item.slug }}: {{ items.length }} properties found</h2> -->
-          <div
-            v-for="(product, i) in items"
-            :key="i"
-            class="flex max-w-2xl mx-auto w-full bg-white rounded-sm shadow-md"
-          >
-            <div>
-              <img
-                class="object-cover w-full h-full"
-                :src="product.images[0].src"
-                :alt="product.title"
-              />
-            </div>
-
-            <div class="p-6">
-              {{ product.name }}
-
-              <p
-                class="mt-2 text-xs text-gray-400 text-slate-500 hidden sm:block md:block lg:block"
+          <div>
+            <div class="flex flex-col">
+              <!-- HERE -->
+              <h2 class="block mb-4">
+                {{ item.slug }}: {{ items.length }} properties found
+              </h2>
+              <div
+                v-for="(product, i) in items"
+                :key="i"
+                class="flex max-w-2xl mx-auto w-full bg-white rounded-sm shadow-md"
               >
-                {{ product.description }}
-              </p>
-
-              <div class="flex flex-col md:flex-row py-4">
-                <div class="md:pr-4 my-2 md:my-0">
-                  <span
-                    class="bg-black rounded-full px-3 py-1 text-xs text-white font-semibold"
-                    >{{ product.collections[0].name }}</span
-                  >
+                <div>
+                  <img
+                    class="object-cover w-full h-full"
+                    :src="product.images[0].src"
+                    :alt="product.title"
+                  />
                 </div>
 
-                <div class="md:pl-4">
-                  <span
-                    class="bg-black rounded-full px-3 py-1 text-sm text-white font-semibold"
+                <div class="p-6">
+                  {{ product.name }}
+
+                  <p
+                    class="mt-2 text-xs text-gray-400 text-slate-500 hidden sm:block md:block lg:block"
                   >
-                    {{ product.price.salePrice }}$
-                  </span>
+                    {{ product.description }}
+                  </p>
+
+                  <div class="flex flex-col md:flex-row py-4">
+                    <div class="md:pr-4 my-2 md:my-0">
+                      <span
+                        class="bg-black rounded-full px-3 py-1 text-xs text-white font-semibold"
+                        >{{ product.collections[0].name }}</span
+                      >
+                    </div>
+
+                    <div class="md:pl-4">
+                      <span
+                        class="bg-black rounded-full px-3 py-1 text-sm text-white font-semibold"
+                      >
+                        {{ product.price.salePrice }}$
+                      </span>
+                    </div>
+                  </div>
+
+                  <NuxtLink
+                    class="block underline underline-offset-4 px-3 text-xs font-semibold mb-4"
+                    :to="`/spaces/${product.slug}`"
+                    >Book Now <fa class="text-amber-600" :icon="['fas', 'arrow-right']"
+                  /></NuxtLink>
                 </div>
               </div>
 
-              <NuxtLink
-                class="block underline underline-offset-4 px-3 text-xs font-semibold mb-4"
-                :to="`/spaces/${product.slug}`"
-                >Book Now <fa class="text-amber-600" :icon="['fas', 'arrow-right']"
-              /></NuxtLink>
+              <div class="text-center font-light text-xs my-6">
+                you've reached the end
+              </div>
             </div>
           </div>
-
-          <div class="text-center font-light text-xs my-6">you've reached the end</div>
         </div>
-        
       </div>
     </div>
   </div>

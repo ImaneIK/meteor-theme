@@ -1,5 +1,5 @@
 <template>
-  <div class="m-12">
+  <div class="mx-12 my-24">
     <div class="font-semibold mb-12">
       <h1 class="text-sm">
         <span class="text-orange-600 tracking-wide">BLOG NEWS</span>
@@ -10,12 +10,14 @@
     </div>
 
 
-    <div class="flex flex-col md:flex-row">
+    <div class="flex flex-col lg:flex-row justify-center">
+
+    
       <article 
       v-for="post in posts"
         :key="post.id"
-      class="relative mx-4 overflow-hidden rounded-md shadow transition hover:shadow-lg"
-    >
+      class="relative m-2 overflow-hidden rounded-md shadow transition hover:shadow-lg">
+      <nuxt-link :to="`/posts/${post.slug}`">
       <img
         alt="Office"
         :src="post.image.url"
@@ -23,26 +25,30 @@
       />
 
       <div
-        class="relative bg-gradient-to-t from-gray-900/50 to-gray-900/25 pt-32 sm:pt-48 lg:pt-64"
+        class="relative h-full bg-gradient-to-t from-gray-900/50 to-gray-900/25 pt-32 sm:pt-48 lg:pt-64"
       >
         <div class="p-4 sm:p-6"  v-if="post.categories && post.categories.length > 0"
             v-for="(category, categoryIndex) in post.categories">
+          <nuxt-link :to="category.slug">
           <p class="block text-xs text-white/90">
             {{ category.name }}
           </p>
-
-          <a href="#">
+        </nuxt-link>
+          <nuxt-link :to="`/posts/${post.slug}`">
             <h3 class="mt-0.5 text-lg text-white">
               {{post.title}}
             </h3>
-          </a>
+          </nuxt-link>
 
           <p class="mt-2 line-clamp-3 text-sm/relaxed text-white/95">
             {{ post.excerpt }}  
           </p>
         </div>
       </div>
+    </nuxt-link>
     </article>
+    
+     
     </div>
    
   </div>

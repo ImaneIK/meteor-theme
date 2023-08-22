@@ -1,11 +1,11 @@
 <template>
 
      <!-- les variantes -->
-     <div class="bg-neutral-100 flex flex-col mr-4 p-6">
+     <div class="bg-black text-white flex flex-col mr-4 p-6">
           <h2 class="block pb-4 px-4 mb-4 border-b-2">Filter by:</h2>
 
-          <div class="flex flex-col gap-8">
-            <div class="relative">
+          <div class="flex flex-col items-center gap-8">
+            <div class="">
               <div
                 class="z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2"
               >
@@ -50,7 +50,7 @@
               </div>
             </div>
 
-            <div class="relative">
+            <div class="">
               <div
                 class="z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2"
               >

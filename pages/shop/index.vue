@@ -1,78 +1,79 @@
 <template>
   <div>
     <sections-banner />
-    <div class="flex flex-col m-12 ">
-    
-    <!-- section route -->
-    <div v-if="cards" class="flex items-center bg-white mb-10">
-      <div class="flex flex-1 flex-col justify-start items-start">
-        <p class="text-xs font-light">
-          <nuxt-link to="/">Home</nuxt-link> >
-          <nuxt-link :to="`/shop`">All spaces</nuxt-link> 
-        </p>
+    <div class="flex flex-col m-16">
+      <!-- section route -->
+      <div v-if="cards" class="flex items-center bg-white mb-10">
+        <div class="flex flex-col lg:flex-row justify-center items-start">
+          <p class="text-xs font-light">
+            <nuxt-link to="/">Home</nuxt-link> >
+            <nuxt-link :to="`/shop`">All spaces</nuxt-link>
+          </p>
+        </div>
       </div>
-    </div>
 
-    <div class=" flex flex-row">
-      <si-variantes class=""></si-variantes>
+      <div class="flex flex-col lg:flex-row justify-center lg:flex-row">
+        <si-variantes class=""></si-variantes>
 
-      <div class="">
-        <!-- <h2 class="block mb-4">{{ item.slug }}: {{ items.length }} properties found</h2> -->
-        <div
-          v-for="(card, i) in cards"
-          :key="i"
-          class="flex max-w-2xl mx-auto my-4 w-full bg-white rounded-sm shadow-md"
-        >
-          <div class="w-2/5">
-            <img
-              class="object-cover w-full h-full"
-              :src="card.images[0].src"
-              :alt="card.title"
-            />
+        <div>
+          <div v-if="loading" class="flex justify-center items-center h-screen">
+            <si-Loader />
           </div>
 
-          <div class="p-6">
-            {{ card.name }}
+          <div v-if="!loading && cards != null" class="">
+            <!-- <h2 class="block mb-4">{{ item.slug }}: {{ items.length }} properties found</h2> -->
+            <div
+              v-for="(card, i) in cards"
+              :key="i"
+              class="flex max-w-2xl mx-auto my-4 w-full bg-white rounded-sm shadow-md"
+            >
+              <div class="w-2/5">
+                <img
+                  class="object-cover w-full h-full"
+                  :src="card.images[0].src"
+                  :alt="card.title"
+                />
+              </div>
 
-            <!-- <p
+              <div class="p-6">
+                {{ card.name }}
+
+                <!-- <p
               class="mt-2 text-xs text-gray-400 text-slate-500 hidden sm:block md:block lg:block"
             >
               {{ card.description }}
             </p> -->
 
-            <div class="flex flex-col md:flex-row py-4">
-              <div class="md:pr-4 my-2 md:my-0">
-                <span
-                  class="bg-black rounded-full px-3 py-1 text-xs text-white font-semibold"
-                  >{{ card.collections[0].name }}</span
-                >
-              </div>
+                <div class="flex flex-col md:flex-row py-4">
+                  <div class="md:pr-4 my-2 md:my-0">
+                    <span
+                      class="bg-black rounded-full px-3 py-1 text-xs text-white font-semibold"
+                      >{{ card.collections[0].name }}</span
+                    >
+                  </div>
 
-              <div class="md:pl-4">
-                <span
-                  class="bg-black rounded-full px-3 py-1 text-sm text-white font-semibold"
-                >
-                  {{ card.price.salePrice }}$
-                </span>
+                  <div class="md:pl-4">
+                    <span
+                      class="bg-black rounded-full px-3 py-1 text-sm text-white font-semibold"
+                    >
+                      {{ card.price.salePrice }}$
+                    </span>
+                  </div>
+                </div>
+
+                <NuxtLink
+                  class="block underline underline-offset-4 px-3 text-xs font-semibold mb-4"
+                  :to="`/spaces/${card.slug}`"
+                  >Book Now <fa class="text-amber-600" :icon="['fas', 'arrow-right']"
+                /></NuxtLink>
               </div>
             </div>
 
-            <NuxtLink
-              class="block underline underline-offset-4 px-3 text-xs font-semibold mb-4"
-              :to="`/spaces/${card.slug}`"
-              >Book Now <fa class="text-amber-600" :icon="['fas', 'arrow-right']"
-            /></NuxtLink>
+            <div class="text-center font-light text-xs my-6">you've reached the end</div>
           </div>
         </div>
-
-        <div class="text-center font-light text-xs my-6">you've reached the end</div>
       </div>
     </div>
-
-    </div>
-    
-
-    
 
     <sections-blog />
   </div>

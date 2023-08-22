@@ -10,8 +10,13 @@
         </p>
       </div>
   
-  
-      <div class="blog-grid">
+      <div>
+
+        <div v-if="loading" class="flex justify-center items-center h-screen">
+       <si-Loader />
+      </div>
+
+        <div v-if="!loading" class="blog-grid">
             <div
               v-for="post in posts"
               :key="post.id"
@@ -38,6 +43,8 @@
            
             </div>
           </div>
+      </div>
+      
     </div>
   </template>
   <style>

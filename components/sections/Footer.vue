@@ -1,7 +1,7 @@
 <template>
 
 
-<div class="bg-neutral-100">
+<div class="bg-black text-white">
   <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
     <div class="lg:grid lg:grid-cols-2">
       <div
@@ -13,9 +13,9 @@
           <span class="hidden h-1 w-10 rounded bg-amber-500 lg:block"></span>
 
           <div>
-            <h2 class="text-2xl font-medium text-gray-900">Request a tour</h2>
+            <h2 class="text-2xl font-medium">Request a tour</h2>
 
-            <p class="mt-4 max-w-lg text-gray-500">
+            <p class="mt-4 max-w-lg">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Veritatis, harum deserunt nesciunt praesentium, repellendus eum
               perspiciatis ratione pariatur a aperiam eius numquam doloribus
@@ -27,13 +27,13 @@
             <label for="UserEmail" class="sr-only"> Email </label>
 
             <div
-              class="rounded-md border border-gray-100 p-2 focus-within:ring sm:flex sm:items-center sm:gap-4"
+              class="rounded-md border  p-2 focus-within:ring sm:flex sm:items-center sm:gap-4"
             >
-              <input
+              <input 
                 type="email"
                 id="UserEmail"
                 placeholder="john@rhcp.com"
-                class="w-full border-none focus:border-transparent focus:ring-transparent sm:text-sm"
+                class="w-full border-none bg-transparent focus:border-transparent focus:ring-transparent sm:text-sm"
               />
 
               <button
@@ -55,35 +55,35 @@
 
         <div class="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-3">
           <div>
-            <p class="font-medium text-gray-900">Services</p>
+            <p class="font-medium ">Services</p>
 
             <ul class="mt-6 space-y-4 text-sm">
               <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75">
+                <a href="#" class=" transition hover:opacity-75">
                   1on1 Coaching
                 </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75">
+                <a href="#" class=" transition hover:opacity-75">
                   Company Review
                 </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75">
+                <a href="#" class=" transition hover:opacity-75">
                   Accounts Review
                 </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75">
+                <a href="#" class=" transition hover:opacity-75">
                   HR Consulting
                 </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75">
+                <a href="#" class=" transition hover:opacity-75">
                   SEO Optimisation
                 </a>
               </li>
@@ -91,23 +91,23 @@
           </div>
 
           <div>
-            <p class="font-medium text-gray-900">Company</p>
+            <p class="font-medium ">Company</p>
 
             <ul class="mt-6 space-y-4 text-sm">
               <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75">
+                <a href="#" class=" transition hover:opacity-75">
                   About
                 </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75">
+                <a href="#" class=" transition hover:opacity-75">
                   Meet the Team
                 </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75">
+                <a href="#" class="transition hover:opacity-75">
                   Accounts Review
                 </a>
               </li>
@@ -115,23 +115,23 @@
           </div>
 
           <div>
-            <p class="font-medium text-gray-900">Helpful Links</p>
+            <p class="font-medium ">Helpful Links</p>
 
             <ul class="mt-6 space-y-4 text-sm">
               <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75">
+                <a href="#" class=" transition hover:opacity-75">
                   Contact
                 </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75">
+                <a href="#" class=" transition hover:opacity-75">
                   FAQs
                 </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 transition hover:opacity-75">
+                <a href="#" class=" transition hover:opacity-75">
                   Live Chat
                 </a>
               </li>
@@ -142,25 +142,25 @@
         <div class="mt-8 border-t border-gray-100 pt-8">
           <ul class="flex flex-wrap gap-4 text-xs">
             <li>
-              <a href="#" class="text-gray-500 transition hover:opacity-75">
+              <a href="#" class=" transition hover:opacity-75">
                 Terms & Conditions
               </a>
             </li>
 
             <li>
-              <a href="#" class="text-gray-500 transition hover:opacity-75">
+              <a href="#" class=" transition hover:opacity-75">
                 Privacy Policy
               </a>
             </li>
 
             <li>
-              <a href="#" class="text-gray-500 transition hover:opacity-75">
+              <a href="#" class=" transition hover:opacity-75">
                 Cookies
               </a>
             </li>
           </ul>
 
-          <p class="mt-8 text-xs text-gray-500">
+          <p class="mt-8 text-xs">
             &copy; 2022. Company Name. All rights reserved.
           </p>
         </div>
