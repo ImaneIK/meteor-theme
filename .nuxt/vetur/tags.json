@@ -8,6 +8,9 @@
   "SectionsBlog": {
     "description": "Auto imported from components/sections/Blog.vue"
   },
+  "SectionsCategories": {
+    "description": "Auto imported from components/sections/Categories.vue"
+  },
   "SectionsCollections": {
     "description": "Auto imported from components/sections/Collections.vue"
   },
@@ -38,9 +41,6 @@
   "SectionsSpaces": {
     "description": "Auto imported from components/sections/Spaces.vue"
   },
-  "SectionsTest": {
-    "description": "Auto imported from components/sections/Test.vue"
-  },
   "SiAppLoader": {
     "description": "Auto imported from components/si/AppLoader.vue"
   },
@@ -55,6 +55,9 @@
   },
   "SiSearchBar": {
     "description": "Auto imported from components/si/SearchBar.vue"
+  },
+  "SiSearchPost": {
+    "description": "Auto imported from components/si/SearchPost.vue"
   },
   "SiStatisticBlock": {
     "description": "Auto imported from components/si/StatisticBlock.vue"

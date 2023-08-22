@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-8 p-4 bg-amber-100 rounded-md shadow-md">
+  <div class=" p-8">
     <div>
       <div v-if="loading" class="flex justify-center items-center h-full">
         <si-loader />

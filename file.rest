@@ -1,7 +1,7 @@
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdG9yZSI6eyJfaWQiOiI2NGFkNDQyYzUzZTU3NDIyZGZlYTFlMmQiLCJuYW1lIjoiYm9va2luZyIsInN1YmRvbWFpbiI6ImJvb2tpbmcuc3RvcmVpbm8ud29ybGQifSwidXNlciI6eyJfaWQiOiI2NGFkNDQ4MDUzZTU3NDIyZGZlYTFlOGMiLCJmaXJzdG5hbWUiOiJpbWFuZSIsImxhc3RuYW1lIjoiYm9va2luZyIsImVtYWlsIjoiaW1hbmVpazA5MTBAZ21haWwuY29tIn0sImNvbXBhbnkiOnsic3RhdHVzIjoiVU5DT01QTEVURUQiLCJfaWQiOiI2MDQwYWNlODRlODcyNDA5NTBhN2Q4YzkiLCJuYW1lIjoic3RvcmVpbm8ifSwidG9rZW5JZCI6IjI5OTAyMkdGTEVHUzEwMDAxMlZOWURUQSIsImlhdCI6MTY5MjM3NTQ0NiwiZXhwIjoxNjkzMjM5NDQ2fQ.-3r7vIdUzd4oQm0MNQz7uB-GpWzmQCh5tHudlgnKIsk
 
 ###
-GET https://admin.storeino.world/stores/api/themes/search?name=METEOR
+GET https://admin.storefino.world/stores/api/themes/search?name=METEOR
 X-Auth-Token: {{token}}
 
 ###
@@ -233,7 +233,7 @@ X-Auth-Token: {{token}}
                           "name": "select location",
                           "note": "",
                           "path": "sections.locations",
-                          "type": "tc_collections",
+                          "type": "tc_collection",
                           "value": [
                            
                           ]
