@@ -53,7 +53,7 @@
       </select>
     </div>
 
-    <nuxt-link :to="selectedCategory ? `/collections/${selectedCategory}` : '/shop'">
+    <nuxt-link :to="generateSearchLink">
       <button
         @click="search"
         class="bg-amber-500 bg-opacity-70 text-white px-4 py-2 rounded hover:bg-opacity-80 backdrop-blur w-full"
@@ -80,7 +80,21 @@ export default {
 
   async mounted() {
     this.collections = this.$settings.sections.collections;
-    // this.locations = this.$settings.sections.locations;
+    this.locations = this.$settings.sections.locations;
+  },
+
+  computed: {
+    generateSearchLink() {
+      if (this.selectedCategory && this.selectedLocation) {
+        return `/collections/${this.selectedLocation}`;
+      } else if (this.selectedCategory) {
+        return `/collections/${this.selectedCategory}`;
+      } else if (this.selectedLocation) {
+        return `/collections/${this.selectedLocation}`;
+      } else {
+        return '/shop';
+      }
+    },
   },
 
   methods: {
@@ -89,16 +103,17 @@ export default {
         status: "PUBLISH",
       });
 
-      if (!this.selectedCategory ) {
+      if (!this.selectedLocation && !this.selectedCategory) {
         // If no category is selected, show all products
         this.filteredProducts = productData.results;
       } else {
         // Filter products based on selected category
         this.filteredProducts = productData.results.filter((product) => {
           return product.collections.some(
-            (category) => category.slug === this.selectedCategory
+            (category) => category.slug === (this.selectedLocation || this.selectedCategory)
           );
         });
+        console.log(this.filteredProducts)
       }
     },
   },

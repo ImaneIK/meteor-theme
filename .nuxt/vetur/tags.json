@@ -50,8 +50,14 @@
   "SiCollection": {
     "description": "Auto imported from components/si/collection.vue"
   },
+  "SiFilters": {
+    "description": "Auto imported from components/si/Filters.vue"
+  },
   "SiLoader": {
     "description": "Auto imported from components/si/Loader.vue"
+  },
+  "SiProductVariantes": {
+    "description": "Auto imported from components/si/ProductVariantes.vue"
   },
   "SiSearchBar": {
     "description": "Auto imported from components/si/SearchBar.vue"
@@ -61,8 +67,5 @@
   },
   "SiStatisticBlock": {
     "description": "Auto imported from components/si/StatisticBlock.vue"
-  },
-  "SiVariantes": {
-    "description": "Auto imported from components/si/Variantes.vue"
   }
 }

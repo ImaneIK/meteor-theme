@@ -1,7 +1,7 @@
 <template>
   <div>
     <sections-header />
-    <sections-collections />
+    <!-- <sections-collections /> -->
     <sections-spaces />
     <sections-Features />
     <sections-blog />

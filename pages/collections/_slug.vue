@@ -9,7 +9,15 @@
           <p class="text-xs font-light">
             <nuxt-link to="/">Home</nuxt-link> >
             <nuxt-link :to="`/collections`">Categories</nuxt-link> >
-            <nuxt-link :to="`/collections/${item.slug}`">{{ item.slug }}</nuxt-link> >
+            <nuxt-link
+              :to="`/collections/${
+                item.locations ? item.locations.slug : item.collections.slug
+              }`"
+              >{{
+                item.locations ? item.locations.slug : item.collections.slug
+              }}</nuxt-link
+            >
+            >
             <span>Search Results</span>
           </p>
         </div>
@@ -22,18 +30,26 @@
 
         <div v-if="!loading" class="flex flex-row w-full">
           <!-- les variantes -->
-          <si-Variantes></si-Variantes>
+          <si-Filters
+            :selectedFilters="selectedFilters"
+            @apply-filters="applyFilters"
+            @reset-filters="resetFilters"
+            class=""
+          ></si-Filters>
 
           <!-- search results -->
 
-          <div>
-            <div class="flex flex-col">
-              <!-- HERE -->
+          <div >
+
+            <div v-if="!filteredProducts"> no product found </div>
+
+            <div v-else class="flex flex-col">
               <h2 class="block mb-4">
-                {{ item.slug }}: {{ items.length }} properties found
+                {{ item.locations ? item.locations.slug : item.collections.slug }}:
+                {{ filteredProducts.length }} properties found
               </h2>
               <div
-                v-for="(product, i) in items"
+                v-for="(product, i) in filteredProducts"
                 :key="i"
                 class="flex max-w-2xl mx-auto w-full bg-white rounded-sm shadow-md"
               >
@@ -51,7 +67,7 @@
                   <p
                     class="mt-2 text-xs text-gray-400 text-slate-500 hidden sm:block md:block lg:block"
                   >
-                    {{ product.description }}
+                    {{ product.collections[1].name }}
                   </p>
 
                   <div class="flex flex-col md:flex-row py-4">
@@ -89,15 +105,27 @@
     </div>
   </div>
 </template>
+
 <script>
 export default {
   data() {
     return {
-      items: [],
+      selectedCategory: "",
+      selectedLocation: "",
+      spaces:[],
+      filtred:[],
+      filteredProducts: [],
       item: null,
       loading: true,
+      selectedFilters: {
+        priceFrom: null,
+        priceTo: null,
+        attributes: [],
+        services: [],
+      },
     };
   },
+
   async fetch() {
     this.loading = true;
 
@@ -105,38 +133,104 @@ export default {
       status: "PUBLISH",
     });
 
-    try {
-      const collectionSlug = this.$route.params.slug;
-      const selectedCollection = this.$settings.sections.collections.find(
-        (collection) => collection.slug === collectionSlug
-      );
-      this.item = selectedCollection;
+    const collectionSlug = this.$route.params.slug;
 
-      const selectedProducts = productData.results.filter((product) => {
-        return product.collections.some(
-          (category) => category.slug === selectedCollection.slug
-        );
+    // Select the collection menu (categories)
+    this.selectedCategory = this.$settings.sections.collections.find(
+      (collection) => collection.slug === collectionSlug
+    );
+
+    // Select the location menu
+    this.selectedLocation = this.$settings.sections.locations.find(
+      (location) => location.slug === collectionSlug
+    );
+
+    this.item = {
+      collections: this.selectedCategory,
+      locations: this.selectedLocation,
+    };
+
+    // Filter products based on selected location and/or category
+    if (!this.selectedLocation && !this.selectedCategory) {
+      // If no location or category is selected, show all products
+      this.filteredProducts = productData.results;
+    } else {
+      // Filter products based on selected location and/or category
+      this.filteredProducts = productData.results.filter((product) => {
+        const categoryMatches =
+          !this.selectedCategory ||
+          product.collections.some(
+            (category) => category.slug === this.selectedCategory.slug
+          );
+
+        const locationMatches =
+          !this.selectedLocation ||
+          product.collections.some(
+            (location) => location.slug === this.selectedLocation.slug
+          );
+
+        return categoryMatches && locationMatches;
       });
-      this.items = selectedProducts;
-
-      console.log("blablabla");
-      console.log(
-        productData.results.filter((product) => {
-          return product.collections.some((category) => category.slug === "private-desk");
-        })
-      );
-
-      //const { data: results } = await this.$storeino.products.search({
-      //parent: selectedCollection._id,
-      //});
-      //this.items = results;
-    } catch (e) {
-      console.log({ e });
     }
+
     this.loading = false;
+    this.spaces=[...this.filteredProducts];
   },
-  mounted() {
-    this.$storeino.fbpx("PageView");
+
+  methods: {
+    applyFilters() {
+      
+      this.filtered = this.filteredProducts.filter((product) => {
+        const price = parseFloat(product.price.salePrice);
+        const { priceFrom, priceTo } = this.selectedFilters;
+
+        // Apply price filter if selected
+        if (priceFrom !== null && priceTo !== null) {
+          if (!(price >= priceFrom && price <= priceTo)) {
+            return false;
+          }
+        }
+
+        // Apply attribute filters
+        const selectedAttributes = this.selectedFilters.attributes;
+        if (selectedAttributes.length > 0) {
+          const attributeMatch = selectedAttributes.some((attribute) => {
+            return product.collections.some((col) => col.slug === attribute);
+          });
+
+          if (!attributeMatch) {
+            return false;
+          }
+        }
+
+        // Apply services filters
+        const selectedServices = this.selectedFilters.services;
+        if (selectedServices.length > 0) {
+          const serviceMatch = selectedServices.some((service) => {
+            return product.collections.some((col) => col.slug === service);
+          });
+
+          if (!serviceMatch) {
+            return false;
+          }
+        }
+
+        return true; // Include the products if all filters match
+      });
+
+      console.log("waaaaaaaa",this.spaces);
+      this.filteredProducts = this.filtered;
+    },
+
+    resetFilters() {
+      this.selectedFilters = {
+        priceFrom: null,
+        priceTo: null,
+        attributes: [],
+        services: [],
+      };
+      return this.filteredProducts = [...this.spaces];
+    },
   },
 };
 </script>

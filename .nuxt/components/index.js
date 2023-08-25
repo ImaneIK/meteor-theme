@@ -15,11 +15,12 @@ export { default as SectionsSpaces } from '../..\\components\\sections\\Spaces.v
 export { default as SiAppLoader } from '../..\\components\\si\\AppLoader.vue'
 export { default as SiCarousel } from '../..\\components\\si\\carousel.vue'
 export { default as SiCollection } from '../..\\components\\si\\collection.vue'
+export { default as SiFilters } from '../..\\components\\si\\Filters.vue'
 export { default as SiLoader } from '../..\\components\\si\\Loader.vue'
+export { default as SiProductVariantes } from '../..\\components\\si\\ProductVariantes.vue'
 export { default as SiSearchBar } from '../..\\components\\si\\SearchBar.vue'
 export { default as SiSearchPost } from '../..\\components\\si\\SearchPost.vue'
 export { default as SiStatisticBlock } from '../..\\components\\si\\StatisticBlock.vue'
-export { default as SiVariantes } from '../..\\components\\si\\Variantes.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

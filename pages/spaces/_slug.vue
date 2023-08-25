@@ -166,9 +166,7 @@
               </a>
             </span>
           </div>
-          <p class="leading-relaxed border-b-2 border-gray-200 pb-8">
-            {{ space.description }}
-          </p>
+          
 
           <div class="flex my-4">
             <span class="title-font font-medium text-2xl text-gray-900"
@@ -243,11 +241,13 @@
         <!-- Description Section -->
         <div v-show="activeSection === 'description'">
           <p class="mb-6">{{ space.description }}</p>
+          
+          <!-- <div v-html="space.description"></div> -->
         </div>
 
         <!-- Reviews section -->
         <div v-show="activeSection === 'reviews'"></div>
-      </div>
+      </div> 
 
 
       <div class="overflow-x-auto m-24">
