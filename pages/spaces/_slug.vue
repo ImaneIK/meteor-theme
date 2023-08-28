@@ -166,12 +166,29 @@
               </a>
             </span>
           </div>
-          
+          <p class="mb-6">{{ space.description }}</p>
+          <div class="  flex text-xs font-light text-gray-500 m-4">
+            <p v-for="collection in space.collections.slice(2) " class="block mx-4">{{ collection.name }}</p>
+          </div>
+
+          <!-- <div class="w-full">
+                        <si-product-variants v-if="space.type=='variable'" showPrice :options="space.options" :variants="space.variants" :images="space.images" @selected="variantSelected"></si-product-variants>
+                        <hr v-if="space.type=='variable'" class="my-1">
+                        <div class="flex justify-center" v-show="!outofstock">
+                            <si-product-quantity @selected="quantitySelected" :quantity="quantity"></si-product-quantity>
+                        </div>
+          </div> -->
+          <si-product-quantity @selected="quantitySelected" :quantity="space.quantity"></si-product-quantity>
 
           <div class="flex my-4">
-            <span class="title-font font-medium text-2xl text-gray-900"
-              >{{ space.price.salePrice }}$/month</span
+            <si-product-price class="title-font font-medium text-2xl text-gray-900" v-if="space.type == 'simple'" :type="space.type" :originalPrice="space.originalPrice" :price="price" :variants="space.variants" :quantity="quantity"></si-product-price>
+
+            <!-- <span class="title-font font-medium text-2xl text-gray-900"
+              >{{ this.salePrice }}$</span
             >
+          -->
+
+
             <button
               class="flex ml-auto text-white bg-amber-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
             >
@@ -196,6 +213,9 @@
           </div>
         </div>
       </div>
+
+
+      <!--  -->
 
       <div class="max-w-6xl mx-auto px-4">
         <!-- Navigation Bar -->
@@ -241,6 +261,7 @@
         <!-- Description Section -->
         <div v-show="activeSection === 'description'">
           <p class="mb-6">{{ space.description }}</p>
+          <!-- <iframe :src="``" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
           
           <!-- <div v-html="space.description"></div> -->
         </div>
@@ -249,81 +270,6 @@
         <div v-show="activeSection === 'reviews'"></div>
       </div> 
 
-
-      <div class="overflow-x-auto m-24">
-        <div> Check availability</div>
-       
-
-        <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
-          <thead class="ltr:text-left rtl:text-right">
-            <tr>
-              <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Name</th>
-              <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                Date of Birth
-              </th>
-              <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Role</th>
-              <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                Salary
-              </th>
-              <th class="px-4 py-2"></th>
-            </tr>
-          </thead>
-
-          <tbody class="divide-y divide-gray-200">
-            <tr>
-              <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                John Doe
-              </td>
-              <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
-              <td class="whitespace-nowrap px-4 py-2 text-gray-700">Web Developer</td>
-              <td class="whitespace-nowrap px-4 py-2 text-gray-700">$120,000</td>
-              <td class="whitespace-nowrap px-4 py-2">
-                <a
-                  href="#"
-                  class="inline-block rounded bg-amber-600 px-4 py-2 text-xs font-medium text-white hover:bg-amber-700"
-                >
-                  View
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                Jane Doe
-              </td>
-              <td class="whitespace-nowrap px-4 py-2 text-gray-700">04/11/1980</td>
-              <td class="whitespace-nowrap px-4 py-2 text-gray-700">Web Designer</td>
-              <td class="whitespace-nowrap px-4 py-2 text-gray-700">$100,000</td>
-              <td class="whitespace-nowrap px-4 py-2">
-                <a
-                  href="#"
-                  class="inline-block rounded bg-amber-600 px-4 py-2 text-xs font-medium text-white hover:bg-amber-700"
-                >
-                  View
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                Gary Barlow
-              </td>
-              <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
-              <td class="whitespace-nowrap px-4 py-2 text-gray-700">Singer</td>
-              <td class="whitespace-nowrap px-4 py-2 text-gray-700">$20,000</td>
-              <td class="whitespace-nowrap px-4 py-2">
-                <a
-                  href="#"
-                  class="inline-block rounded bg-amber-600 px-4 py-2 text-xs font-medium text-white hover:bg-amber-700"
-                >
-                  View
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
       <sections-spaces />
     </section>
   </div>
@@ -331,6 +277,66 @@
 
 <script>
 export default {
+
+
+  async fetch() {
+    this.loading = true;
+    const { slug } = this.$route.params;
+    try {
+
+      const { data } = await this.$storeino.products.get({ slug });
+      this.space = data;
+      this.price.salePrice=this.space.price.salePrice;
+      console.log("hehehehe",this.space.price.salePrice);
+
+      // this.price = this.space.type === 'simple' ? this.space.price.salePrice : this.space.price.comparePrice; 
+      this.quantity = this.space.quantity;
+      this.variant = this.space.type == 'variant' ? this.space.variants[0] : null
+
+
+      if(this.space.type == 'simple'){
+                if(this.discount){
+                    this.space.originalPrice = this.$tools.copy(this.space.price);
+                    if(this.discount.type == 'percentage'){
+                            this.space.price.salePrice = this.space.price.salePrice - (this.space.price.salePrice * this.discount.value / 100)
+                            this.space.price.comparePrice = this.space.price.comparePrice - (this.space.price.comparePrice * this.discount.value / 100)
+                    }else{
+                        this.space.price.salePrice = this.space.price.salePrice - this.discount.value
+                        this.space.price.comparePrice = this.space.price.comparePrice - this.discount.value
+                    }
+                }
+                if(!this.space.outStock.disabled && this.space.quantity.instock <= 0){
+                    this.outofstock = true;
+                }
+            }else{
+                if(this.discount){
+                    this.space.variants.forEach(variant => {
+                        variant.originalPrice = this.$tools.copy(variant.price)
+                        if(this.discount.type == 'percentage'){
+                            variant.price.salePrice = variant.price.salePrice - (variant.price.salePrice * this.discount.value / 100)
+                            variant.price.comparePrice = variant.price.comparePrice - (variant.price.comparePrice * this.discount.value / 100)
+                        }else{
+                            variant.price.salePrice = variant.price.salePrice - this.discount.value
+                            variant.price.comparePrice = variant.price.comparePrice - this.discount.value
+                        }
+                    });
+                }
+                if(!this.space.outStock.disabled && this.space.variants[0] && this.space.variants[0].quantity.instock <= 0){
+                    this.outofstock = true;
+                }else{
+                    this.outofstock = false;
+                }
+            }
+
+
+      this.loading = false;
+    } catch (e) {
+      // Redirect to error page if product not exists
+      this.$nuxt.error({ statusCode: 404, message: "product_not_found" });
+    }
+  },
+
+
   data() {
     return {
       // cards: [],
@@ -339,23 +345,39 @@ export default {
       activeSection: "gallery",
       imageModal: null,
       selectedImageIndex: 0,
+      variant:  null,
+      quantity: 1,
+      price: { salePrice: 0, comparePrice: 0 },
+      discount: this.upsell ? this.upsell.discount : null,
+      outofstock: false
     };
   },
 
-  async fetch() {
-    this.loading = true;
-    const { slug } = this.$route.params;
-    try {
-      const { data } = await this.$storeino.products.get({ slug });
-      this.space = data;
-      this.loading = false;
-    } catch (e) {
-      // Redirect to error page if product not exists
-      this.$nuxt.error({ statusCode: 404, message: "product_not_found" });
+
+  
+  computed: {
+    price() {
+      if (this.variant) {
+        return this.variant.price.salePrice * this.quantity;
+      } else {
+        return this.space.price.salePrice * this.quantity;
+      }
     }
   },
 
   methods: {
+    
+    quantitySelected(quantity){
+                this.space.quantity.value = quantity;
+                if(this.variant){
+                    this.price.salePrice = this.variant.price.salePrice * quantity;
+                    this.price.comparePrice = this.variant.price.comparePrice * quantity;
+                }else{
+                    this.price.salePrice = this.space.price.salePrice * quantity;
+                    this.price.comparePrice = this.space.price.comparePrice * quantity;
+                }
+            },
+        
     selectImage(index) {
       this.selectedImageIndex = index;
     },

@@ -18,13 +18,13 @@
           <div class="text-white">
             
             <div class="w-full lg:w-2/3">
-            <h1 class="text-xs md:text-sm pb-2">
-              <span class="tracking-wide">{{$settings.header.content.thirdheading}}</span>
+            <h1 class="text-xs md:text-sm pb-4 text-center lg:text-left">
+              <span class="  tracking-wide">{{$settings.header.content.thirdheading}}</span>
             </h1>
-            <h1 class="mb-6 text-3xl md:text-5xl text-base/6">
+            <h1 class="mb-6 text-4xl text-center lg:text-left lg:text-5xl">
               {{$settings.header.content.mainheading}}
             </h1>
-            <h3 class="mb-8 text-sm md:text-lg">
+            <h3 class=" text-center lg:text-left mb-8 text-sm md:text-lg">
               {{$settings.header.content.subheading}}
             </h3>
             </div>
@@ -59,7 +59,8 @@
         :duration="1500"
       />
     </div>
-  </div>
+
+     </div>
 </template>
 
 <script>

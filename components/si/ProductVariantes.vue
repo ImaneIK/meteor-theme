@@ -138,7 +138,7 @@
 
         </div>
 
-        <si-product-price v-if="showPrice" class="flex px-1 text-2xl" :type="'simple'" :price="selected.price" :variants="[]"></si-product-price>
+        <si-ProductPrice v-if="showPrice" class="flex px-1 text-2xl" :type="'simple'" :price="selected.price" :variants="[]"></si-ProductPrice>
     </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
-    <div class="bg-white py-8 px-6 shadow-md">
-      <h2 class="text-3xl font-semibold text-center mb-4">{{ title }}</h2>
-      <p class="text-5xl font-bold text-center">{{ count }}</p>
+    <div class="bg-white py-2 px-4 lg:py-8 lg:px-6 shadow-md">
+      <h2 class="text-xl lg:text-3xl font-semibold text-center mb-4">{{ title }}</h2>
+      <p class="text-xl lg:text-5xl font-bold text-center">{{ count }}</p>
     </div>
   </template>
   

@@ -14,6 +14,9 @@
   "SectionsCollections": {
     "description": "Auto imported from components/sections/Collections.vue"
   },
+  "SectionsContact": {
+    "description": "Auto imported from components/sections/Contact.vue"
+  },
   "SectionsFaq": {
     "description": "Auto imported from components/sections/Faq.vue"
   },
@@ -50,11 +53,23 @@
   "SiCollection": {
     "description": "Auto imported from components/si/collection.vue"
   },
+  "SiDatepicker": {
+    "description": "Auto imported from components/si/datepicker.vue"
+  },
   "SiFilters": {
     "description": "Auto imported from components/si/Filters.vue"
   },
+  "SiGallery": {
+    "description": "Auto imported from components/si/Gallery.vue"
+  },
   "SiLoader": {
     "description": "Auto imported from components/si/Loader.vue"
+  },
+  "SiProductPrice": {
+    "description": "Auto imported from components/si/ProductPrice.vue"
+  },
+  "SiProductQuantity": {
+    "description": "Auto imported from components/si/ProductQuantity.vue"
   },
   "SiProductVariantes": {
     "description": "Auto imported from components/si/ProductVariantes.vue"

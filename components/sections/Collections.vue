@@ -1,271 +1,180 @@
 <template>
-  <div class="py-16">
-    
-    <div class="blur-fade-dark" :style="`background-image:url(${$settings.sections.collections[currentIndex].image.src}); `">
-      <section 
-       >
-        <div 
-          class="mx-24 max-w-[1340px] px-4 sm:px-6 sm:py-24 lg:me-0 lg:pe-0 lg:ps-8"
-        >
-          <div
-            class="grid grid-cols-1 gap-y-8 lg:grid-cols-3 lg:items-center lg:gap-x-16"
-          >
-            <div class="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
-              <div class="font-semibold">
-                <h1 class="text-sm">
-                  <span class="text-orange-600 tracking-wide">BLOG NEWS</span>
-                </h1>
-                <p class=" text-4xl font-normal w-full md:w-full">
-                  Choose the space that suits<br />
-                  you and your team
-                </p>
-              </div>
+  <section class=" px-2 lg:px-24 py-4 bg-black flex flex-col lg:gap-16 lg:flex-row items-center text-white ">
+      
+      <div class="w-full lg:w-4/12 flex flex-col text-center lg:text-left items-center lg:items-start justify-center p-8">
+        <h4 class="font-normal text-amber-600 text-xs">OUR COLLECTION</h4>
+        <h1 class="mt-2 font-semibold text-xl ">Choose the space that suits you and your team</h1>
+        <p class="mt-2 text-gray-400 text-xs font-light">Our vareity of spaces are carefully prepared to make you feel more productive and help you acheive your goals.</p>
+        <nuxt-link :to="`/shop`" type="button"  class="my-4 p-2 rounded-md text-white text-xs bg-amber-600 w-fit">Explore more</nuxt-link>
+      </div>
 
-              <div class="flex  justify-center gap-8">
-                <button
-                  @click="prevItem"
-                  class="rounded-full border border-amber-600 p-3 text-amber-600 hover:bg-amber-600 hover:text-white"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="h-5 w-5 rtl:rotate-180"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M15.75 19.5L8.25 12l7.5-7.5"
-                    />
-                  </svg>
-                </button>
-                <button
-                  @click="nextItem"
-                  class="rounded-full border border-amber-600 p-3 text-amber-600 hover:bg-amber-600 hover:text-white"
-                >
-                  <svg
-                    class="h-5 w-5 rtl:rotate-180"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9 5l7 7-7 7"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
 
-            <div class=" ">
-              <div class="swiper-container !overflow-hidden">
-                <div class="carousel">
-                  <div
-                    class="carousel-inner"
-                    :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
-                  >
-                    <div
-                      v-for="item in $settings.sections.collections"
-                      class="carousel-item py-6 flex items-center justify-center flex-wrap"
-                    >
-                    
-                      <Nuxt-link class="swiper-slide" :to="`collections/${item.slug}`">
-                        <div class="bg-white w-56 h-96 shadow-md rounded-md mx-2">
-                          <div class="h-3/4 w-full">
-                            <img
-                              class="w-full h-full object-cover rounded-t"
-                              :src="item.image.src"
-                            />
-                          </div>
-                          <div class="w-full h-1/4 p-3 bg-black text-white">
-                            <a href="#" class="hover:text-yellow-600">
-                              <span
-                                class="text-lg font-semibold uppercase tracking-wide"
-                                >{{ item.name }}</span
-                              >
-                            </a>
-                            <p class="text-sm leading-5 mt-1">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </p>
-                          </div>
+      <div class="w-8/12 flex flex-col mx-auto">          
+        <div id="sliderContainer" class=" overflow-hidden">
+            <ul  ref="slider" id="slider" class="flex  overflow-hidden items-center">
+                
+                <li v-for="(item, index) in items" :key="index"  class=" p-5 overflow-hidden" >
+                    <nuxt-link :to="`/collections/${item.slug}`" class="block relative rounded-lg transition-all duration-300 group overflow-hidden ">
+                       
+                       <div class=" rounded-md overflow-hidden h-full group-hover:h-3/4 transition-all duration-300 ">
+                        <img class="h-72 w-full object-cover rounded-md hover:transition-all duration-300" :src="item.image.src"  alt="">
+                        
+                       </div> 
+                        
+                       <div class="absolute w-full p-2 bottom-0 left-0 opacity-0 group-hover:opacity-100 duration-300 bg-black text-white overflow-hidden">
+                          <h2>{{item.name}}</h2>
+                          <p>lorem ipsum</p>
                         </div>
-                      </Nuxt-link>
+                        
+                    </nuxt-link>
+                </li>
+                
 
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+            </ul>
         </div>
-      </section>
-    </div>
 
-  </div>
+        <div class=" flex gap-8 mx-8 justify-center lg:justify-end">
+            <button
+            @click="prev"
+              class="rounded-full border border-amber-600 p-3 text-amber-600 hover:bg-amber-600 hover:text-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-5 w-5 rtl:rotate-180"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 19.5L8.25 12l7.5-7.5"
+                />
+              </svg>
+            </button>
+            <button
+            @click="next"
+              class="rounded-full border border-amber-600 p-3 text-amber-600 hover:bg-amber-600 hover:text-white"
+            >
+              <svg
+                class="h-5 w-5 rtl:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+            </button>
+        </div>
+      </div>
+  </section>
 </template>
+
 <script>
 export default {
   data() {
     return {
-      currentIndex: 0,
-      loading: true,
-      items: [],
-      width: 33.33,
-      screenWidth: 1200,
+      items:[],
+      slider: null,
+      cards: [],
+      elementsToShow: 3,
+      cardWidth: 0,
     };
   },
 
-  computed: {
-    innerStyle() {
-      const transform = `translateX(-${this.currentIndex * 100}%)`;
-      return {
-        transform,
-      };
-    },
-  },
-  watch: {
-    screenWidth(val) {
-      if (val < 640) this.width = 100;
-      if (val >= 640 && val < 768) this.width = 50;
-      if (val >= 768 && val < 1024) this.width = 33.33;
-      if (val >= 1024) this.width = 25;
-    },
-  },
   async fetch() {
     try {
       const filter = { status: "PUBLISH" };
       if (this.$settings.sections.collections.length > 0) {
         this.items = this.$settings.sections.collections;
-        // console.log(this.items[0]);
       } else {
         const { data } = await this.$storeino.collections.search(filter);
         this.items = data;
-        // console.log("sections here");
-        // console.log(this.items[0]);
       }
     } catch (e) {
       console.log({ e });
     }
     this.loading = false;
-    if (process.client) {
-    }
+  },
+
+
+  mounted() {
+    this.slider = this.$refs.slider;
+    this.cards = this.slider.getElementsByTagName('li');
+    this.initCarousel();
   },
   methods: {
-    nextItem() {
-      this.currentIndex = (this.currentIndex + 1) % this.items.length;
-    },
+    initCarousel() {
+      let sliderContainerWidth = this.slider.clientWidth;
 
-    prevItem() {
-      this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
-    },
-    move(n) {
-      if (!document.querySelector(".carousel-item")) return;
-      var get = "pop",
-        set = "unshift",
-        width = document.querySelector(".carousel-item").offsetWidth;
-      if (n == 1) {
-        (get = "shift"), (set = "push"), (width = `-${width}`);
+      if (document.body.clientWidth < 1000) {
+        this.elementsToShow = 1;
+      } else if (document.body.clientWidth < 1500) {
+        this.elementsToShow = 2;
       }
-      document.querySelector(".carousel").style.transform = `translateX(${width}px)`;
-      document.querySelector(".carousel").style.transition = `500ms`;
-      setTimeout(() => {
-        document.querySelector(".carousel").style.transform = `translateX(0px)`;
-        document.querySelector(".carousel").style.transition = `none`;
-        const el = this.items[get]();
-        this.items[set](el);
-      }, 500);
+
+      this.cardWidth = sliderContainerWidth / this.elementsToShow;
+
+      this.slider.style.width = this.cards.length * this.cardWidth + 'px';
+      this.slider.style.transition = 'margin';
+      this.slider.style.transitionDuration = '1s';
+
+      for (let index = 0; index < this.cards.length; index++) {
+        const element = this.cards[index];
+        element.style.width = this.cardWidth + 'px';
+      }
     },
-  },
-  mounted() {
-    this.screenWidth = window.innerWidth;
-    window.onresize = (ev) => {
-      this.screenWidth = window.innerWidth;
-    };
+    prev() {
+      if (+this.slider.style.marginLeft.slice(0, -2) !== -this.cardWidth * (this.cards.length - this.elementsToShow)) {
+        this.slider.style.marginLeft = (+this.slider.style.marginLeft.slice(0, -2) - this.cardWidth) + 'px';
+      }
+    },
+    next() {
+      if (+this.slider.style.marginLeft.slice(0, -2) !== 0) {
+        this.slider.style.marginLeft = (+this.slider.style.marginLeft.slice(0, -2) + this.cardWidth) + 'px';
+      }
+    },
   },
 };
 </script>
 
 <style>
+  /* Hide the description by default */
+.group .absolute {
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
 
+/* Show the description when hovering over the card */
+.group:hover .absolute {
+  opacity: 1;
+}
 
+/* Expand the card when hovering */
+.group .relative {
+  height: auto;
+  transition: height 0.4s ease-in-out;
+}
 
-.blur-fade-dark::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+.group:hover .relative {
   height: 100%;
-  filter: blur(8px); /* Apply a blur effect */
-  opacity: 0.6; /* Apply a faded effect */
 }
 
-.blur-fade-dark > .content {
-  z-index: 1; /* Place the content above the pseudo-element */
+/* Apply image transition on hover */
+.group .rounded-md:hover img {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
 }
 
-.blur-fade-dark > .content img {
-  /* Reset any filters applied to images inside the content */
-  filter: none;
-}
-
-
-.carousel {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.carousel-inner {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.carousel-item {
-  flex: 0 0 100%;
-  text-align: center;
-  padding: 10px;
- 
-}
-
-.carousel-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #333;
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-}
-
-.carousel-button:hover {
-  background-color: #555;
-}
-
-@keyframes slideLoop {
-  0% {
-    transform: translateX(0);
-  }
-  20% {
-    transform: translateX(0);
-  }
-  25%,
-  45% {
-    transform: translateX(-100%);
-  }
-  50% {
-    transform: translateX(-100%);
-  }
-  70%,
-  100% {
-    transform: translateX(0);
-  }
+/* Lift the card on hover */
+.group .relative:hover {
+  transform: translateY(-2px);
 }
 </style>
