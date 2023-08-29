@@ -1,26 +1,25 @@
 <template>
   <!-- the filters -->
-  <div class="bg-black flex flex-col mr-4 p-6">
-    <div class="flex justify-between block pb-4 px-4 mb-4 border-b-2 text-white">
+  <div class=" flex flex-col mr-2 text-xs text-gray-600 font-light  ">
+    <div class="flex justify-between block pb-4 px-4 mb-4 border-b-2 ">
       Filter by:
       <button
         type="button"
         @click="resetFilters"
-        class="text-white block text-sm text-gray-900 underline underline-offset-4"
+        class=" block text-sm text-gray-900 underline underline-offset-4"
       >
         Reset
       </button>
     </div>
 
-    <div class="flex flex-col items-center gap-8">
+    <div class="flex flex-col items-center gap-8 divide-y">
       <!-- the price range filter -->
-      <div class="">
         <div
           class="z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2"
         >
-          <div class="w-96 rounded border border-gray-200 bg-white">
+          <div class="w-96 rounded bg-white">
             <header class="flex items-center justify-between p-4">
-              <span class="text-sm text-gray-700"> The highest price is $600 </span>
+              <span class="text-sm text-gray-700"> Price </span>
 
               <button
                 type="button"
@@ -60,13 +59,12 @@
             </div>
           </div>
         </div>
-      </div>
 
       <!-- the collection filter selector -->
       <div
         class="z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2"
       >
-        <div class="w-96 rounded border border-gray-200 bg-white">
+        <div class="w-96 rounded bg-white">
           <header class="flex items-center justify-between p-4">
             <span class="text-sm text-gray-700"> Categories </span>
 
@@ -90,7 +88,45 @@
                   class="h-5 w-5 rounded border-gray-300"
                 />
 
-                <span class="text-sm font-medium text-gray-700">
+                <span class="text-gray-700 text-xs font-light">
+                  {{ item.name }}
+                </span>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <!-- the location filter selector -->
+      <div
+        class="z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2"
+      >
+        <div class="w-96 rounded bg-white">
+          <header class="flex items-center justify-between p-4">
+            <span class="text-sm text-gray-700"> Locations </span>
+
+            <button
+              type="button"
+              @click="applyFilters"
+              class="text-sm text-gray-900 underline underline-offset-4"
+            >
+              Done
+            </button>
+          </header>
+
+          <ul class="space-y-1 border-t border-gray-200 p-4">
+            <li v-for="item in $settings.sections.locations">
+              <label for="FilterInStock" class="inline-flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  :id="item.slug"
+                  :value="item.slug"
+                  v-model="selectedFilters.attributes"
+                  class="h-5 w-5 rounded border-gray-300"
+                />
+
+                <span class="text-gray-700 text-xs font-light">
                   {{ item.name }}
                 </span>
               </label>
@@ -103,7 +139,7 @@
       <div
         class="z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2"
       >
-        <div class="w-96 rounded border border-gray-200 bg-white">
+        <div class="w-96 bg-white">
           <header class="flex items-center justify-between p-4">
             <span class="text-sm text-gray-700"> Facilities </span>
 
@@ -127,7 +163,7 @@
                   class="h-5 w-5 rounded border-gray-300"
                 />
 
-                <span class="text-sm font-medium text-gray-700">
+                <span class="text-gray-700 text-xs font-light">
                   {{ item.name }}
                 </span>
               </label>

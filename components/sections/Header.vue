@@ -1,11 +1,12 @@
 <template>
-  <div>
+  <div class="w-screen overflow-hidden">
     <div
-      class="overflow-hidden bg-fixed bg-no-repeat"
+      class="relative bg-cover bg-fixed bg-no-repeat"
       :style="{
         'background-position': '50%',
         'background-image': `url(${$settings.header.background.src})`,
         height: '110vh',
+       
       }"
     >
 
@@ -14,7 +15,7 @@
         class="relative bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-fixed inset-0"
         style="background-color: rgba(0, 0, 0, 0.5)"
       >
-        <div class="flex md:px-24 px-8 h-full items-center">
+        <div class="flex lg:px-24 my-0 md:my-24 lg:my-0 px-8 h-full items-center">
           <div class="text-white">
             
             <div class="w-full lg:w-2/3">
@@ -36,7 +37,7 @@
 
     <!-- the stats -->
     <div
-      class="relative grid grid-cols-1 md:grid-cols-3 gap-4 mt-16 mx-4"
+      class="relative grid grid-cols-1 lg:grid-cols-3 gap-4 my-16 mx-4"
       :style="{ marginTop: '-50px' }"
       style="z-index: 1"
     >

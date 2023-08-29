@@ -18,7 +18,7 @@
 
         <div class="relative w-2/5 mx-4 flex flex-col p-4">
           <!-- Main image -->
-          <div class="mb-4">
+          <div class="mb-4"  style="flex: 0 0 40%;">
             <img
               alt="Main Image"
               class="w-full object-cover object-center rounded border border-gray-200"

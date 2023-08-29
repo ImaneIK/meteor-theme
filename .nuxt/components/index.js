@@ -9,6 +9,7 @@ export { default as SectionsFeatures } from '../..\\components\\sections\\Featur
 export { default as SectionsFetch } from '../..\\components\\sections\\Fetch.vue'
 export { default as SectionsFooter } from '../..\\components\\sections\\Footer.vue'
 export { default as SectionsHeader } from '../..\\components\\sections\\Header.vue'
+export { default as SectionsLocations } from '../..\\components\\sections\\Locations.vue'
 export { default as SectionsNavbar } from '../..\\components\\sections\\Navbar.vue'
 export { default as SectionsRelatedPosts } from '../..\\components\\sections\\RelatedPosts.vue'
 export { default as SectionsSettings } from '../..\\components\\sections\\Settings.vue'

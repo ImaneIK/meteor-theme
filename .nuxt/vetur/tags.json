@@ -32,6 +32,9 @@
   "SectionsHeader": {
     "description": "Auto imported from components/sections/Header.vue"
   },
+  "SectionsLocations": {
+    "description": "Auto imported from components/sections/Locations.vue"
+  },
   "SectionsNavbar": {
     "description": "Auto imported from components/sections/Navbar.vue"
   },

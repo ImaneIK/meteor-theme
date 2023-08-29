@@ -17,6 +17,7 @@ You can directly use them in pages and other components without the need to impo
 - `<SectionsFetch>` | `<sections-fetch>` (components/sections/Fetch.vue)
 - `<SectionsFooter>` | `<sections-footer>` (components/sections/Footer.vue)
 - `<SectionsHeader>` | `<sections-header>` (components/sections/Header.vue)
+- `<SectionsLocations>` | `<sections-locations>` (components/sections/Locations.vue)
 - `<SectionsNavbar>` | `<sections-navbar>` (components/sections/Navbar.vue)
 - `<SectionsRelatedPosts>` | `<sections-related-posts>` (components/sections/RelatedPosts.vue)
 - `<SectionsSettings>` | `<sections-settings>` (components/sections/Settings.vue)

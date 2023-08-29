@@ -92,8 +92,8 @@ export default {
   async fetch() {
     try {
       const filter = { status: "PUBLISH" };
-      if (this.$settings.sections.collections.length > 0) {
-        this.items = this.$settings.sections.collections;
+      if (this.$settings.sections.locations.length > 0) {
+        this.items = this.$settings.sections.locations;
       } else {
         const { data } = await this.$storeino.collections.search(filter);
         this.items = data;

@@ -1,6 +1,7 @@
 <template>
   <div>
     <sections-header />
+    <sections-Locations/>
     <si-Gallery></si-Gallery>
     <sections-collections />
     <section class="mx-24">
@@ -252,9 +253,6 @@
     <sections-Features />
     <sections-blog />
     <sections-Contact></sections-Contact>
-
-
-    
   </div>
 </template>
 

@@ -6,7 +6,7 @@
 
     <div
       v-if="!loading && cards != null"
-      class="container mx-auto px-5 py-8 lg:px-12 lg:pt-24"
+      class="container mx-auto px-5 py-8 lg:px-12 "
     >
 
     
@@ -29,22 +29,22 @@
           <nuxt-link :to="`/spaces/${cards[0].slug}`" class="p-1 relative w-full lg:w-1/2 transition-all duration-300 group overflow-hidden ">
             <img
               alt="gallery"
-              class="block h-full w-full object-cover object-center group-hover:h-3/4 transition-all duration-300 overflow-hidden"
+              class="block lg:h-full w-full object-cover object-center  h-3/4  group-hover:h-3/4 transition-all duration-300 overflow-hidden"
               :src="cards[0].images[0].src"
             />
-            <div class="m-1 absolute w-full p-2 bottom-0 left-0 opacity-0 group-hover:opacity-100 duration-300 bg-black text-white overflow-hidden">
+            <div class="m-1 absolute h-1/5  w-full p-2 bottom-0 left-0 opacity-0  group-hover:opacity-100 duration-300 bg-black text-white overflow-hidden">
                           <h2>{{cards[0].name}}</h2>
                           <p>lorem ipsum</p>
             </div>
           </nuxt-link>
 
-          <nuxt-link :to="`/spaces/${cards[1].slug}`" class="p-1 relative w-1/2 lg:w-1/2 transition-all duration-300 group overflow-hidden ">
+          <nuxt-link :to="`/spaces/${cards[1].slug}`" class="p-1 relative w-full lg:w-1/2 transition-all duration-300 group overflow-hidden ">
             <img
               alt="gallery"
               class="block h-full w-full object-cover object-center group-hover:h-3/4 transition-all duration-300 overflow-hidden"
               :src="cards[1].images[0].src"
             />
-            <div class="m-1 absolute w-full p-2 bottom-0 left-0 opacity-0 group-hover:opacity-100 duration-300 bg-black text-white overflow-hidden">
+            <div class="m-1 absolute w-full h-1/5  p-2 bottom-0 left-0 opacity-0 group-hover:opacity-100 duration-300 bg-black text-white overflow-hidden">
                           <h2>{{cards[0].name}}</h2>
                           <p>lorem ipsum</p>
             </div>
@@ -70,7 +70,7 @@
               class="block h-full w-full object-cover object-center group-hover:h-4/5 transition-all duration-300 overflow-hidden"
               :src="cards[0].images[2].src"
             />
-            <div class="m-1 absolute w-full h-1/5 p-2 bottom-0 left-0 opacity-0 group-hover:opacity-100 duration-300 bg-black text-white overflow-hidden">
+            <div class="m-1 h-1/5  absolute w-full h-1/5 p-2 bottom-0 left-0 opacity-0 group-hover:opacity-100 duration-300 bg-black text-white overflow-hidden">
                           <h2>{{cards[0].name}}</h2>
                           <p>lorem ipsum</p>
             </div>
@@ -82,7 +82,7 @@
               class="block h-full w-full object-cover object-center group-hover:h-3/4 transition-all duration-300 overflow-hidden"
               :src="cards[3].images[0].src"
             />
-            <div class="m-1 absolute w-full p-2 bottom-0 left-0 opacity-0 group-hover:opacity-100 duration-300 bg-black text-white overflow-hidden">
+            <div class="m-1 h-1/5 absolute w-full p-2 bottom-0 left-0 opacity-0 group-hover:opacity-100 duration-300 bg-black text-white overflow-hidden">
                           <h2>{{cards[0].name}}</h2>
                           <p>lorem ipsum</p>
             </div>
@@ -94,7 +94,7 @@
               class="block h-full w-full object-cover object-center group-hover:h-3/4 transition-all duration-300 overflow-hidden"
               :src="cards[1].images[0].src"
             />
-            <div class="m-1 absolute w-full p-2 bottom-0 left-0 opacity-0 group-hover:opacity-100 duration-300 bg-black text-white overflow-hidden">
+            <div class="m-1 h-1/5  absolute w-full p-2 bottom-0 left-0 opacity-0 group-hover:opacity-100 duration-300 bg-black text-white overflow-hidden">
                           <h2>{{cards[1].name}}</h2>
                           <p>lorem ipsum</p>
             </div>
