@@ -12,17 +12,23 @@
       v-if="!loading && filteredProducts != null"
       class="flex flex-col my-16 mx-24 divide-y"
     >
-
-    <!-- Drawer filter -->
-    <aside style="z-index:10000;" class=" p-5 transform top-0 left-0 w-96 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30" :class="isOpen ? 'translate-x-0' : '-translate-x-full'">
-        
+      <!-- Drawer filter -->
+      <aside
+        style="z-index: 10000"
+        class="p-5 transform top-0 left-0 w-96 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30"
+        :class="isOpen ? 'translate-x-0' : '-translate-x-full'"
+      >
         <div class="block m-12 close">
-          <button class="absolute top-0 right-0 mt-4 mr-4" @click=" isOpen = false">
-            <svg 
+          <button class="absolute top-0 right-0 mt-4 mr-4" @click="isOpen = false">
+            <svg
               class="w-6 h-6"
-              fill="none" stroke-linecap="round" 
-              stroke-linejoin="round" stroke-width="2"
-              viewBox="0 0 24 24" stroke="currentColor">
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
               <path d="M6 18L18 6M6 6l12 12"></path>
             </svg>
           </button>
@@ -34,11 +40,7 @@
           @reset-filters="resetFilters"
           class="w-full"
         ></si-Filters>
-        
-
       </aside>
-
-
 
       <!-- the route like heading -->
       <div class="flex justify-center py-4">
@@ -67,16 +69,27 @@
               <option value="name">price</option>
             </select>
 
-                 <!-- toggle -->
-          <div class="xl:hidden">
-        <button @click="drawer">
-          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#d4d4d4}</style><path d="M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9V448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6V320.9L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z"/></svg>        </button>
-
-      </div>
+            <!-- toggle -->
+            <div class="xl:hidden">
+              <button @click="drawer">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1em"
+                  viewBox="0 0 512 512"
+                >
+                  <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <style>
+                    svg {
+                      fill: #d4d4d4;
+                    }
+                  </style>
+                  <path
+                    d="M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9V448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6V320.9L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
-
-
-     
         </div>
       </div>
 
@@ -88,11 +101,9 @@
           @apply-filters="applyFilters"
           @reset-filters="resetFilters"
           class="xl:w-2/5 xl:block hidden"
-          
         ></si-Filters>
 
         <div class="w-full lg:w-3/5">
-          
           <h2 class="text-sm font-light">{{ cards.length }} properties found</h2>
 
           <!-- the cards -->
@@ -101,6 +112,7 @@
             :key="i"
             class="flex flex-col lg:flex-row max-w-2xl mx-auto my-4 w-full bg-white rounded-sm shadow-md"
           >
+            
             <div class="" style="flex: 0 0 40%">
               <img
                 class="h-full w-full object-cover object-center"
@@ -133,25 +145,11 @@
                   viewBox="0 0 384 512"
                 >
                   <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                  <style>
-                    svg {
-                      fill: #ff9831;
-                    }
-                  </style>
-                  <path
-                    d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
-                  />
+                  <style>svg {fill: #ff9831;}</style>
+                  <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/>
                 </svg>
-                <span class="rounded-full px-1 text-xs text-gray-500 font-light">{{
-                  card.collections[1].name
-                }}</span>
+                <span class="rounded-full px-1 text-xs text-gray-500 font-light">{{card.collections[1].name}}</span>
               </div>
-
-              <!-- <p
-                class="mt-2 text-xs text-gray-400 text-slate-500 hidden sm:block md:block lg:block"
-              >
-                {{ card.description }}
-              </p> -->
 
               <div class="flex flex-col px-4">
                 <div class="grid grid-cols-2">
@@ -257,8 +255,8 @@ export default {
 
   methods: {
     drawer() {
-    this.isOpen = !this.isOpen;
-  },
+      this.isOpen = !this.isOpen;
+    },
     async getCards(filter) {
       this.loading = true;
       try {
@@ -342,16 +340,16 @@ export default {
   },
 
   watch: {
-  isOpen: {
-    immediate: true,
-    handler(isOpen) {
-      if (process.client) {
-        if (isOpen) document.body.style.setProperty("overflow", "hidden");
-        else document.body.style.removeProperty("overflow");
-      }
-    }
-  }
-},
+    isOpen: {
+      immediate: true,
+      handler(isOpen) {
+        if (process.client) {
+          if (isOpen) document.body.style.setProperty("overflow", "hidden");
+          else document.body.style.removeProperty("overflow");
+        }
+      },
+    },
+  },
 };
 </script>
 
@@ -368,7 +366,7 @@ export default {
 
 .navbar-transparent {
   background-color: transparent;
-  border-bottom: solid 1px gray
+  border-bottom: solid 1px gray;
 }
 
 .navbar-white {
@@ -380,5 +378,4 @@ export default {
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 </style>

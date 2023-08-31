@@ -18,6 +18,12 @@
     "chunkName": "pages/shop/index"
   },
   {
+    "name": "wishlist",
+    "path": "/wishlist",
+    "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\wishlist\\\\index.vue",
+    "chunkName": "pages/wishlist/index"
+  },
+  {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\index.vue",

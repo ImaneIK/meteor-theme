@@ -20,7 +20,7 @@ You can directly use them in pages and other components without the need to impo
 - `<SectionsLocations>` | `<sections-locations>` (components/sections/Locations.vue)
 - `<SectionsNavbar>` | `<sections-navbar>` (components/sections/Navbar.vue)
 - `<SectionsRelatedPosts>` | `<sections-related-posts>` (components/sections/RelatedPosts.vue)
-- `<SectionsSettings>` | `<sections-settings>` (components/sections/Settings.vue)
+- `<SectionsReviews>` | `<sections-reviews>` (components/sections/Reviews.vue)
 - `<SectionsSpaces>` | `<sections-spaces>` (components/sections/Spaces.vue)
 - `<SiAppLoader>` | `<si-app-loader>` (components/si/AppLoader.vue)
 - `<SiCarousel>` | `<si-carousel>` (components/si/carousel.vue)

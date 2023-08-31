@@ -2,6 +2,7 @@
   <div>
     <sections-header />
     <sections-Locations/>
+    <div @click="test">click here</div>
     <si-Gallery></si-Gallery>
     <sections-collections />
     <section class="mx-24">
@@ -258,6 +259,15 @@
 
 <script>
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  methods:{
+    test(){
+      console.log(
+        this.$tools
+        //this.$store.state.wishlist
+         );
+    }
+    
+  }
 }
 </script>

@@ -12,7 +12,7 @@ export { default as SectionsHeader } from '../..\\components\\sections\\Header.v
 export { default as SectionsLocations } from '../..\\components\\sections\\Locations.vue'
 export { default as SectionsNavbar } from '../..\\components\\sections\\Navbar.vue'
 export { default as SectionsRelatedPosts } from '../..\\components\\sections\\RelatedPosts.vue'
-export { default as SectionsSettings } from '../..\\components\\sections\\Settings.vue'
+export { default as SectionsReviews } from '../..\\components\\sections\\Reviews.vue'
 export { default as SectionsSpaces } from '../..\\components\\sections\\Spaces.vue'
 export { default as SiAppLoader } from '../..\\components\\si\\AppLoader.vue'
 export { default as SiCarousel } from '../..\\components\\si\\carousel.vue'

@@ -2,7 +2,7 @@
   <div
     class="flex-col shadow-md rounded-md search-bar flex justify-center items-center gap-4 p-5 w-full xl:flex-row"
   >
-  <div class="flex flex-col md:flex-row justify-center gap-4 w-full ">
+  <div id="date-picker" class="flex flex-col md:flex-row justify-center gap-4 w-full ">
     <div
       class="search-field bg-white bg-opacity-30 backdrop-blur rounded-lg p-2 flex items-center w-full"
     >
@@ -10,6 +10,7 @@
       <input
         type="date"
         id="from-date"
+        @change="updateDateRange"
         class="text-white border-none p-2 rounded bg-transparent focus:ring-2 focus:ring-amber-400 "
       />
     </div>
@@ -21,6 +22,7 @@
       <input
         type="date"
         id="to-date"
+        @change="updateDateRange"
         class="text-white border-none p-2 rounded bg-transparent focus:ring-2 focus:ring-amber-400"
       />
     </div>
@@ -83,6 +85,7 @@
 
 <script>
 export default {
+  
   data() {
     return {
       selectedCategory: "",
@@ -113,6 +116,25 @@ export default {
   },
 
   methods: {
+
+    updateDateRange() {
+      const fromDateInput = this.$el.querySelector("#from-date");
+      const toDateInput = this.$el.querySelector("#to-date");
+
+      const fromDate = new Date(fromDateInput.value);
+      const toDate = new Date(toDateInput.value);
+
+      if (!isNaN(fromDate) && !isNaN(toDate)) {
+        const timeDiff = toDate - fromDate;
+        const daysDiff = timeDiff / (1000 * 60 * 60 * 24) + 1;
+
+        console.log("From Date:", fromDate);
+        console.log("To Date:", toDate);
+        console.log("Number of days:", daysDiff);
+      }
+    },
+
+
     async search() {
       const { data: productData } = await this.$storeino.products.search({
         status: "PUBLISH",
@@ -133,6 +155,8 @@ export default {
     },
   },
 };
+
+
 </script>
 
 <style>

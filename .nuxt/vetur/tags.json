@@ -41,8 +41,8 @@
   "SectionsRelatedPosts": {
     "description": "Auto imported from components/sections/RelatedPosts.vue"
   },
-  "SectionsSettings": {
-    "description": "Auto imported from components/sections/Settings.vue"
+  "SectionsReviews": {
+    "description": "Auto imported from components/sections/Reviews.vue"
   },
   "SectionsSpaces": {
     "description": "Auto imported from components/sections/Spaces.vue"

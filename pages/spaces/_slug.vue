@@ -194,8 +194,60 @@
             >
               Book Now
             </button>
-            <button
+
+              <!-- v-if="$settings.sections.products.add_to_wishlist.active" -->
+              <!-- v-if="$store.state.wishlist.find(i=>i._id==space._id)" @click="removeFromWishlist"  -->
+            <div >
+              <button
+                
+                v-if="$store.state.wishlist.find(i=>i._id==space._id)" 
+                @click="removeFromWishlist"
+               
+                title="Wishlist" 
+                class="rounded-full w-10 h-10 bg-amber-500 p-0 border-0 inline-flex items-center justify-center text-red-500 ml-4">
+                <svg
+                fill="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
+                ></path>
+                </svg>              
+              </button>
+
+              <button
+              v-else 
+              @click="addToWishlist"  
+                title="Wishlist" 
+                class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                <svg
+                fill="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
+                ></path>
+                </svg>              
+              </button>
+              
+              <!-- v-else -->
+              <!-- @click="addToWishlist" -->
+              
+            </div>
+
+            
+
+            <!-- <button
               class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4"
+              @click="addToWishlist"
             >
               <svg
                 fill="currentColor"
@@ -209,7 +261,7 @@
                   d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
                 ></path>
               </svg>
-            </button>
+            </button> -->
           </div>
         </div>
       </div>
@@ -267,7 +319,9 @@
         </div>
 
         <!-- Reviews section -->
-        <div v-show="activeSection === 'reviews'"></div>
+        <div v-show="activeSection === 'reviews'">
+        <sections-Reviews :item="space" />
+        </div>
       </div> 
 
       <sections-spaces />
@@ -393,6 +447,17 @@ export default {
     closeImageModal() {
       this.imageModal = null;
     },
+
+    addToWishlist(){
+            this.$tools.call('ADD_TO_WISHLIST', this.space);
+            console.log(this.$store.state.wishlist)
+            //this.$tools.toast(this.$settings.sections.alerts.added_to_wishlist);
+        },
+
+    removeFromWishlist(){
+            this.$tools.call('REMOVE_FROM_WISHLIST', this.space);
+            //this.$tools.toast(this.$settings.sections.alerts.removed_from_wishlist);
+        }
   },
 };
 </script>
