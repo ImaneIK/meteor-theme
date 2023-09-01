@@ -1,180 +1,82 @@
 <template>
-  <section class=" px-2 lg:px-24 py-4 bg-black flex flex-col lg:gap-16 lg:flex-row items-center text-white ">
+    <div class="py-12 px-8 w-screen">
+    <div v-if="loading" class="flex justify-center items-center h-screen">
+      <si-Loader />
+    </div>
+    <div v-if="!loading" class="bg-white">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 py-4 lg:max-w-7xl lg:px-8">
+
+      <div class="flex flex-col gap-4 md:flex-row justify-start md:justify-between items-center">
+        <div>
+              <h1 class="text-2xl font-normal text-gray-800 capitalize lg:text-3xl">
+                Explore Our variety<br />
+                Collections
+              </h1>
+
+              <div class="mt-2">
+                <span class="inline-block w-40 h-1 bg-amber-500 rounded-full"></span>
+                <span class="inline-block w-3 h-1 ml-1 bg-amber-500 rounded-full"></span>
+                <span class="inline-block w-1 h-1 ml-1 bg-amber-500 rounded-full"></span>
+              </div>
+        </div>
+        <nuxt-link :to="`/shop`" class="text-sm text-amber-500 underline decoration-amber-500 p-2 ">Explore more</nuxt-link>
+      </div>
       
-      <div class="w-full lg:w-4/12 flex flex-col text-center lg:text-left items-center lg:items-start justify-center p-8">
-        <h4 class="font-normal text-amber-600 text-xs">OUR COLLECTION</h4>
-        <h1 class="mt-2 font-semibold text-xl ">Choose the space that suits you and your team</h1>
-        <p class="mt-2 text-gray-400 text-xs font-light">Our vareity of spaces are carefully prepared to make you feel more productive and help you acheive your goals.</p>
-        <nuxt-link :to="`/shop`" type="button"  class="my-4 p-2 rounded-md text-white text-xs bg-amber-600 w-fit">Explore more</nuxt-link>
-      </div>
 
-
-      <div class="w-8/12 flex flex-col mx-auto">          
-        <div id="sliderContainer" class=" overflow-hidden">
-            <ul  ref="slider" id="slider" class="flex  overflow-hidden items-center">
-                
-                <li v-for="(item, index) in items" :key="index"  class=" p-5 overflow-hidden" >
-                    <nuxt-link :to="`/collections/${item.slug}`" class="block relative rounded-lg transition-all duration-300 group overflow-hidden ">
-                       
-                       <div class=" rounded-md overflow-hidden h-full group-hover:h-3/4 transition-all duration-300 ">
-                        <img class="h-72 w-full object-cover rounded-md hover:transition-all duration-300" :src="item.image.src"  alt="">
-                        
-                       </div> 
-                        
-                       <div class="absolute w-full p-2 bottom-0 left-0 opacity-0 group-hover:opacity-100 duration-300 bg-black text-white overflow-hidden">
-                          <h2>{{item.name}}</h2>
-                          <p>lorem ipsum</p>
-                        </div>
-                        
-                    </nuxt-link>
-                </li>
-                
-
-            </ul>
-        </div>
-
-        <div class=" flex gap-8 mx-8 justify-center lg:justify-end">
-            <button
-            @click="prev"
-              class="rounded-full border border-amber-600 p-3 text-amber-600 hover:bg-amber-600 hover:text-white"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="h-5 w-5 rtl:rotate-180"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M15.75 19.5L8.25 12l7.5-7.5"
-                />
-              </svg>
-            </button>
-            <button
-            @click="next"
-              class="rounded-full border border-amber-600 p-3 text-amber-600 hover:bg-amber-600 hover:text-white"
-            >
-              <svg
-                class="h-5 w-5 rtl:rotate-180"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9 5l7 7-7 7"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                />
-              </svg>
-            </button>
+      <div  class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+        <div v-for="(card,index) in cards" :key="card.slug" class="group relative transition-transform duration-300 ease-in-out transform hover:-translate-y-2">
+          <nuxt-link :to="`/collections/${card.slug}`" class="block rounded-md aspect-h-1 aspect-w-1 w-full overflow-hidden  bg-gray-200 lg:aspect-none  lg:h-80">
+            <img :src="card.image.src" class="h-full w-full object-cover object-center lg:h-full lg:w-full group-hover:brightness-50" />
+            <p aria-hidden="true" class="absolute inset-0 p-4 text-white" >{{ card.name }} <br/>{{ itemCount[index] }} items</p>
+            
+          </nuxt-link>
+        
+        
         </div>
       </div>
-  </section>
+    </div>
+  </div>
+  </div>
 </template>
 
 <script>
-export default {
-  data() {
+export default{
+    data() {
     return {
-      items:[],
-      slider: null,
+      loading: false,
+      itemCount:[],
       cards: [],
-      elementsToShow: 3,
-      cardWidth: 0,
     };
   },
 
   async fetch() {
-    try {
-      const filter = { status: "PUBLISH" };
-      if (this.$settings.sections.locations.length > 0) {
-        this.items = this.$settings.sections.locations;
-      } else {
-        const { data } = await this.$storeino.collections.search(filter);
-        this.items = data;
-      }
-    } catch (e) {
-      console.log({ e });
+  try {
+    const filter = { status: "PUBLISH" };
+    if (this.$settings.sections.locations.length > 0) {
+      // Fetch locations from settings
+      this.cards = this.$settings.sections.collections;
+      const searchData = await this.$storeino.products.search(filter);
+
+      // Initialize an array to store the counts
+      this.itemCount = this.cards.map((item) => {
+        // Count the number of matches between item.name and collection names
+        return searchData.data.results.reduce((count, result) => {
+          return count + result.collections.filter((collection) => {
+            return collection.name === item.name;
+          }).length;
+        }, 0);
+      });
+
+      // Now 'counts' is an array of counts, where each count represents matches for the corresponding item in 'cards'
+      // console.log(this.itemCount);
+    } else {
+      const { data } = await this.$storeino.collections.search(filter);
+      this.cards = data;
     }
-    this.loading = false;
-  },
-
-
-  mounted() {
-    this.slider = this.$refs.slider;
-    this.cards = this.slider.getElementsByTagName('li');
-    this.initCarousel();
-  },
-  methods: {
-    initCarousel() {
-      let sliderContainerWidth = this.slider.clientWidth;
-
-      if (document.body.clientWidth < 1000) {
-        this.elementsToShow = 1;
-      } else if (document.body.clientWidth < 1500) {
-        this.elementsToShow = 2;
-      }
-
-      this.cardWidth = sliderContainerWidth / this.elementsToShow;
-
-      this.slider.style.width = this.cards.length * this.cardWidth + 'px';
-      this.slider.style.transition = 'margin';
-      this.slider.style.transitionDuration = '1s';
-
-      for (let index = 0; index < this.cards.length; index++) {
-        const element = this.cards[index];
-        element.style.width = this.cardWidth + 'px';
-      }
-    },
-    prev() {
-      if (+this.slider.style.marginLeft.slice(0, -2) !== -this.cardWidth * (this.cards.length - this.elementsToShow)) {
-        this.slider.style.marginLeft = (+this.slider.style.marginLeft.slice(0, -2) - this.cardWidth) + 'px';
-      }
-    },
-    next() {
-      if (+this.slider.style.marginLeft.slice(0, -2) !== 0) {
-        this.slider.style.marginLeft = (+this.slider.style.marginLeft.slice(0, -2) + this.cardWidth) + 'px';
-      }
-    },
-  },
-};
+  } catch (e) {
+    console.log({ e });
+  }
+  this.loading = false;
+},
+    }
 </script>
-
-<style>
-  /* Hide the description by default */
-.group .absolute {
-  opacity: 0;
-  transition: opacity 0.4s ease-in-out;
-}
-
-/* Show the description when hovering over the card */
-.group:hover .absolute {
-  opacity: 1;
-}
-
-/* Expand the card when hovering */
-.group .relative {
-  height: auto;
-  transition: height 0.4s ease-in-out;
-}
-
-.group:hover .relative {
-  height: 100%;
-}
-
-/* Apply image transition on hover */
-.group .rounded-md:hover img {
-  transform: scale(1.1);
-  transition: transform 0.3s ease-in-out;
-}
-
-/* Lift the card on hover */
-.group .relative:hover {
-  transform: translateY(-2px);
-}
-</style>

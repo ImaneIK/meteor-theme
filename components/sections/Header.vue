@@ -37,7 +37,7 @@
 
     <!-- the stats -->
     <div
-      class="relative grid grid-cols-1 lg:grid-cols-3 gap-4 my-16 mx-4"
+      class="relative grid grid-cols-1 lg:grid-cols-3 gap-8 my-12 mx-8"
       :style="{ marginTop: '-50px' }"
       style="z-index: 1"
     >
