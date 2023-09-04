@@ -3,63 +3,54 @@
     "name": "about",
     "path": "/about",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\about\\\\index.vue",
-    "chunkName": "pages/about/index",
-    "_name": "_239ba8ba"
+    "chunkName": "pages/about/index"
   },
   {
     "name": "blog",
     "path": "/blog",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\blog\\\\index.vue",
-    "chunkName": "pages/blog/index",
-    "_name": "_02b22aeb"
+    "chunkName": "pages/blog/index"
   },
   {
     "name": "shop",
     "path": "/shop",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\shop\\\\index.vue",
-    "chunkName": "pages/shop/index",
-    "_name": "_8fe839d2"
+    "chunkName": "pages/shop/index"
   },
   {
     "name": "wishlist",
     "path": "/wishlist",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\wishlist\\\\index.vue",
-    "chunkName": "pages/wishlist/index",
-    "_name": "_396f5768"
+    "chunkName": "pages/wishlist/index"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_793c558d"
+    "chunkName": "pages/index"
   },
   {
     "name": "categories-slug",
     "path": "/categories/:slug?",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\categories\\\\_slug.vue",
-    "chunkName": "pages/categories/_slug",
-    "_name": "_b261e6ae"
+    "chunkName": "pages/categories/_slug"
   },
   {
     "name": "collections-slug",
     "path": "/collections/:slug?",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\collections\\\\_slug.vue",
-    "chunkName": "pages/collections/_slug",
-    "_name": "_36e59eaa"
+    "chunkName": "pages/collections/_slug"
   },
   {
     "name": "posts-slug",
     "path": "/posts/:slug?",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\posts\\\\_slug.vue",
-    "chunkName": "pages/posts/_slug",
-    "_name": "_7ad7e76c"
+    "chunkName": "pages/posts/_slug"
   },
   {
     "name": "spaces-slug",
     "path": "/spaces/:slug?",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\spaces\\\\_slug.vue",
-    "chunkName": "pages/spaces/_slug",
-    "_name": "_a7ccb110"
+    "chunkName": "pages/spaces/_slug"
   }
 ]

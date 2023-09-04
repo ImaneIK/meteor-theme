@@ -1,0 +1,43 @@
+<template>
+    <div class="mx-24 py-16">
+      <div class="container m-auto px-6">
+        <div class="lg:flex justify-between items-center">
+          <div class="lg:w-6/12 lg:p-0 p-7">
+            <h1 class="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl">
+              {{$settings.sections.about.heading}}
+            </h1>
+
+            <p class="mt-3 text-gray-500">
+              {{$settings.sections.about.content}}
+            </p>
+
+            <div class="py-5">
+              <a
+                href="#"
+                class="text-white rounded-md py-2 px-5 text-lg font-semibold bg-amber-600 inline-block border border-amber-600 mr-3"
+                >{{$settings.sections.about.button.community}}</a
+              >
+              <a
+                href="#"
+                class="text-black rounded-md py-2 px-5 text-lg font-semibold bg-gray-400 inline-block border hover:bg-white hover:text-black"
+                >{{$settings.sections.about.button.tour}}</a
+              >
+            </div>
+          </div>
+          <div class="lg:w-5/12 order-2">
+            <img
+              :src="`${$settings.sections.about.image.src}`"
+              style="
+                transform: scale(1) perspective(1040px) rotateY(-11deg) rotateX(2deg)
+                  rotate(2deg);
+              "
+              alt=""
+              class="rounded"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+</template>
+
+<script></script>

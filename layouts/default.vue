@@ -3,7 +3,7 @@
     <sections-navbar></sections-navbar>
     <Nuxt />
     
-    <sections-footer></sections-footer>
+    <sections-footer class="relative bottom-0 mb-0"></sections-footer>
     </div>
 </template>
 

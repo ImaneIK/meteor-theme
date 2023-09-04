@@ -9,8 +9,7 @@
       <div class="flex flex-col gap-4 md:flex-row justify-start md:justify-between items-center">
         <div>
               <h1 class="text-2xl font-normal text-gray-800 capitalize lg:text-3xl">
-                Explore Our variety<br />
-                Collections
+                {{ $settings.sections.heading.collections}}
               </h1>
 
               <div class="mt-2">
@@ -19,7 +18,7 @@
                 <span class="inline-block w-1 h-1 ml-1 bg-amber-500 rounded-full"></span>
               </div>
         </div>
-        <nuxt-link :to="`/shop`" class="text-sm text-amber-500 underline decoration-amber-500 p-2 ">Explore more</nuxt-link>
+        <nuxt-link :to="`/shop`" class="text-sm text-amber-500 underline decoration-amber-500 p-2 ">{{$settings.sections.posts.button.text}}</nuxt-link>
       </div>
       
 
@@ -62,7 +61,7 @@ export default{
         // Count the number of matches between item.name and collection names
         return searchData.data.results.reduce((count, result) => {
           return count + result.collections.filter((collection) => {
-            return collection.name === item.name;
+            return collection.slug === item.slug;
           }).length;
         }, 0);
       });

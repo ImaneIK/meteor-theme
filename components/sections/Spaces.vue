@@ -2,7 +2,20 @@
   <div class="">
     <div class="bg-white">
     <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-      <h2 class="text-2xl font-bold tracking-tight text-gray-900">Customers also viewed</h2>
+      <div class="flex flex-col gap-4 md:flex-row justify-start md:justify-between items-center">
+        <div>
+              <h1 class="text-2xl font-normal text-gray-800 capitalize lg:text-3xl">
+                {{ $settings.sections.heading.collections}}
+              </h1>
+
+              <div class="mt-2">
+                <span class="inline-block w-40 h-1 bg-amber-500 rounded-full"></span>
+                <span class="inline-block w-3 h-1 ml-1 bg-amber-500 rounded-full"></span>
+                <span class="inline-block w-1 h-1 ml-1 bg-amber-500 rounded-full"></span>
+              </div>
+        </div>
+        <nuxt-link :to="`/shop`" class="text-sm text-amber-500 underline decoration-amber-500 p-2 ">{{$settings.sections.posts.button.text}}</nuxt-link>
+      </div>
 
       <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
         <div v-for="card in cards" :key="card.slug" class="group relative">
@@ -19,7 +32,7 @@
               </h3>
               <p class="mt-1 text-sm text-gray-500">{{ card.collections[0].name }}</p>
             </div>
-            <p class="text-sm font-medium text-gray-900">{{ card.price.salePrice }}$</p>
+            <p class="text-sm font-medium text-gray-900">{{ card.price.salePrice }}{{ $store.state.currency.symbol }}</p>
           </div>
         </div>
       </div>

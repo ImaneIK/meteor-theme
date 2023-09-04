@@ -1,6 +1,6 @@
 {
-  "SectionsApplication": {
-    "description": "Auto imported from components/sections/Application.vue"
+  "SectionsAbout": {
+    "description": "Auto imported from components/sections/about.vue"
   },
   "SectionsBanner": {
     "description": "Auto imported from components/sections/Banner.vue"
@@ -47,6 +47,9 @@
   "SectionsSpaces": {
     "description": "Auto imported from components/sections/Spaces.vue"
   },
+  "SectionsTeam": {
+    "description": "Auto imported from components/sections/Team.vue"
+  },
   "SiAppLoader": {
     "description": "Auto imported from components/si/AppLoader.vue"
   },
@@ -55,9 +58,6 @@
   },
   "SiCollection": {
     "description": "Auto imported from components/si/collection.vue"
-  },
-  "SiDatepicker": {
-    "description": "Auto imported from components/si/datepicker.vue"
   },
   "SiFilters": {
     "description": "Auto imported from components/si/Filters.vue"

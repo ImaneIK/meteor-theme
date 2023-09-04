@@ -6,7 +6,7 @@ You can directly use them in pages and other components without the need to impo
 
 **Tip:** If a component is conditionally rendered with `v-if` and is big, it is better to use `Lazy` or `lazy-` prefix to lazy load.
 
-- `<SectionsApplication>` | `<sections-application>` (components/sections/Application.vue)
+- `<SectionsAbout>` | `<sections-about>` (components/sections/about.vue)
 - `<SectionsBanner>` | `<sections-banner>` (components/sections/Banner.vue)
 - `<SectionsBlog>` | `<sections-blog>` (components/sections/Blog.vue)
 - `<SectionsCategories>` | `<sections-categories>` (components/sections/Categories.vue)
@@ -22,10 +22,10 @@ You can directly use them in pages and other components without the need to impo
 - `<SectionsRelatedPosts>` | `<sections-related-posts>` (components/sections/RelatedPosts.vue)
 - `<SectionsReviews>` | `<sections-reviews>` (components/sections/Reviews.vue)
 - `<SectionsSpaces>` | `<sections-spaces>` (components/sections/Spaces.vue)
+- `<SectionsTeam>` | `<sections-team>` (components/sections/Team.vue)
 - `<SiAppLoader>` | `<si-app-loader>` (components/si/AppLoader.vue)
 - `<SiCarousel>` | `<si-carousel>` (components/si/carousel.vue)
 - `<SiCollection>` | `<si-collection>` (components/si/collection.vue)
-- `<SiDatepicker>` | `<si-datepicker>` (components/si/datepicker.vue)
 - `<SiFilters>` | `<si-filters>` (components/si/Filters.vue)
 - `<SiGallery>` | `<si-gallery>` (components/si/Gallery.vue)
 - `<SiLoader>` | `<si-loader>` (components/si/Loader.vue)

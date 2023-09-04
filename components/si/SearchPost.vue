@@ -1,42 +1,67 @@
 <template>
+
+  <!-- background image -->
   <div
-    class="mt-12 object-center relative w-screen p-24 bg-cover bg-center"
+    class="mt-12 object-center relative w-screen px-12 py-12 bg-cover bg-center"
     style="
       background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdevx.work%2Fblog%2Fwp-content%2Fuploads%2F2021%2F03%2FLOUNGE-01-1920x1024.jpg&f=1&nofb=1&ipt=bc89ea53d39a8da6df1ca59ed5daba3155d44fa3627e5071448aecd5da8be808&ipo=images');
     "
   >
+    <!-- dark filter -->
     <div class="absolute inset-0 bg-black opacity-50"></div>
 
-    <div class="relative flex inset-0 flex items-center justify-center">
-      <div
-        class="flex-col shadow-md rounded-md search-bar flex justify-center items-center gap-10 p-5 lg:flex-row"
-      >
-        <div
-          class="search-field bg-white bg-opacity-30 backdrop-blur rounded-lg p-2 flex items-center gap-5 w-full"
-        >
-          <input
-            placeholder="Search posts..."
-            v-model.trim="searchQuery"
-            type="search"
-            id="post"
-            @input="handleInput"
-            class="text-white border-none p-2 rounded bg-transparent focus:ring-2 focus:ring-amber-400 w-full"
-          />
-        </div>
 
-        <button
-          @click="search"
-          class="bg-amber-500 bg-opacity-70 text-white px-4 py-2 rounded hover:bg-opacity-80 backdrop-blur w-full"
-        >
-          Search
-        </button>
+    <!-- content -->
+    <div class="flex flex-col gap-4">
+
+      <!-- titling -->
+      <div class="text-3xl my-4 mx-auto text-center w-full opacity-75 text-white">
+        {{$settings.sections.posts.title}}
       </div>
-      <div class="autocomplete">
-        <ul v-if="showAutocomplete">
-          <li v-for="(result, index) in posts" :key="result">
-            <nuxt-link :to="`/posts/${postSlug[index]}`">{{ result }}</nuxt-link>
-          </li>
-        </ul>
+
+      <!-- search article -->
+      <div class="px-8 flex flex-col mx-auto lg:w-1/2 inset-0 flex items-center">
+            <div
+              class="bg-white bg-opacity-30 backdrop-blur rounded-lg p-2 flex items-center gap-5 w-full"
+            >
+              <svg class="m-2 fill-white" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg> 
+
+              <input
+                v-model.trim="searchQuery"
+                type="search"
+                id="post"
+                @input="handleInput"
+                @keypress="search"
+                class="text-white rounded placeholder-white border-none p-2 rounded bg-transparent focus:outline-none focus:border-transparent"
+                placeholder="search for articles ..."
+                value="Gar"
+              />
+
+            </div>
+            <ul
+              v-if="showAutocomplete"
+              class="bg-white border divide-y w-full mt-2"
+            >
+              <li
+                v-for="(result, index) in posts"
+                :key="result"
+                class="bg-gray-100 pl-8 pr-2 py-1 relative cursor-pointer hover:bg-gray-200 hover:text-gray-900"
+              >
+                <svg
+                  class="absolute w-4 h-4 left-2 top-2"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <nuxt-link :to="`/posts/${postSlug[index]}`">{{ result }}</nuxt-link>
+              </li>
+            </ul>
       </div>
     </div>
   </div>
@@ -111,6 +136,7 @@ export default {
   left: 0;
   width: 100%;
 }
+
 .autocomplete li {
   padding: 10px;
   cursor: pointer;

@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <si-SearchPost class="p-8"></si-SearchPost>
+    <si-SearchPost></si-SearchPost>
 
     <div v-if="loading" class="flex justify-center items-center h-screen">
       <si-loader />

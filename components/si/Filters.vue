@@ -33,7 +33,7 @@
             <div class="border-t border-gray-200 p-4">
               <div class="flex justify-between gap-4">
                 <label for="FilterPriceFrom" class="flex items-center gap-2">
-                  <span class="text-sm text-gray-600">$</span>
+                  <span class="text-sm text-gray-600">{{ $store.state.currency.code }}</span>
 
                   <input
                     type="number"
@@ -45,7 +45,7 @@
                 </label>
 
                 <label for="FilterPriceTo" class="flex items-center gap-2">
-                  <span class="text-sm text-gray-600">$</span>
+                  <span class="text-sm text-gray-600">{{ $store.state.currency.code }}</span>
 
                   <input
                     type="number"

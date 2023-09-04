@@ -4,101 +4,168 @@
       <si-Loader />
     </div>
 
-    <div
-      v-if="!loading && cards != null"
-      class="container mx-auto px-5 py-8 lg:px-12 "
-    >
-
-    
-      <div class="font-semibold  mb-12">
-        <div class="flex justify-between w-full">
-          <h1 class="block justify-start text-sm">
-            <span class="text-orange-600 tracking-wide">OUR SPACES</span>
+    <div v-if="!loading && cards != null" class="container mx-auto px-5 py-8 md:px-12">
+      <div
+        class="flex flex-col gap-4 md:flex-row justify-start md:justify-between items-center"
+      >
+        <div>
+          <h1 class="text-2xl font-normal text-gray-800 capitalize lg:text-3xl">
+            {{ $settings.sections.spaces.heading }}
           </h1>
-          <nuxt-link class=" block items-center justify-end rounded-md  bg-amber-600 text-white font-light text-sm p-2" :to="`/shop`">Explore more</nuxt-link>
+
+          <div class="mt-2">
+            <span class="inline-block w-40 h-1 bg-amber-500 rounded-full"></span>
+            <span class="inline-block w-3 h-1 ml-1 bg-amber-500 rounded-full"></span>
+            <span class="inline-block w-1 h-1 ml-1 bg-amber-500 rounded-full"></span>
+          </div>
         </div>
-        <p class=" text-4xl font-normal w-full md:w-full">
-          Our newest items<br />for your team to explore
-        </p>
+        <nuxt-link
+          :to="`/shop`"
+          class="text-sm text-amber-500 underline decoration-amber-500 p-2"
+          >{{$settings.sections.posts.button.text}}
+          </nuxt-link>
       </div>
 
      
-      
-      <div class="-m-1 flex flex-wrap md:-m-2">
-        <div class="flex w-full md:w-1/2 flex-wrap">
-          <nuxt-link :to="`/spaces/${cards[0].slug}`" class="p-1 relative w-full lg:w-1/2 transition-all duration-300 group overflow-hidden ">
+      <div class="flex flex-col lg:flex-row gap-2 my-12">
+        <div  class="flex flex-col gap-2 w-full lg:w-1/2  overflow-hidden">
+          <div class="flex flex-col md:flex-row gap-2 rounded-bl-md">
+            <nuxt-link
+            :to="`/spaces/${cards[0].slug}`"
+            class="relative rounded-md w-full lg:w-1/2 transition-all duration-300 group overflow-hidden"
+          >
             <img
               alt="gallery"
-              class="block lg:h-full w-full object-cover object-center  h-3/4  group-hover:h-3/4 transition-all duration-300 overflow-hidden"
+              class="block rounded-tr-md rounded-tl-md h-3/4 lg:h-full w-full object-cover object-center  lg:group-hover:h-3/4 transition-all duration-300 overflow-hidden"
               :src="cards[0].images[0].src"
             />
-            <div class="m-1 absolute h-1/5  w-full p-2 bottom-0 left-0 opacity-0  group-hover:opacity-100 duration-300 bg-black text-white overflow-hidden">
-                          <h2>{{cards[0].name}}</h2>
-                          <p>lorem ipsum</p>
+            <div
+              class="p-2 rounded-br-md rounded-bl-md flex flex-col w-full duration-300 bg-black text-white"
+            >
+              <span class="star-rating">
+                {{ displayStars(cards[0].review.rating) }}
+              </span>
+              <div class="text-xs font-semibold flex justify-between">
+                <span class="block">{{ cards[0].name }}</span>
+                <span class="block">{{ cards[0].price.salePrice }}{{ $store.state.currency.symbol }}</span>
+              </div>
             </div>
-          </nuxt-link>
+            </nuxt-link>
 
-          <nuxt-link :to="`/spaces/${cards[1].slug}`" class="p-1 relative w-full lg:w-1/2 transition-all duration-300 group overflow-hidden ">
+            <nuxt-link
+            :to="`/spaces/${cards[1].slug}`"
+            class="relative rounded-md w-full lg:w-1/2 transition-all duration-300 group overflow-hidden"
+          >
             <img
               alt="gallery"
-              class="block h-full w-full object-cover object-center group-hover:h-3/4 transition-all duration-300 overflow-hidden"
+              class="block rounded-tr-md rounded-tl-md h-3/4 lg:h-full w-full object-cover object-center  lg:group-hover:h-3/4 transition-all duration-300 overflow-hidden"
               :src="cards[1].images[0].src"
             />
-            <div class="m-1 absolute w-full h-1/5  p-2 bottom-0 left-0 opacity-0 group-hover:opacity-100 duration-300 bg-black text-white overflow-hidden">
-                          <h2>{{cards[0].name}}</h2>
-                          <p>lorem ipsum</p>
+            <div
+              class="p-2 rounded-br-md rounded-bl-md flex flex-col w-full duration-300 bg-black text-white"
+            >
+              <span class="star-rating">
+                {{ displayStars(cards[1].review.rating) }}
+              </span>
+              <div class="text-xs font-semibold flex justify-between">
+                <span class="block">{{ cards[1].name }}</span>
+                <span class="block">{{ cards[1].price.salePrice }}{{ $store.state.currency.symbol }}</span>
+              </div>
             </div>
-          </nuxt-link>
-
-          <nuxt-link :to="`/spaces/${cards[2].slug}`" class="p-1 relative w-full transition-all duration-300 group overflow-hidden ">
+            </nuxt-link>
+          </div>
+          
+          <nuxt-link
+            :to="`/spaces/${cards[2].slug}`"
+            class="relative rounded-md w-full transition-all duration-300 group overflow-hidden"
+          >
             <img
               alt="gallery"
-              class="block h-full w-full object-cover object-center group-hover:h-4/5 transition-all duration-300 overflow-hidden"
+              class="block h-3/4 lg:h-full w-full object-cover object-center lg:group-hover:h-3/4 transition-all duration-300 overflow-hidden"
               :src="cards[2].images[0].src"
             />
-            <div class="m-1 absolute w-full h-1/5 p-2 bottom-0 left-0 opacity-0 group-hover:opacity-100 duration-300 bg-black text-white overflow-hidden">
-                          <h2>{{cards[0].name}}</h2>
-                          <p>lorem ipsum</p>
+            <div
+              class="relative p-2 flex flex-col w-full h-1/4 transition-all duration-300 bg-black text-white"
+            >
+              <span class="star-rating">
+                {{ displayStars(cards[2].review.rating) }}
+              </span>
+              <div class="text-xs font-semibold flex justify-between">
+                <span class="block">{{ cards[2].name }}</span>
+                <span class="block">{{ cards[2].price.salePrice }}{{ $store.state.currency.symbol }}</span>
+              </div>
             </div>
-          </nuxt-link>
+            </nuxt-link>
         </div>
 
-        <div class="flex w-full md:w-1/2 flex-wrap">
-          <nuxt-link :to="`/spaces/${cards[0].slug}`" class="p-1 relative w-full transition-all duration-300 group overflow-hidden ">
+        <div class="flex flex-col gap-2 w-full lg:w-1/2  overflow-hidden">
+          <nuxt-link
+            :to="`/spaces/${cards[3].slug}`"
+            class="relative rounded-md w-full transition-all duration-300 group overflow-hidden"
+          >
             <img
               alt="gallery"
-              class="block h-full w-full object-cover object-center group-hover:h-4/5 transition-all duration-300 overflow-hidden"
-              :src="cards[0].images[2].src"
-            />
-            <div class="m-1 h-1/5  absolute w-full h-1/5 p-2 bottom-0 left-0 opacity-0 group-hover:opacity-100 duration-300 bg-black text-white overflow-hidden">
-                          <h2>{{cards[0].name}}</h2>
-                          <p>lorem ipsum</p>
-            </div>
-          </nuxt-link>
-
-          <nuxt-link :to="`/spaces/${cards[3].slug}`" class="p-1 relative w-full lg:w-1/2 transition-all duration-300 group overflow-hidden ">
-            <img
-              alt="gallery"
-              class="block h-full w-full object-cover object-center group-hover:h-3/4 transition-all duration-300 overflow-hidden"
+              class="block rounded-tr-md rounded-tl-md h-3/4 lg:h-full w-full object-cover object-center  lg:group-hover:h-3/4 transition-all duration-300 overflow-hidden"
               :src="cards[3].images[0].src"
             />
-            <div class="m-1 h-1/5 absolute w-full p-2 bottom-0 left-0 opacity-0 group-hover:opacity-100 duration-300 bg-black text-white overflow-hidden">
-                          <h2>{{cards[0].name}}</h2>
-                          <p>lorem ipsum</p>
+            <div
+              class="relative p-2 flex flex-col w-full h-1/4 transition-all duration-300 bg-black text-white"
+            >
+              <span class="star-rating">
+                {{ displayStars(cards[3].review.rating) }}
+              </span>
+              <div class="text-xs font-semibold flex justify-between">
+                <span class="block">{{ cards[3].name }}</span>
+                <span class="block">{{ cards[3].price.salePrice }}{{ $store.state.currency.symbol }}</span>
+              </div>
             </div>
-          </nuxt-link>
+            </nuxt-link>
 
-          <nuxt-link :to="`/spaces/${cards[0].slug}`" class="p-1 relative w-full lg:w-1/2 transition-all duration-300 group overflow-hidden ">
+          <div class="flex flex-col md:flex-row gap-2">
+            <nuxt-link
+            :to="`/spaces/${cards[0].slug}`"
+            class="relative rounded-md w-full lg:w-1/2 transition-all duration-300 group overflow-hidden"
+          >
             <img
               alt="gallery"
-              class="block h-full w-full object-cover object-center group-hover:h-3/4 transition-all duration-300 overflow-hidden"
-              :src="cards[1].images[0].src"
+              class="block rounded-tr-md rounded-tl-md h-3/4 lg:h-full w-full object-cover object-center  lg:group-hover:h-3/4 transition-all duration-300 overflow-hidden"
+              :src="cards[0].images[2].src"
             />
-            <div class="m-1 h-1/5  absolute w-full p-2 bottom-0 left-0 opacity-0 group-hover:opacity-100 duration-300 bg-black text-white overflow-hidden">
-                          <h2>{{cards[1].name}}</h2>
-                          <p>lorem ipsum</p>
+            <div
+              class="p-2 rounded-br-md rounded-bl-md flex flex-col w-full duration-300 bg-black text-white"
+            >
+              <span class="star-rating">
+                {{ displayStars(cards[0].review.rating) }}
+              </span>
+              <div class="text-xs font-semibold flex justify-between">
+                <span class="block">{{ cards[0].name }}</span>
+                <span class="block">{{ cards[0].price.salePrice }}{{ $store.state.currency.symbol }}</span>
+              </div>
             </div>
-          </nuxt-link>
+            </nuxt-link>
+
+            <nuxt-link
+            :to="`/spaces/${cards[0].slug}`"
+            class="relative rounded-md w-full lg:w-1/2 transition-all duration-300 group overflow-hidden"
+          >
+            <img
+              alt="gallery"
+              class="block rounded-tr-md rounded-tl-md h-3/4 lg:h-full w-full object-cover object-center  lg:group-hover:h-3/4 transition-all duration-300 overflow-hidden"
+              :src="cards[0].images[1].src"
+            />
+            <div
+              class="p-2 rounded-br-md rounded-bl-md flex flex-col w-full duration-300 bg-black text-white"
+            >
+              <span class="star-rating">
+                {{ displayStars(cards[0].review.rating) }}
+              </span>
+              <div class="text-xs font-semibold flex justify-between">
+                <span class="block">{{ cards[0].name }}</span>
+                <span class="block">{{ cards[0].price.salePrice }}{{ $store.state.currency.symbol }}</span>
+              </div>
+            </div>
+            </nuxt-link>
+          </div>
         </div>
       </div>
     </div>
@@ -119,6 +186,25 @@ export default {
   },
 
   methods: {
+    displayStars(rating) {
+      const fullStars = Math.floor(rating); // Get the number of full stars
+      const halfStar = rating % 1 >= 0.5; // Check for a half star
+
+      // Create an array with full stars and a half star (if applicable)
+      const starArray = Array(fullStars).fill("★");
+
+      if (halfStar) {
+        starArray.push("☆"); // Add a half star
+      }
+
+      // Fill the remaining space with empty stars (if needed)
+      while (starArray.length < 5) {
+        starArray.push("☆");
+      }
+
+      return starArray.join(""); // Join the stars into a string
+    },
+
     async getCards(filter) {
       this.loading = true;
       try {
@@ -132,3 +218,13 @@ export default {
   },
 };
 </script>
+
+<style>
+/* Define styles for stars and half star */
+.star-rating {
+  font-size: 18px;
+  color: #ffd700;
+  display: inline-block;
+  white-space: nowrap;
+}
+</style>

@@ -2,11 +2,13 @@
   <div
     class="flex-col shadow-md rounded-md search-bar flex justify-center items-center gap-4 p-5 w-full xl:flex-row"
   >
+
+  <!-- from /to date range fields -->
   <div id="date-picker" class="flex flex-col md:flex-row justify-center gap-4 w-full ">
     <div
       class="search-field bg-white bg-opacity-30 backdrop-blur rounded-lg p-2 flex items-center w-full"
     >
-      <label for="from-date" class="text-white ">From:</label>
+      <label for="from-date" class="text-white ">{{$settings.header.searchbar.fromdate.label}}:</label>
       <input
         type="date"
         id="from-date"
@@ -18,7 +20,7 @@
     <div
       class="search-field bg-white bg-opacity-30 backdrop-blur rounded-lg p-2 flex items-center w-full"
     >
-      <label for="from-date" class="text-white">To:</label>
+      <label for="from-date" class="text-white">{{$settings.header.searchbar.todate.label}}:</label>
       <input
         type="date"
         id="to-date"
@@ -28,16 +30,19 @@
     </div>
   </div>
    
+
+   <!-- collection selection -->
   <div class="flex flex-col md:flex-row justify-center gap-4 w-full ">
     <div
       class="search-field bg-white bg-opacity-30 backdrop-blur rounded-lg p-2 flex items-center w-full"
     >
-      <label for="location" class="text-white">Location:</label>
+      <!-- <label for="location" class="text-white">{{$settings.header.searchbar.location.label}}:</label> -->
       <select
         v-model="selectedLocation"
         class="text-white border-none p-2 rounded bg-transparent focus:ring-2 focus:ring-amber-400"
       >
-        <option class="text-black bg-gray-200" value="">All Categories</option>
+      <option class="text-black bg-gray-200" value="">{{$settings.header.searchbar.location.label}}</option>
+
         <option
           class="text-black bg-gray-200"
           v-for="location in locations"
@@ -52,12 +57,12 @@
     <div
       class="search-field bg-white bg-opacity-30 backdrop-blur rounded-lg p-2 flex items-center w-full"
     >
-      <label for="category" class="text-white">Category:</label>
+      <!-- <label for="category" class="text-white">{{$settings.header.searchbar.category.label}}:</label> -->
       <select
         v-model="selectedCategory"
         class="text-white border-none p-2 rounded bg-transparent focus:ring-2 focus:ring-amber-400"
       >
-        <option class="text-black bg-gray-200" value="">All Categories</option>
+        <option class="text-black bg-gray-200" value="">{{$settings.header.searchbar.category.label}}</option>
         <option
           class="text-black bg-gray-200"
           v-for="collection in collections"
@@ -76,7 +81,7 @@
         @click="search"
         class=" bg-amber-500 bg-opacity-70 text-white px-4 py-4 rounded hover:bg-opacity-80 backdrop-blur  w-full"
       >
-      <svg class="mx-auto" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>      </button>
+      <svg class="mx-auto fill-white" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>      </button>
     </nuxt-link>
 
     

@@ -53,8 +53,8 @@
             {{ space.name }}
           </h1>
           <div class="flex mb-4">
-            <span class="flex items-center">
-              <svg
+            <span class="block p-1 border decoration-amber-500 m-2 flex items-center">
+            <svg
                 fill="currentColor"
                 stroke="currentColor"
                 stroke-linecap="round"
@@ -66,60 +66,12 @@
                 <path
                   d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
                 ></path>
-              </svg>
-              <svg
-                fill="currentColor"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                class="w-4 h-4 text-red-500"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                ></path>
-              </svg>
-              <svg
-                fill="currentColor"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                class="w-4 h-4 text-red-500"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                ></path>
-              </svg>
-              <svg
-                fill="currentColor"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                class="w-4 h-4 text-red-500"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                ></path>
-              </svg>
-              <svg
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                class="w-4 h-4 text-red-500"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                ></path>
-              </svg>
-              <span class="text-gray-600 ml-3">4 Reviews</span>
+            </svg> 
+              {{space.review.rating.toFixed(1)}}
+              </span>
+            <span class=" flex items-center">
+              
+              <span class="text-gray-600 ml-3">{{ space.review.reviews.length }} Reviews</span>
             </span>
             <span class="flex ml-3 pl-3 py-2 border-l-2 border-gray-200">
               <a class="text-gray-500">
@@ -166,9 +118,13 @@
               </a>
             </span>
           </div>
+          <div class="  flex text-xs font-light text-gray-500 m-4">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ff8000}</style><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+            <p v-for="location in getLocationsForSpace(space) " class="block mx-4">{{ location.name }}</p>
+          </div>
           <p class="mb-6">{{ space.description }}</p>
           <div class="  flex text-xs font-light text-gray-500 m-4">
-            <p v-for="collection in space.collections.slice(2) " class="block mx-4">{{ collection.name }}</p>
+            <p v-for="collection in getServicesForSpace(space) " class="block mx-4 border rounded-md p-1">{{ collection.name }}</p>
           </div>
 
           <!-- <div class="w-full">
@@ -196,7 +152,6 @@
             </button>
 
               <!-- v-if="$settings.sections.products.add_to_wishlist.active" -->
-              <!-- v-if="$store.state.wishlist.find(i=>i._id==space._id)" @click="removeFromWishlist"  -->
             <div >
               <button
                 
@@ -237,31 +192,8 @@
                 ></path>
                 </svg>              
               </button>
-              
-              <!-- v-else -->
-              <!-- @click="addToWishlist" -->
-              
+                            
             </div>
-
-            
-
-            <!-- <button
-              class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4"
-              @click="addToWishlist"
-            >
-              <svg
-                fill="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                class="w-5 h-5"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
-                ></path>
-              </svg>
-            </button> -->
           </div>
         </div>
       </div>
@@ -331,8 +263,6 @@
 
 <script>
 export default {
-
-
   async fetch() {
     this.loading = true;
     const { slug } = this.$route.params;
@@ -390,7 +320,6 @@ export default {
     }
   },
 
-
   data() {
     return {
       // cards: [],
@@ -403,12 +332,12 @@ export default {
       quantity: 1,
       price: { salePrice: 0, comparePrice: 0 },
       discount: this.upsell ? this.upsell.discount : null,
-      outofstock: false
+      outofstock: false,
+      services: this.$settings.sections.services,
+      locations: this.$settings.sections.locations,
     };
   },
 
-
-  
   computed: {
     price() {
       if (this.variant) {
@@ -416,7 +345,7 @@ export default {
       } else {
         return this.space.price.salePrice * this.quantity;
       }
-    }
+    },
   },
 
   methods: {
@@ -457,7 +386,32 @@ export default {
     removeFromWishlist(){
             this.$tools.call('REMOVE_FROM_WISHLIST', this.space);
             //this.$tools.toast(this.$settings.sections.alerts.removed_from_wishlist);
+        },
+
+        getServicesForSpace(space) {
+          try{
+            return this.services.filter(service => {
+            return space.collections.some(item => item.slug === service.slug);
+            });
+          }catch(e){
+            console.log(e);
+            return e;
+            
+          }
+        },
+
+        getLocationsForSpace(space) {
+          try{
+            return this.locations.filter(location => {
+            return space.collections.some(item => item.slug === location.slug);
+            });
+          }catch(e){
+            console.log(e);
+            return e;
+            
+          }
         }
+
   },
 };
 </script>

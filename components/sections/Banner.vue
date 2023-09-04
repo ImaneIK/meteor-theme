@@ -4,7 +4,7 @@
   
 
   <div class="relative flex flex-col inset-0 flex items-center justify-center">
-  <h1 class="text-3xl m-8 w-full lg:w-1/2 opacity-75 text-center text-white ">Find your Muse, find your favorite space to Co-Work</h1>
+  <h1 class="text-3xl m-8 w-full lg:w-1/2 opacity-75 text-center text-white ">{{ $settings.sections.spaces.heading }}</h1>
     <si-SearchBar class="mx-12"  style="z-index: 1"/>
     
   </div>
