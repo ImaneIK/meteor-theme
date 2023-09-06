@@ -1,15 +1,39 @@
 <template>
+       
     <div class="flex items-center justify-center">
-        <button @click="inc(-1)" class="bg-gray-50 border py-2 px-4" :class="value > quantity.min ? 'bg-primary text-white' : ''">-</button>
-        <div class="flex">
-            <label class="relative border py-2 h-full">
-                <span class="px-2 py-4 px-5 text-center ">{{ value }}</span>
-                <input :min="quantity.min" :max="quantity.max" class="px-2 text-center absolute outline-none inset-0 bg-opacity-0 w-full h-full" v-model="value" type="number">
-            </label>
-            <span class="flex items-center bg-white border px-2" v-if="quantity.unit">{{ quantity.unit }}</span>
+        <label for="Quantity" class="sr-only"> Quantity </label>
+
+        <div class="flex items-center border border-gray-200 rounded">
+            <button
+            @click="inc(-1)"
+            type="button"
+            :class="value <= quantity.min ? 'bg-primary text-white' : ''"
+            class="w-10 h-10 leading-10 text-gray-600 transition hover:opacity-75"
+            >
+            &minus;
+            </button>
+
+            <input
+            type="number"
+            id="Quantity"
+            v-model="value"
+            value= value
+            :min="quantity.min" :max="quantity.max"
+            class="h-10 w-16 border-transparent text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
+            />
+
+            <button
+                @click="inc(1)"
+            type="button"
+            :class="value >= quantity.instock ? 'bg-primary text-white' : ''"
+            class="w-10 h-10 leading-10 text-gray-600 transition hover:opacity-75"
+            >
+            &plus;
+            </button>
         </div>
-        <button @click="inc(1)" class="bg-gray-50 border py-2 px-4" :class="value < quantity.instock ? 'bg-primary text-white' : ''">+</button>
     </div>
+
+    
 </template>
 
 <script>

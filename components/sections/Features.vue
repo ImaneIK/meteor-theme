@@ -1,6 +1,6 @@
 <template>
 <section class=" bg-black text-white my-8" >
-  <div class="mx-12 max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+  <div class="mx-4 md:mx-12 max-w-screen-xl py-8 sm:py-12 lg:px-8 lg:py-16">
     <div
       class="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:items-center lg:gap-x-16"
     >
@@ -14,8 +14,8 @@
         </p>
 
         <a
-          href="#"
-          class="mt-8 inline-block rounded bg-amber-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-amber-700 focus:outline-none focus:ring focus:ring-yellow-400"
+          href="/shop"
+          class="mt-8 w-1/2 px-3 lg:w-auto text-center inline-block rounded bg-amber-600 py-3 text-sm font-medium text-white transition hover:bg-amber-700 focus:outline-none focus:ring focus:ring-yellow-400"
         >
 
         {{ $settings.sections.heading.services.cta }}
@@ -23,7 +23,7 @@
         </a>
       </div>
 
-      <div  class="grid grid-cols-3 gap-4 sm:grid-cols-4">
+      <div  class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
         <div v-for="(card,i) in cards"
           class="block rounded-xl border border-gray-100 p-3 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
         >

@@ -9,11 +9,11 @@
       <si-loader></si-loader>
     </div>
     <div class="bg-white rounded-md p-2 my-3 mx-2 reviews" id="reviews">
-      <div class="flex flex-wrap">
+      <div class="flex flex-no-wrap overflow-x-scroll scrolling-touch lg:overflow-x-auto lg:scrolling-auto">
         <div
           v-for="(review, index) in reviews.results"
           :key="index"
-          class="w-full md:w-1/2"
+          class="w-full md:w-1/2 flex-shrink-0 w-full"
         >
           <div
             class="bg-white shadow flex justify-between flex-col m-1 p-2 h-full rounded-md"

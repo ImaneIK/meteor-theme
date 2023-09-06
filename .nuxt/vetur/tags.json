@@ -23,9 +23,6 @@
   "SectionsFeatures": {
     "description": "Auto imported from components/sections/Features.vue"
   },
-  "SectionsFetch": {
-    "description": "Auto imported from components/sections/Fetch.vue"
-  },
   "SectionsFooter": {
     "description": "Auto imported from components/sections/Footer.vue"
   },
@@ -53,6 +50,9 @@
   "SiAppLoader": {
     "description": "Auto imported from components/si/AppLoader.vue"
   },
+  "SiBottomNav": {
+    "description": "Auto imported from components/si/BottomNav.vue"
+  },
   "SiCarousel": {
     "description": "Auto imported from components/si/carousel.vue"
   },
@@ -61,6 +61,9 @@
   },
   "SiFilters": {
     "description": "Auto imported from components/si/Filters.vue"
+  },
+  "SiFilterToggle": {
+    "description": "Auto imported from components/si/FilterToggle.vue"
   },
   "SiGallery": {
     "description": "Auto imported from components/si/Gallery.vue"

@@ -1,6 +1,6 @@
 <template>
-    <div class="mx-24 py-16">
-      <div class="container m-auto px-6">
+    <div class="lg:mx-24 lg:py-16">
+      <div class="container m-auto md:px-6">
         <div class="lg:flex justify-between items-center">
           <div class="lg:w-6/12 lg:p-0 p-7">
             <h1 class="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl">
@@ -11,7 +11,7 @@
               {{$settings.sections.about.content}}
             </p>
 
-            <div class="py-5">
+            <div class="py-5 flex flex-wrap justify-center md: justify-start gap-2">
               <a
                 href="#"
                 class="text-white rounded-md py-2 px-5 text-lg font-semibold bg-amber-600 inline-block border border-amber-600 mr-3"

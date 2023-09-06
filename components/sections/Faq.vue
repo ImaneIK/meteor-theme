@@ -5,21 +5,20 @@
           <div class="flex flex-col md:flex-row">
             <div class="md:w-1/3 p-4 text-sm">
               <div class="text-3xl">
-                Frequently asked <span class="font-medium">Questions</span>
+                {{$settings.sections.heading.faq.title}}
               </div>
-              <div class="my-2">Wondering how our service works ?</div>
-              <div class="mb-2">Confused about how we can improve your business ?</div>
-              <div class="text-xs text-gray-600">Dive into our FAQ for more details</div>
+              <div class="mb-2">{{$settings.sections.heading.faq.excerpt}}</div>
+              
             </div>
             <div class="md:w-2/3">
               <div class="p-4">
-                <div v-for="(item, index) in faqItems" :key="index" class="faq-item mb-2">
-                  <div
+                <div v-for="(item, index) in $settings.faq" :key="index" class="faq-item mb-2">
+                  <div @click="toggleAccordion(index)"
                     class="font-medium rounded-sm text-lg px-2 py-3 flex text-gray-800 flex-row-reverse mt-2 cursor-pointer text-black bg-white hover:bg-white"
-                    @click="toggleAccordion(index)"
+                    
                   >
-                    <div class="flex-auto">{{ item.question }}</div>
-                    <div class="px-2 mt-1">
+                    <div class="flex-auto" >{{ item.question }}</div>
+                    <div class="px-2 mt-1 " >
                       <div class="accordion-icon">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +38,7 @@
                     </div>
 
                   </div>
-                  <div v-if="item.open" class="faq-item answer p-2 text-justify text-left text-gray-800 mb-5 bg-white">
+                  <div :class="{ 'open': item.open }" class="faq-item answer px-2 text-justify text-left text-gray-800 bg-white">
                   {{ item.answer }}
                 </div>
                 </div>
@@ -56,38 +55,28 @@
 export default {
   data() {
     return {
-      faqItems: [
-        {
-          question: "What is a coworking space?",
-          answer: "A coworking space is a shared workspace where individuals and teams from various companies work together in a collaborative environment. It provides flexible office solutions with amenities such as high-speed internet, meeting rooms, and communal areas.",
-          open: false,
-        },
-        {
-          question: "How do I book a workspace?",
-          answer: "Booking a workspace is easy! Simply navigate to our Booking page, select the type of workspace you need (private office, dedicated desk, or shared workspace), choose your preferred dates and times, provide your contact information, and complete the payment process.",
-          open: false,
-        },
-        {
-          question: "What amenities are included in my membership?",
-          answer: "Your membership comes with various amenities such as high-speed Wi-Fi, printing facilities, access to the lounge area, complimentary coffee and refreshments, and the opportunity to attend networking events.",
-          open: false,
-        },
-      ],
+        open:false,
     };
   },
   methods: {
     toggleAccordion(index) {
-      this.faqItems[index].open = !this.faqItems[index].open;
+      this.$set(this.$settings.faq[index], "open", !this.$settings.faq[index].open);
     },
   },
 };
 </script>
 
 
-<style scoped>
-.faq-item .answer {
+<style>
+.faq-item.answer {
+  max-height: 0;
   overflow: hidden;
-  transition: 0.3s ease-out;
+  transition: max-height 0.5s ease-in-out;
 }
 
+.faq-item.answer.open {
+  max-height: 100px; /* Adjust the max height as needed */
+  transition: max-height 0.5s ease-in-out;
+}
 </style>
+

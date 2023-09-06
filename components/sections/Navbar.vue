@@ -10,7 +10,7 @@
       },
     ]"
   >
-    <div class="flex items-center justify-between">
+    <div class="flex items-center justify-center md:justify-between">
       <!-- Header logo -->
       <div class="font-bold text-amber-600">
         <a href="/"><img class="w-24" :src="$settings.header.logo.src" /></a>
@@ -18,7 +18,7 @@
 
       <!-- Mobile toggle -->
 
-      <div class="md:hidden">
+      <!-- <div class="md:hidden">
         <button @click="drawer">
           <svg
             class="h-8 w-8 fill-current text-black"
@@ -32,7 +32,7 @@
             <path d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
-      </div>
+      </div> -->
 
       <!-- Navbar -->
       <div class="hidden md:block" style="padding: 0 3rem">
@@ -147,8 +147,10 @@
         </div>
       </transition>
 
+      <si-BottomNav class="md:hidden"></si-BottomNav>
+
       <!-- Drawer Menu -->
-      <aside
+      <!-- <aside
         class="p-4 transform top-0 left-0 w-64 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30"
         :class="isOpen ? 'translate-x-0' : '-translate-x-full'"
       >
@@ -255,7 +257,7 @@
             </a>
           </div>
         </div>
-      </aside>
+      </aside> -->
     </div>
   </div>
 </template>
