@@ -34,7 +34,7 @@
             :to="`/spaces/${cards[0].slug}`"
             class="relative rounded-md w-full lg:w-1/2 transition-all duration-300 group overflow-hidden"
           >
-            <img
+            <nuxt-img
               alt="gallery"
               class="block rounded-tr-md rounded-tl-md h-3/4 lg:h-full w-full object-cover object-center  lg:group-hover:h-3/4 transition-all duration-300 overflow-hidden"
               :src="cards[0].images[0].src"
@@ -56,7 +56,7 @@
             :to="`/spaces/${cards[1].slug}`"
             class="relative rounded-md w-full lg:w-1/2 transition-all duration-300 group overflow-hidden"
           >
-            <img
+            <nuxt-img
               alt="gallery"
               class="block rounded-tr-md rounded-tl-md h-3/4 lg:h-full w-full object-cover object-center  lg:group-hover:h-3/4 transition-all duration-300 overflow-hidden"
               :src="cards[1].images[0].src"
@@ -79,7 +79,7 @@
             :to="`/spaces/${cards[2].slug}`"
             class="relative rounded-md w-full transition-all duration-300 group overflow-hidden"
           >
-            <img
+            <nuxt-img
               alt="gallery"
               class="block h-3/4 lg:h-full w-full object-cover object-center lg:group-hover:h-3/4 transition-all duration-300 overflow-hidden"
               :src="cards[2].images[0].src"
@@ -103,7 +103,7 @@
             :to="`/spaces/${cards[3].slug}`"
             class="relative rounded-md w-full transition-all duration-300 group overflow-hidden"
           >
-            <img
+            <nuxt-img
               alt="gallery"
               class="block rounded-tr-md rounded-tl-md h-3/4 lg:h-full w-full object-cover object-center  lg:group-hover:h-3/4 transition-all duration-300 overflow-hidden"
               :src="cards[3].images[0].src"
@@ -126,7 +126,7 @@
             :to="`/spaces/${cards[0].slug}`"
             class="relative rounded-md w-full lg:w-1/2 transition-all duration-300 group overflow-hidden"
           >
-            <img
+            <nuxt-img
               alt="gallery"
               class="block rounded-tr-md rounded-tl-md h-3/4 lg:h-full w-full object-cover object-center  lg:group-hover:h-3/4 transition-all duration-300 overflow-hidden"
               :src="cards[0].images[2].src"
@@ -148,7 +148,7 @@
             :to="`/spaces/${cards[0].slug}`"
             class="relative rounded-md w-full lg:w-1/2 transition-all duration-300 group overflow-hidden"
           >
-            <img
+            <nuxt-img
               alt="gallery"
               class="block rounded-tr-md rounded-tl-md h-3/4 lg:h-full w-full object-cover object-center  lg:group-hover:h-3/4 transition-all duration-300 overflow-hidden"
               :src="cards[0].images[1].src"

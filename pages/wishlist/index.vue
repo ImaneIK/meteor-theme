@@ -27,7 +27,7 @@
             class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2"
           >
           <div class="" style="flex: 0 0 40%">
-              <img
+              <nuxt-img
                 class="h-full w-full object-cover object-center"
                 :src="item.images[0].src"
                 :alt="item.title"

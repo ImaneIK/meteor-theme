@@ -14,7 +14,7 @@
         <!-- About Page Block -->
         <div class="lg:m-8 bg-neutral-100 p-8 text-center">
           <h2 class="text-xl font-semibold mb-2">About Us</h2>
-          <img :src="$settings.header.logo.src" />
+          <nuxt-img :src="$settings.header.logo.src" />
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           <nuxt-link
             to="/about"
@@ -72,7 +72,7 @@
           By someone | meteor team | 20 Jul 2023
         </div>
         <!-- post Image -->
-        <img class="mx-auto mb-4" :src="post.image.url" :alt="post.title" />
+        <nuxt-img class="mx-auto mb-4" :src="post.image.url" :alt="post.title" />
 
         <!-- Category -->
         <div class="text-center text-gray-500 mb-2">{{ post.categories[0].name }}</div>

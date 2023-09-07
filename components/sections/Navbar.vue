@@ -13,7 +13,7 @@
     <div class="flex items-center justify-center md:justify-between">
       <!-- Header logo -->
       <div class="font-bold text-amber-600">
-        <a href="/"><img class="w-24" :src="$settings.header.logo.src" /></a>
+        <a href="/"><nuxt-img class="w-24" :src="$settings.header.logo.src" /></a>
       </div>
 
       <!-- Mobile toggle -->

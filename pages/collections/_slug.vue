@@ -48,7 +48,7 @@
           <si-Loader />
         </div>
 
-        <div v-if="!loading" class="flex flex-row justify-center pt-4 gap-4">
+        <div v-if="!loading" class="flex flex-row justify-center pt-2 gap-4">
           <!-- toggle -->
           <si-FilterToggle :drawer="drawer"></si-FilterToggle>
           
@@ -109,14 +109,14 @@
 
 
               <!-- if results.length > 0 -->
-              <nuxt-link :to="`/spaces/${product.slug}`" v-if="filteredProducts"
+              <div v-if="filteredProducts"
                 v-for="(product, i) in filteredProducts"
                 :key="i"
                 class="flex flex-col lg:flex-row max-w-2xl mx-auto my-4 w-full bg-white rounded-sm shadow-md"
               >
 
                 <div style="flex: 0 0 40%">
-                  <img
+                  <nuxt-img
                     class="object-cover w-full h-full"
                     :src="product.images[0].src"
                     :alt="product.title"
@@ -172,18 +172,20 @@
                         </div>
                       </div>
                     </div>
-                      <NuxtLink
-                        class="block w-full text-right text-xs bg-gray-100 p-2 mt-4 w-fit"
-                        :to="`/spaces/${product.slug}`"
-                        >Book Now <fa class="" :icon="['fas', 'arrow-right']"
-                      /></NuxtLink>
+                    <NuxtLink
+                class="block justify-end items-center flex w-full text-right text-xs bg-gray-100 p-2 mt-4 w-fit"
+                :to="`/spaces/${product.slug}`"
+                >
+                Book Now 
+                <svg class="fill-gray-600" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z"/></svg>             
+                </NuxtLink>
                     
 
                   </div>
                  
                 </div>
                 
-              </nuxt-link>
+              </div>
 
             </div>
           </div>

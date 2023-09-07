@@ -25,7 +25,7 @@
 <div  class="w-screen lg:w-full flex flex-no-wrap overflow-x-scroll scrolling-touch lg:overflow-x-auto lg:scrolling-auto mt-6 lg:grid gap-x-6 gap-y-10 lg:grid-cols-4 xl:gap-x-8">
         <div v-for="(card,index) in cards" :key="card.slug" class="group flex-shrink-0 w-full sm:w-1/2 lg:w-auto relative lg:transition-transform lg:duration-300 lg:ease-in-out lg:transform hover:-translate-y-2">
           <nuxt-link :to="`/collections/${card.slug}`" class="block rounded-md aspect-h-1 aspect-w-1 w-full overflow-hidden  bg-gray-200 lg:aspect-none  lg:h-80">
-            <img :src="card.image.src" class="h-80 w-full object-cover object-center lg:h-full lg:w-full brightness-75 lg:group-hover:brightness-50" />
+            <nuxt-img :src="card.image.src" class="h-80 w-full object-cover object-center lg:h-full lg:w-full brightness-75 lg:group-hover:brightness-50" />
             <p aria-hidden="true" class="lg:absolute lg:inset-0 p-4 bg-black lg:bg-transparent text-white font-medium" >{{ card.name }} <br/>{{ itemCount[index] }} items</p>
             
           </nuxt-link>

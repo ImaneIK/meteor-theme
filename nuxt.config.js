@@ -28,6 +28,7 @@ export default {
   buildModules: [],
   modules: [
     '@nuxtjs/axios',
+    '@nuxt/image'
   ],
   axios: {
     baseURL: '/',

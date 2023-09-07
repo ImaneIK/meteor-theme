@@ -30,8 +30,7 @@
                       <nuxt-link :to="`/collections/${item.slug}`" class="block relative rounded-lg transition-all duration-300 group overflow-hidden ">
                          
                          <div class=" rounded-md overflow-hidden h-full group-hover:h-3/4 transition-all duration-300 ">
-                          <img class="h-72 w-full object-cover rounded-md hover:transition-all duration-300" :src="item.image.src"  alt="">
-                          
+                            <img class=" image h-72 w-full object-cover rounded-md hover:transition-all duration-300" :src="item.image.src"  alt="" />                         
                          </div> 
                           
                          <div
@@ -195,10 +194,16 @@ export default {
       if (+this.slider.style.marginLeft.slice(0, -2) !== -this.cardWidth * (this.cards.length - this.elementsToShow)) {
         this.slider.style.marginLeft = (+this.slider.style.marginLeft.slice(0, -2) - this.cardWidth) + 'px';
       }
+      if (+this.slider.style.marginRight.slice(0, -2) !== -this.cardWidth * (this.cards.length - this.elementsToShow)) {
+        this.slider.style.marginRight = (+this.slider.style.marginRight.slice(0, -2) - this.cardWidth) + 'px';
+      }
     },
     next() {
       if (+this.slider.style.marginLeft.slice(0, -2) !== 0) {
         this.slider.style.marginLeft = (+this.slider.style.marginLeft.slice(0, -2) + this.cardWidth) + 'px';
+      }
+      if (+this.slider.style.marginRight.slice(0, -2) !== 0) {
+        this.slider.style.marginRight = (+this.slider.style.marginLeft.slice(0, -2) + this.cardWidth) + 'px';
       }
     },
   },
@@ -228,7 +233,7 @@ export default {
 }
 
 /* Apply image transition on hover */
-.group .rounded-md:hover img {
+.group .rounded-md:hover .image {
   transform: scale(1.1);
   transition: transform 0.3s ease-in-out;
 }

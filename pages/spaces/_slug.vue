@@ -27,7 +27,7 @@
           <div class="w-full lg:w-2/5 flex flex-col py-4 md:py-0">
             <!-- Main image -->
             <div class="mb-4" style="flex: 0 0 40%">
-              <img
+              <nuxt-img
                 alt="Main Image"
                 class="w-full object-cover object-center rounded border border-gray-200"
                 :src="space.images[selectedImageIndex].src"
@@ -43,7 +43,7 @@
                 :class="`w-1/${space.images.length} p-1`"
               >
                 <!-- Looping on every image -->
-                <img
+                <nuxt-img
                   :src="image.src"
                   :alt="`Thumbnail ${index + 1}`"
                   :class="{

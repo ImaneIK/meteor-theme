@@ -1,6 +1,9 @@
 <template>
   <!-- the filters -->
   <div class=" flex flex-col mr-2 text-xs text-gray-600 font-light  ">
+
+
+
     <div class="flex justify-between block pb-4 px-4 mb-4 border-b-2 ">
       Filter by:
       <button
@@ -13,6 +16,44 @@
     </div>
 
     <div class="flex flex-col items-center gap-8 divide-y">
+      
+      <!-- sorting radiobox -->
+      <div
+        class="z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2" >
+        <div class="w-96 rounded bg-white">
+          <header class="flex items-center justify-between p-4">
+            <span class="text-sm text-gray-700"> Sort By: </span>
+
+            <button
+              type="button"
+              @click=""
+              class="text-sm text-gray-900"
+            >
+              +
+            </button>
+          </header>
+
+          <ul class="space-y-1 border-t border-gray-200 p-4">
+            <li v-for="option in filterOptions" :key="option.value">
+              <label for="FilterInStock" class="inline-flex items-center gap-2">
+                <input
+                  @change="applyFilters"
+                  type="radio"
+                  :id="option.value"
+                  :value="option.value"
+                  v-model="selectedFilters.sortOrder"
+                  class="h-5 w-5 rounded border-gray-300"
+                />
+
+                <span class="text-gray-700 text-xs font-light">
+                  {{ option.label }}
+                </span>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
       <!-- the price range filter -->
         <div
           class="z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2"
@@ -22,12 +63,12 @@
               <span class="text-sm text-gray-700"> Price </span>
 
               <button
-                type="button"
-                @click="applyFilters"
-                class="text-sm text-gray-900 underline underline-offset-4"
-              >
-                Done
-              </button>
+              type="button"
+              @click=""
+              class="text-sm text-gray-900"
+            >
+              +
+            </button>
             </header>
 
             <div class="border-t border-gray-200 p-4">
@@ -36,6 +77,7 @@
                   <span class="text-sm text-gray-600">{{ $store.state.currency.code }}</span>
 
                   <input
+                    @change="applyFilters"
                     type="number"
                     id="FilterPriceFrom"
                     placeholder="From"
@@ -48,6 +90,7 @@
                   <span class="text-sm text-gray-600">{{ $store.state.currency.code }}</span>
 
                   <input
+                    @change="applyFilters"
                     type="number"
                     id="FilterPriceTo"
                     placeholder="To"
@@ -70,10 +113,10 @@
 
             <button
               type="button"
-              @click="applyFilters"
-              class="text-sm text-gray-900 underline underline-offset-4"
+              @click=""
+              class="text-sm text-gray-900"
             >
-              Done
+              +
             </button>
           </header>
 
@@ -81,6 +124,7 @@
             <li v-for="item in $settings.sections.collections">
               <label for="FilterInStock" class="inline-flex items-center gap-2">
                 <input
+                  @change="applyFilters"
                   type="checkbox"
                   :id="item.slug"
                   :value="item.slug"
@@ -97,7 +141,6 @@
         </div>
       </div>
 
-
       <!-- the location filter selector -->
       <div
         class="z-50 group-open:absolute group-open:start-0 group-open:top-auto group-open:mt-2"
@@ -108,10 +151,10 @@
 
             <button
               type="button"
-              @click="applyFilters"
-              class="text-sm text-gray-900 underline underline-offset-4"
+              @click=""
+              class="text-sm text-gray-900"
             >
-              Done
+              +
             </button>
           </header>
 
@@ -119,6 +162,7 @@
             <li v-for="item in $settings.sections.locations">
               <label for="FilterInStock" class="inline-flex items-center gap-2">
                 <input
+                  @change="applyFilters"
                   type="checkbox"
                   :id="item.slug"
                   :value="item.slug"
@@ -145,10 +189,10 @@
 
             <button
               type="button"
-              @click="applyFilters"
-              class="text-sm text-gray-900 underline underline-offset-4"
+              @click=""
+              class="text-sm text-gray-900"
             >
-              Done
+              +
             </button>
           </header>
 
@@ -156,6 +200,8 @@
             <li v-for="item in $settings.sections.services">
               <label for="FilterInStock" class="inline-flex items-center gap-2">
                 <input
+
+                  @change="applyFilters"
                   type="checkbox"
                   :id="item.slug"
                   :value="item.slug"
@@ -178,6 +224,16 @@
 
 <script>
 export default {
+
+  data(){
+    return{
+      filterOptions: [
+        { label: 'All', value: 'default' },
+        { label: 'Popularity', value: 'popular' },
+        { label: 'Price', value: 'price' },
+      ],
+    };
+  },
   props: ["selectedFilters"],
 
   methods: {

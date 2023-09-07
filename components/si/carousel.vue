@@ -1,7 +1,7 @@
 <template>
     <div class="container overflow-hidden mx-auto">
       <div class="flex flex-no-wrap overflow-x-scroll scrolling-touch py-2">
-        <img  v-for="item in items" :src="`${item.src}`" class="mx-2 lg:h-80" >
+        <nuxt-img  v-for="item in items" :src="`${item.src}`" class="mx-2 lg:h-80" />
       </div>
     </div>
   </template>

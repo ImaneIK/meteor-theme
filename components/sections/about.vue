@@ -25,7 +25,7 @@
             </div>
           </div>
           <div class="lg:w-5/12 order-2">
-            <img
+            <nuxt-img
               :src="`${$settings.sections.about.image.src}`"
               style="
                 transform: scale(1) perspective(1040px) rotateY(-11deg) rotateX(2deg)

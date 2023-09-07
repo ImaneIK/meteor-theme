@@ -75,7 +75,7 @@
           </div>
 
           <div class="hidden lg:flex lg:items-center lg:w-1/2 lg:justify-center">
-            <img
+            <nuxt-img
               class="w-[28rem] h-[28rem] object-cover xl:w-[34rem] xl:h-[34rem] rounded-full"
               :src="`${$settings.sections.team.image.src}`"
               alt=""

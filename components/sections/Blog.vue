@@ -23,7 +23,7 @@
               :key="post.id" class="relative shadow-md rounded-md flex-shrink-0 w-full lg:w-auto m-2" >
                    
                     <nuxt-link class="block"  :to="`/posts/${post.slug}`">
-                      <img
+                      <nuxt-img
                         class="block rounded-t-lg w-full"
                         :src="post.image.url"
                         alt=""

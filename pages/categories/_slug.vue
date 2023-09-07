@@ -23,7 +23,7 @@
               class=" max-w-2xl mx-auto bg-white rounded-sm shadow-md"
             >
               <div>
-                <img
+                <nuxt-img
                   class="h-full w-full object-cover"
                   :src="post.image.url"
                   :alt="post.title"
