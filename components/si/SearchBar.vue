@@ -13,7 +13,7 @@
         type="date"
         id="from-date"
         @change="updateDateRange"
-        class="text-white border-none p-2 rounded bg-transparent focus:ring-2 focus:ring-amber-400 "
+        class="w-full  text-white border-none p-2 rounded bg-transparent focus:ring-2 focus:ring-amber-400 "
       />
     </div>
 
@@ -25,7 +25,7 @@
         type="date"
         id="to-date"
         @change="updateDateRange"
-        class="text-white border-none p-2 rounded bg-transparent focus:ring-2 focus:ring-amber-400"
+        class="w-full  text-white border-none p-2 rounded bg-transparent focus:ring-2 focus:ring-amber-400"
       />
     </div>
   </div>
@@ -39,12 +39,12 @@
       <!-- <label for="location" class="text-white">{{$settings.header.searchbar.location.label}}:</label> -->
       <select
         v-model="selectedLocation"
-        class="text-white border-none p-2 rounded bg-transparent focus:ring-2 focus:ring-amber-400"
+        class="w-full text-white border-none p-2 rounded bg-transparent focus:ring-amber-400"
       >
-      <option class="text-black bg-gray-200" value="">{{$settings.header.searchbar.location.label}}</option>
+      <option class="text-white text-xs bg-black" value="">{{$settings.header.searchbar.location.label}}</option>
 
         <option
-          class="text-black bg-gray-200"
+          class="text-white text-xs bg-black"
           v-for="location in locations"
           :key="location.slug"
           :value="location.slug"
@@ -60,11 +60,11 @@
       <!-- <label for="category" class="text-white">{{$settings.header.searchbar.category.label}}:</label> -->
       <select
         v-model="selectedCategory"
-        class="text-white border-none p-2 rounded bg-transparent focus:ring-2 focus:ring-amber-400"
+        class="w-full text-white border-none p-2 rounded bg-transparent focus:ring-amber-400"
       >
-        <option class="text-black bg-gray-200" value="">{{$settings.header.searchbar.category.label}}</option>
+        <option class="text-white text-xs bg-black" value="">{{$settings.header.searchbar.category.label}}</option>
         <option
-          class="text-black bg-gray-200"
+          class="text-white text-xs bg-black"
           v-for="collection in collections"
           :key="collection.slug"
           :value="collection.slug"
@@ -76,7 +76,7 @@
   </div>
 
 
-    <nuxt-link :to="generateSearchLink" class="w-full text-center">
+    <nuxt-link  :to="generateSearchLink" class="w-full text-center">
       <button
         @click="search"
         class=" bg-amber-500 bg-opacity-70 text-white px-4 py-4 rounded hover:bg-opacity-80 backdrop-blur  w-full"
@@ -122,6 +122,8 @@ export default {
 
   methods: {
 
+
+
     updateDateRange() {
       const fromDateInput = this.$el.querySelector("#from-date");
       const toDateInput = this.$el.querySelector("#to-date");
@@ -141,6 +143,7 @@ export default {
 
 
     async search() {
+      
       const { data: productData } = await this.$storeino.products.search({
         status: "PUBLISH",
       });
@@ -157,6 +160,7 @@ export default {
         });
         console.log(this.filteredProducts)
       }
+      this.$emit("search-submit");
     },
   },
 };
@@ -168,4 +172,6 @@ export default {
 .search-bar {
   background-color: rgba(255, 255, 255, 0.1);
 }
+
+
 </style>

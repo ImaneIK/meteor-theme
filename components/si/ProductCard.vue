@@ -1,64 +1,30 @@
 <template>
-  <div>
-    <sections-banner />
-
-    <!-- loader -->
-    <div v-if="loading" class="flex justify-center items-center h-screen">
-      <si-Loader />
-    </div>
-
-    <!-- the content -->
-    <div
-      v-if="!loading && filteredProducts != null"
-      class="flex flex-col m-4 lg:my-8 lg:mx-16 divide-y"
-    >
-    <!-- toggle -->
-    <si-FilterToggle :drawer="drawer"></si-FilterToggle>
-      
-
-      <!-- the route like heading -->
-      <div class="flex justify-center py-4">
-        <div v-if="filteredProducts" class="flex justify-start items-center w-full">
-          <div class="flex flex-col lg:flex-row">
-            <p class="text-xs font-light">
-              <nuxt-link to="/">Home</nuxt-link> >
-              <nuxt-link :to="`/shop`">All spaces</nuxt-link>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- list of spaces and the filters -->
-      <div class="flex flex-row justify-center pt-8 gap-4">
-        <!-- <h2 class="text-sm font-light">{{ cards.length }} properties found</h2> -->
-
-        <!-- the filters -->
-        <si-Filters
-          :selectedFilters="selectedFilters"
-          @apply-filters="applyFilters"
-          @reset-filters="resetFilters"
-          class="xl:w-2/5 xl:block hidden"
-        ></si-Filters>
-
-        <div class="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-1 gap-4">
-          
-          <!-- the cards -->
-          
-          <nuxt-link :to="`/spaces/${card.slug}`"
+    <div>
+        <nuxt-link :to="`/spaces/${card.slug}`"
             v-for="(card, i) in filteredProducts"
             :key="i"
             class="flex flex-col sm:flex-row max-w-2xl mx-auto my-4 w-full bg-white rounded-sm shadow-md"
           >
 
+          <!-- <si-ProductCard  
+          :card="selectedCard"
+      :image="selectedCard.images[0].src"
+      :alt="selectedCard.title"
+      :collections="getCollectionsForSpace(selectedCard)"
+      :price="selectedCard.price.salePrice"
+      :title="selectedCard.name"
+      :locations="getLocationsForSpace(selectedCard)"
+
+          ></si-ProductCard> -->
             <!-- space image -->
             <div class="" style="flex: 0 0 40%">
               <nuxt-img
-                class="h-full w-full object-cover"
+                class="h-full w-full object-cover object-center"
                 :src="card.images[0].src"
                 :alt="card.title"
               />
             </div>
-            <div class="pt-4 flex flex-col flex-1 ">
+            <div class="pt-4 flex flex-col flex-1 justify-between">
               <div class="flex flex-row justify-between px-4">
 
                 <!-- collection -->
@@ -127,50 +93,15 @@
               </NuxtLink>
             </div>
           </nuxt-link>
-
-          <!-- there should be paginations in here... -->
-          <div class="text-center font-light text-xs my-6">you've reached the end</div>
-        </div>
-
-        <!-- Drawer filter -->
-      <aside
-        style="z-index: 10000"
-        class="p-5 transform top-0 left-0 w-screen sm:w-1/2 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30"
-        :class="isOpen ? 'translate-x-0' : '-translate-x-full'"
-      >
-        <div class="block m-12 close">
-          <button class="absolute top-0 right-0 mt-4 mr-4" @click="isOpen = false">
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </button>
-        </div>
-
-        <si-Filters
-          :selectedFilters="selectedFilters"
-          @apply-filters="applyFilters"
-          @reset-filters="resetFilters"
-          class="w-full"
-        ></si-Filters>
-      </aside>
-      </div>
-      <sections-spaces />
-
     </div>
-  </div>
-</template>
+    
+  </template>
+  
+  <script>
 
-<script>
-export default {
-  data() {
+  export default {
+
+    data() {
     return {
       cards: [],
       collections: [],
@@ -191,7 +122,17 @@ export default {
     };
   },
 
-  async fetch() {
+
+    props: {
+      image: String,
+      alt: String,
+      collections: Array,
+      price: Number,
+      title: String,
+      locations: Array,
+    },
+
+    async fetch() {
     let filter = { status: "PUBLISH" };
     await this.getCards(filter);
   },
@@ -380,43 +321,6 @@ export default {
         },
   },
 
-  watch: {
-    isOpen: {
-      immediate: true,
-      handler(isOpen) {
-        if (process.client) {
-          if (isOpen) document.body.style.setProperty("overflow", "hidden");
-          else document.body.style.removeProperty("overflow");
-        }
-      },
-    },
-  },
-};
-</script>
-
-<style scoped>
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 1rem;
-  transition: background-color 0.3s;
-  z-index: 1000;
-}
-
-.navbar-transparent {
-  background-color: transparent;
-  border-bottom: solid 1px gray;
-}
-
-.navbar-white {
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-scroll {
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-</style>
+  };
+  </script>
+  

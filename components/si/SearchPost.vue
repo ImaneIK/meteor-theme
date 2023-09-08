@@ -12,7 +12,7 @@
 
 
     <!-- content -->
-    <div class="flex flex-col gap-4">
+    <div class="flex flex-col items-center gap-4">
 
       <!-- titling -->
       <div class="text-3xl my-4 mx-auto text-center w-full opacity-75 text-white">
@@ -34,7 +34,7 @@
                 @keypress="search"
                 class="relative w-full text-white placeholder-gray-400 border-none bg-transparent focus:outline-none focus:border-transparent"
                 :placeholder= $settings.sections.header.searchbar.placeholder
-                value="Gar"
+                
               />
 
             </div>

@@ -122,9 +122,26 @@
               </div>
             </div>
           </li>
+
+          <li @click="showPopup">
+            <svg
+              :class="isPopupVisible ? 'fill-amber-500' : 'fill-gray-400'"
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 512 512"
+            >
+              <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com -->
+              <!-- License - https://fontawesome.com/license (Commercial License) -->
+              <!-- Copyright 2023 Fonticons, Inc. -->
+              <path
+                d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+              />
+            </svg>
+          </li>
         </ul>
       </div>
 
+      
       <!-- Dark Background Transition -->
       <transition
         enter-class="opacity-0"
@@ -147,7 +164,7 @@
         </div>
       </transition>
 
-      <si-BottomNav class="md:hidden"></si-BottomNav>
+      <si-BottomNav :openModal="showPopup" class="md:hidden"></si-BottomNav>
 
       <!-- Drawer Menu -->
       <!-- <aside
@@ -259,6 +276,27 @@
         </div>
       </aside> -->
     </div>
+
+    <!-- popup -->
+    
+    <div class="fade-in-element sticky rounded-md shadow-2xl lg:mx-12" :style="{
+        'background-position': '50%',
+        'background-image': `url(${$settings.sections.popup.image.src})`,
+        'background-color': 'gray',
+        'background-blend-mode': 'multiply'
+      }" >
+      <section class="" 
+      v-if="isPopupVisible" :class="{ 'visible': isPopupVisible }">
+        <div class="p-8 text-center sm:p-12">
+          <span class="text-white" @click="closePopup"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512">
+          <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z"/></svg></span>
+          <p class="text-sm font-semibold uppercase tracking-widest text-amber-500">{{ $settings.sections.popup.title }}</p>
+          <h2 class="my-2 text-2xl text-white font-medium">{{ $settings.sections.popup.message }}</h2>
+          <si-SearchBar @search-submit="closePopup"></si-SearchBar>
+        </div>
+      </section>
+    </div>
+
   </div>
 </template>
 
@@ -270,6 +308,9 @@ export default {
       scrolled: false,
       isLanguageDropdownVisible: false,
       isCurrencyDropdownVisible: false,
+      isPopupVisible: false,
+      popupTitle: 'Popup Title',
+      popupMessage: 'This is a sample popup message.',
       otherMenu: [
         {
           _id: "lang",
@@ -300,6 +341,13 @@ export default {
     };
   },
   methods: {
+    showPopup() {
+      this.isPopupVisible = !this.isPopupVisible;
+      console.log("this.isPopupVisible:",this.isPopupVisible)
+    },
+    closePopup() {
+      this.isPopupVisible = false;
+    },
     toggleLanguageDropdown() {
       this.isLanguageDropdownVisible = !this.isLanguageDropdownVisible;
       // Hide the currency dropdown
@@ -353,6 +401,13 @@ export default {
 </script>
 
 <style scoped>
+
+
+
+.popup.visible {
+  display: block;
+  /* Add your CSS styles for the visible popup here */
+}
 .navbar {
   position: fixed;
   top: 0;
@@ -376,5 +431,19 @@ export default {
 .navbar-scroll {
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.fade-in-element {
+  animation: fadeIn 1s ease-in-out; /* You can adjust the duration and timing function */
+  /* Other styles for your element */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 </style>
