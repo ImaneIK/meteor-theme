@@ -5,7 +5,7 @@
       <div class="flex flex-col gap-4 md:flex-row justify-start md:justify-between items-center">
         <div>
               <h1 class="text-2xl font-normal text-gray-800 capitalize lg:text-3xl">
-                {{ $settings.sections.heading.collections}}
+                {{ $settings.sections.related.heading}}
               </h1>
 
               <div class="mt-2">
@@ -30,7 +30,9 @@
                   {{ card.name }}
                 </a>
               </h3>
-              <p class="mt-1 text-sm text-gray-500">{{ card.collections[0].name }}</p>
+              <p v-for="collection in getCollectionsForSpace(card)" class="text-xs title-font text-gray-500 tracking-widest">
+                {{ collection.name }}
+              </p>
             </div>
             <p class="text-sm font-medium text-gray-900">{{ card.price.salePrice }}{{ $store.state.currency.symbol }}</p>
           </div>
@@ -47,6 +49,7 @@ export default {
     return {
       cards: [],
       loading: true,
+      collections: this.$settings.sections.collections,
     };
   },
   async fetch() {
@@ -66,6 +69,17 @@ export default {
         console.log({ e });
       }
       this.loading = false;
+    },
+
+    getCollectionsForSpace(space) {
+      try {
+        return this.collections.filter((collection) => {
+          return space.collections.some((item) => item.slug === collection.slug);
+        });
+      } catch (e) {
+        console.log(e);
+        return e;
+      }
     },
   },
 };

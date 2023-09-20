@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed w-screen bg-white dark:bg-black z-10"
+    class="fixed w-full bg-white z-10"
     style="padding: 0 16px"
     :class="[
       'navbar',

@@ -9,7 +9,7 @@
       <si-loader></si-loader>
     </div>
     <div class="bg-white rounded-md p-2 my-3 mx-2 reviews" id="reviews">
-      <div class="flex flex-no-wrap overflow-x-scroll scrolling-touch lg:overflow-x-auto lg:scrolling-auto">
+      <div class="flex flex-no-wrap overflow-x-scroll scrolling-touch lg:snap-mandatory lg:overflow-x-auto lg:scrolling-auto">
         <div
           v-for="(review, index) in reviews.results"
           :key="index"

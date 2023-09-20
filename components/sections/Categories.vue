@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-8 text-center p-2 ">
+  <div v-if="$settings.sections.post.categories.active" class="mb-8 text-center p-2 ">
     <h2 class="text-xl font-semibold mb-4 p-2">Categories</h2>
     <div v-for="category in posts.flatMap((post) => post.categories)" :key="category.id">
     <!-- :style="`background-image: url(${category.image.src}); filter: brightness(0.8);`" -->

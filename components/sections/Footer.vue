@@ -1,5 +1,5 @@
 <template>
-<div class=" bg-black text-white w-screen">
+<div :style="`background:${$settings.sections.footer.background};`" class="` text-white w-full`">
 
     <div v-if="loading" class="flex justify-center items-center h-screen">
       <si-Loader />

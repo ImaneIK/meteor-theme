@@ -1,8 +1,9 @@
 <template>
   <div>
-    <si-SearchPost></si-SearchPost>
+    <si-SearchPost v-if="$settings.sections.blogBanner.active"></si-SearchPost>
 
-    <sections-blog />
+    <sections-blog v-if="$settings.sections.blogSection.active"/>
+
   </div>
 </template>
 

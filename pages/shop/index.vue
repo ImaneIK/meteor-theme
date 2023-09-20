@@ -1,6 +1,6 @@
 <template>
   <div>
-    <sections-banner />
+    <sections-banner v-if="$settings.sections.shopBanner.active" />
 
     <!-- loader -->
     <div v-if="loading" class="flex justify-center items-center h-screen">
@@ -9,28 +9,30 @@
 
     <!-- the content -->
     <div
-      v-if="!loading && filteredProducts != null"
+      v-if="!loading && filteredProducts != null && $settings.sections.shopContent.active"
       class="flex flex-col m-4 lg:my-8 lg:mx-16 divide-y"
     >
-    <!-- toggle -->
-    <si-FilterToggle :drawer="drawer"></si-FilterToggle>
+      <!-- toggle -->
+      <si-FilterToggle :drawer="drawer"></si-FilterToggle>
       
 
       <!-- the route like heading -->
-      <div class="flex justify-center py-4">
+      <div class="flex justify-between py-4">
         <div v-if="filteredProducts" class="flex justify-start items-center w-full">
           <div class="flex flex-col lg:flex-row">
-            <p class="text-xs font-light">
-              <nuxt-link to="/">Home</nuxt-link> >
-              <nuxt-link :to="`/shop`">All spaces</nuxt-link>
+            <p class="text-xs font-light flex gap-2">
+              <nuxt-link class="block" to="/"><svg class=" fill-gray-500" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg></nuxt-link> >
+              <nuxt-link class="block" :to="`/shop`">{{ $settings.sections.productdescription.all.label }}</nuxt-link>
             </p>
           </div>
+
         </div>
+
+        <h2 class="block text-end w-full text-xs font-light">{{ cards.length }} {{ $settings.sections.productdescription.items.label }}</h2>
       </div>
 
       <!-- list of spaces and the filters -->
       <div class="flex flex-row justify-center pt-8 gap-4">
-        <!-- <h2 class="text-sm font-light">{{ cards.length }} properties found</h2> -->
 
         <!-- the filters -->
         <si-Filters
@@ -40,129 +42,56 @@
           class="xl:w-2/5 xl:block hidden"
         ></si-Filters>
 
-        <div class="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-1 gap-4">
-          
-          <!-- the cards -->
-          
+        <!-- the cards -->
+        <div class="w-full flex flex-col">
           <nuxt-link :to="`/spaces/${card.slug}`"
             v-for="(card, i) in filteredProducts"
-            :key="i"
-            class="flex flex-col sm:flex-row max-w-2xl mx-auto my-4 w-full bg-white rounded-sm shadow-md"
-          >
-
-            <!-- space image -->
-            <div class="" style="flex: 0 0 40%">
-              <nuxt-img
-                class="h-full w-full object-cover"
-                :src="card.images[0].src"
-                :alt="card.title"
-              />
-            </div>
-            <div class="pt-4 flex flex-col flex-1 ">
-              <div class="flex flex-row justify-between px-4">
-
-                <!-- collection -->
-                <p v-for="collection in getCollectionsForSpace(card)" class="ounded-full py-1 text-xs text-gray-500 font-light">
-                  {{ collection.name }}
-                </p>
-                
-                  <!-- price -->
-                <div class="">
-                  <span
-                    class="bg-black rounded-full px-4 py-1 text-sm text-white font-semibold"
-                  >
-                    {{ card.price.salePrice }}$
-                  </span>
-                </div>
-              </div>
-
-              <!-- space name -->
-              <p class="text-lg font-normal px-4">{{ card.name }}</p>
-
-              <!-- LOCATION -->
-              <div class="flex items-center px-4 my-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="1em"
-                  class="fill-amber-600"
-                  viewBox="0 0 384 512"
-                >
-                  
-                  <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/>
-                </svg>
-                <span v-for="location in getLocationsForSpace(card)" class="rounded-full px-1 text-xs text-gray-500 font-light">{{location.name}}</span>
-              </div>
-
-              <!-- rating -->
-              <div class="flex items-center text-xs text-yellow-500">
-                <p class="flex items-center gap-1 mx-4"><svg stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="fill-yellow-500 w-4 h-4" viewBox="0 0 24 24"> <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                    {{ card.review.rating.toFixed(1) }} 
-                </p>
-              </div>
-            
-              <!-- SERVICES -->
-              <div class="flex flex-col px-4">
-                <div class="grid grid-cols-2">
-                  <div v-for="(collection, index) in getServicesForSpace(card)">
-                    <span
-                      :key="index"
-                      class="block rounded-md m-1 justify-center border-gray-300 border px-3 py-1 text-gray-400 text-xs font-light">
-                      {{ collection.name }}
-                    </span>
-                    
-                  </div>
-                  <span
-                      class="flex block rounded-md m-1 justify-center border-gray-300 border px-3 py-1 text-gray-400 text-xs font-light">
-                      <svg class="fill-gray-300" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>                    </span>
-
-                </div>
-              </div>
-
-              <NuxtLink
-                class="block justify-end items-center flex w-full text-right text-xs bg-gray-100 p-2 mt-4 w-fit"
-                :to="`/spaces/${card.slug}`"
-                >
-                Book Now 
-                <svg class="fill-gray-600" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z"/></svg>             
-              </NuxtLink>
-            </div>
+            :key="i">
+            <si-ProductCard 
+              :card="card"
+              :src="card.images[0].src" 
+              :title="card.name" 
+              :rating="card.review.rating.toFixed(1)"
+              :price="card.price.salePrice" />
           </nuxt-link>
 
           <!-- there should be paginations in here... -->
-          <div class="text-center font-light text-xs my-6">you've reached the end</div>
+          <!-- <div class="text-center font-light text-xs my-6">you've reached the end</div> -->
         </div>
 
         <!-- Drawer filter -->
-      <aside
-        style="z-index: 10000"
-        class="p-5 transform top-0 left-0 w-screen sm:w-1/2 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30"
-        :class="isOpen ? 'translate-x-0' : '-translate-x-full'"
-      >
-        <div class="block m-12 close">
-          <button class="absolute top-0 right-0 mt-4 mr-4" @click="isOpen = false">
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </button>
-        </div>
+        <aside
+          style="z-index: 10000"
+          class="p-5 transform top-0 left-0 w-screen sm:w-1/2 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30"
+          :class="isOpen ? 'translate-x-0' : '-translate-x-full'"
+        >
+          <div class="block m-12 close">
+            <button class="absolute top-0 right-0 mt-4 mr-4" @click="isOpen = false">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
 
-        <si-Filters
-          :selectedFilters="selectedFilters"
-          @apply-filters="applyFilters"
-          @reset-filters="resetFilters"
-          class="w-full"
-        ></si-Filters>
-      </aside>
+          <si-Filters
+            :selectedFilters="selectedFilters"
+            @apply-filters="applyFilters"
+            @reset-filters="resetFilters"
+            class="w-full"
+          ></si-Filters>
+        </aside>
+
       </div>
-      <sections-spaces />
+
+      <sections-spaces v-if="$settings.sections.relateditems.active"/>
 
     </div>
   </div>
@@ -247,41 +176,6 @@ export default {
   },
 
   methods: {
-        getServicesForSpace(space) {
-          try{
-            return this.$settings.sections.services.filter(service => {
-            return space.collections.some(item => item.slug === service.slug);
-            }).slice(0,3); //displaying only 3 results to avoid differnt card scales
-          }catch(e){
-            console.log(e);
-            return e;
-            
-          }
-        },
-
-        getLocationsForSpace(space) {
-          try{
-            return this.$settings.sections.locations.filter(location => {
-            return space.collections.some(item => item.slug === location.slug);
-            });
-          }catch(e){
-            console.log(e);
-            return e;
-            
-          }
-        },
-
-        getCollectionsForSpace(space) {
-          try{
-            return this.$settings.sections.collections.filter(location => {
-            return space.collections.some(item => item.slug === location.slug);
-            });
-          }catch(e){
-            console.log(e);
-            return e;
-            
-          }
-        },
 
         drawer() {
           this.isOpen = !this.isOpen;

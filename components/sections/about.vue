@@ -14,12 +14,14 @@
             <div class="py-5 flex flex-wrap justify-center md: justify-start gap-2">
               <a
                 href="#"
-                class="text-white rounded-md py-2 px-5 text-lg font-semibold bg-amber-600 inline-block border border-amber-600 mr-3"
+                :style="`background: ${$settings.theme.colors.accent}; color:${$settings.theme.colors.primary};`"
+                class="w-full text-center rounded-md py-2 px-5 text-lg font-semibold inline-block border border-amber-600 md:mr-3"
                 >{{$settings.sections.about.button.community}}</a
               >
               <a
                 href="#"
-                class="text-black rounded-md py-2 px-5 text-lg font-semibold bg-gray-400 inline-block border hover:bg-white hover:text-black"
+                :style="`background: ${$settings.theme.colors.primary}; color:${$settings.theme.colors.secondary};`"
+                class="w-full text-center text-black rounded-md py-2 px-5 text-lg font-semibold bg-gray-400 inline-block border hover:bg-white hover:text-black"
                 >{{$settings.sections.about.button.tour}}</a
               >
             </div>

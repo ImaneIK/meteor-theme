@@ -1,7 +1,7 @@
 <template>
-    <div class="bg-gray-100 pt-10">
+    <div :style="`background:${$settings.theme.colors.primary}`" class=" pt-10">
       <div class="mx-auto max-w-6xl">
-        <div class="p-2 bg-gray-100 rounded">
+        <div class="p-2  rounded">
           <div class="flex flex-col md:flex-row">
             <div class="md:w-1/3 p-4 text-sm">
               <div class="text-3xl">

@@ -1,22 +1,19 @@
 <template>
-  <div class="mt-16">
-    <div class="header-banner">
+  <div class="mt-12"  v-if="$settings.sections.wishlistSection.active">
+    <div class="header-banner" :style=" $settings.sections.wishlistBanner.active ? `background-image: url('${$settings.header.banner.wishlist.src}');` : ''">
       <div class="page-head">
         <div class="text_container">
           <h2 class="text-white">
-            wishlist title
-            <!-- {{ $settings.sections.wishlist.title }} -->
+            {{ $settings.sections.wishlist.title }}
           </h2>
-          <span class="text-white text-sm">View your wishlist products</span>
+          <span class="text-white text-sm">{{$settings.sections.wishlist.subtitle}}</span>
         </div>
       </div>
     </div>
 
     <div class="container">
 
-        
-
-      <div class="bg-white my-2 p-3">
+      <div class="bg-white my-2 p-3 ">
         <div v-if="loading.wishlist" class="flex justify-center items-center my-5">
           <si-loader></si-loader>
         </div>
@@ -24,7 +21,7 @@
           <div
             v-for="(item, i) in items"
             :key="i"
-            class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2"
+            class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2 shadow-md"
           >
           <div class="" style="flex: 0 0 40%">
               <nuxt-img
@@ -36,15 +33,15 @@
 
             <div class="pt-4 flex-1">
               <div class="flex flex-row justify-between px-4">
-                <p class="ounded-full py-1 text-xs text-gray-500 font-light">
-                  {{ item.collections[0].name }}
-                </p>
+                <p v-for="collection in getCollectionsForSpace(item)" class="text-xs text-gray-500 tracking-widest">
+                {{ collection.name }}
+              </p>
 
                 <div class="">
                   <span
                     class="bg-black rounded-full px-4 py-1 text-sm text-white font-semibold"
                   >
-                    {{ item.price.salePrice }}$/Day
+                    {{ item.price.salePrice }}{{ $store.state.currency.code }}
                   </span>
                 </div>
               </div>
@@ -61,41 +58,43 @@
                   <style>svg {fill: #ff9831;}</style>
                   <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/>
                 </svg>
-                <span class="rounded-full px-1 text-xs text-gray-500 font-light">{{item.collections[1].name}}</span>
+                <p v-for="collection in getLocationsForSpace(item)" class="text-xs text-gray-500 tracking-widest">
+                {{ collection.name }}
+              </p>
               </div>
 
               <div class="flex flex-col px-4">
                 <div class="grid grid-cols-2">
-                  <div v-for="(collection, index) in item.collections.slice(2)">
-                    <span
-                      :key="index"
-                      class="block rounded-md m-1 justify-center border-gray-300 border px-3 py-1 text-gray-400 text-xs font-light"
-                    >
-                      {{ collection.name }}
-                    </span>
-                  </div>
+                  <p
+                v-for="collection in getServicesForSpace(item)"
+                class="block border text-center text-xs text-gray-500 py-auto rounded-md p-1"
+              >
+                {{ collection.name }}
+              </p>
                 </div>
               </div>
               <NuxtLink
-                class="block w-full text-right text-xs bg-gray-100 p-2 mt-4 w-fit"
+                class="block w-full text-center text-xs bg-gray-100 p-2 mt-4 w-fit"
                 :to="`/spaces/${item.slug}`"
-                >Book Now <fa class="" :icon="['fas', 'arrow-right']"
+                >{{ $settings.sections.productdescription.bookbutton }} <fa class="" :icon="['fas', 'arrow-right']"
               /></NuxtLink>
             </div>
             <!-- <si-product :item="item"></si-product> -->
           </div>
         </div>
+        
+        <!-- if wishlist is empty -->
         <div
           v-if="!loading.wishlist && items.length == 0"
-          class="flex flex-col items-center py-4"
+          class="flex flex-col items-center py-4 h-80 justify-center"
         >
           <h2 class="w-full text-center py-3">
-            some empty text
-            <!-- {{ $settings.sections.wishlist.empty_text }} -->
+            
+            {{ $settings.sections.wishlist.empty_text }}
           </h2>
           <nuxt-link
             to="/shop"
-            class="flex items-center p-2 justify-center primary text-white"
+            class="flex items-center p-2 justify-center primary "
           >
             <svg
               aria-hidden="true"
@@ -131,6 +130,9 @@ export default {
     return {
       loading: { wishlist: true },
       items: [],
+      services: this.$settings.sections.services,
+      locations: this.$settings.sections.locations,
+      collections: this.$settings.sections.collections,
     };
   },
   async fetch() {
@@ -168,6 +170,38 @@ export default {
       this.loading.wishlist = false;
     },
 
+
+    getServicesForSpace(space) {
+      try {
+        return this.services.filter((service) => {
+          return space.collections.some((item) => item.slug === service.slug);
+        });
+      } catch (e) {
+        console.log(e);
+        return e;
+      }
+    },
+    getLocationsForSpace(space) {
+      try {
+        return this.locations.filter((location) => {
+          return space.collections.some((item) => item.slug === location.slug);
+        });
+      } catch (e) {
+        console.log(e);
+        return e;
+      }
+    },
+    getCollectionsForSpace(space) {
+      try {
+        return this.collections.filter((collection) => {
+          return space.collections.some((item) => item.slug === collection.slug);
+        });
+      } catch (e) {
+        console.log(e);
+        return e;
+      }
+    },
+
     async remove(item) {
       this.$tools.call("REMOVE_FROM_WISHLIST", item);
     },
@@ -183,7 +217,7 @@ export default {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url(https://cdn.shopify.com/s/files/1/0616/9480/4174/files/shopping-cart-head_1512x.jpg?v=1652080767);
+  
 }
 
 .page-head {
@@ -215,7 +249,6 @@ export default {
 }
 
 .primary {
-  color: #fff;
   background-color: var(--primary);
   border-color: var(--primary);
 }

@@ -14,7 +14,7 @@
                 <span class="inline-block w-1 h-1 ml-1 bg-amber-500 rounded-full"></span>
               </div>
         </div>
-        <nuxt-link :to="`/shop`" class="text-sm text-amber-500 underline decoration-amber-500 p-2 ">{{$settings.sections.posts.button.text}}</nuxt-link>
+        <nuxt-link :to="`/blog`" class="text-sm text-amber-500 underline decoration-amber-500 p-2 ">{{$settings.sections.posts.button.text}}</nuxt-link>
     </div>
 
         <!-- the articles grid -->
@@ -31,12 +31,12 @@
                     </nuxt-link>
 
                     <div class="p-5">
-                        <div class="py-1"  v-if="post.categories && post.categories.length > 0"
+                        <!-- <div class="py-1"  v-if="post.categories && post.categories.length > 0"
                             v-for="(category) in post.categories">
                           <nuxt-link :to="category.slug">
                             <span class=" text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-amber-600 bg-amber-200 uppercase last:mr-0 mr-1">#{{ category.name }}</span>
                           </nuxt-link>
-                        </div>
+                        </div> -->
                         <h5
                           class="text-gray-900 text-md mb-2"
                         >
@@ -76,7 +76,7 @@ export default {
     return {
       posts: [],
       loading: true,
-      isMobile: false,
+      // isMobile: false,
     };
   },
   async fetch() {
@@ -98,10 +98,10 @@ export default {
   },
 
   computed: {
-    isMobile() {
-      this.isMobile = window.innerWidth < 768;
-      console.log(this.isMobile);
-    },
+    // isMobile() {
+    //   this.isMobile = window.innerWidth < 768;
+    //   console.log(this.isMobile);
+    // },
   },
 };
 </script>

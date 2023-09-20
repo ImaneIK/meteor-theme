@@ -81,11 +81,11 @@
           >
             <nuxt-img
               alt="gallery"
-              class="block h-3/4 lg:h-full w-full object-cover object-center lg:group-hover:h-3/4 transition-all duration-300 overflow-hidden"
+              class="block lg:h-full w-full h-full object-cover object-center lg:group-hover:h-5/6 transition-all duration-300 overflow-hidden"
               :src="cards[2].images[0].src"
             />
             <div
-              class="relative p-2 flex flex-col w-full h-1/4 transition-all duration-300 bg-black text-white"
+              class=" p-2 flex flex-col w-full bg-black text-white rounded-br-md rounded-bl-md"
             >
               <span class="star-rating">
                 {{ displayStars(cards[2].review.rating) }}
@@ -101,15 +101,15 @@
         <div class="flex flex-col gap-2 w-full lg:w-1/2  overflow-hidden">
           <nuxt-link
             :to="`/spaces/${cards[3].slug}`"
-            class="relative rounded-md w-full transition-all duration-300 group overflow-hidden"
+            class="relative rounded-md w-full h-full transition-all duration-300 group overflow-hidden"
           >
             <nuxt-img
               alt="gallery"
-              class="block rounded-tr-md rounded-tl-md h-3/4 lg:h-full w-full object-cover object-center  lg:group-hover:h-3/4 transition-all duration-300 overflow-hidden"
+              class="block rounded-tr-md rounded-tl-md lg:h-full w-full object-cover object-center  lg:group-hover:h-5/6 transition-all duration-300 overflow-hidden"
               :src="cards[3].images[0].src"
             />
             <div
-              class="relative p-2 flex flex-col w-full h-1/4 transition-all duration-300 bg-black text-white"
+              class=" p-2 flex flex-col w-full bg-black text-white rounded-br-md rounded-bl-md"
             >
               <span class="star-rating">
                 {{ displayStars(cards[3].review.rating) }}
@@ -119,7 +119,7 @@
                 <span class="block">{{ cards[3].price.salePrice }}{{ $store.state.currency.symbol }}</span>
               </div>
             </div>
-            </nuxt-link>
+          </nuxt-link>
 
           <div class="flex flex-col md:flex-row gap-2">
             <nuxt-link

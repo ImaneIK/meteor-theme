@@ -6,7 +6,7 @@
       </div>
 
       <div v-if="!loading">
-        <h2 class="text-xl font-semibold mb-4 text-center ">Related Posts</h2>
+        <h2 class="text-xl font-semibold mb-4 text-center ">{{$settings.sections.posts.relatedposts}}</h2>
         <ul v-for="post in posts">
           <li class="p-2">
             <NuxtLink :to="`/posts/${post.slug}`" class="text-xs text-left text-neutral-400 hover:underline"> > {{

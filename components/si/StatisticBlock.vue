@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white rounded-md py-2 px-4 lg:py-8 shadow-md">
+    <div v-if="$settings.sections.statistics.active" class="bg-white rounded-md py-2 px-4 lg:py-8 shadow-md">
       <p class="text-2xl lg:text-4xl font-semibold text-center">+{{ count }}</p>
       <h2 class="text-lg lg:text-xl font-sans text-center mb-4">{{ title }}</h2>
       
@@ -69,8 +69,3 @@
     },
   };
   </script>
-  
-  <style>
-  /* Add any custom styles for the statistic block here */
-  </style>
-  

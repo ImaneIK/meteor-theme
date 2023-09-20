@@ -1,25 +1,25 @@
 <template>
   <div>
-    <div v-if="loading" class="flex justify-center items-center h-screen px-6">
+    <div v-if="loading && $settings.sections.spaceContent.active" class="flex justify-center items-center h-screen px-6">
       <si-Loader />
     </div>
 
-    <!-- CONTENT -->
+    <!--  -->
     <section
       v-if="!loading && space != null"
       class="flex flex-col pt-16 px-4 md:px-20 text-gray-700 body-font overflow-hidden"
     >
       <!-- <sections-banner /> -->
-      <div class="flex justify-start py-1 items-center w-full">
-          <p class="text-xs font-light">
-            <nuxt-link to="/">Home</nuxt-link> >
-            <nuxt-link :to="`/spaces/${space.slug}`">{{ space.name }}</nuxt-link>
+      <div class="flex justify-start pt-4 pb-6  items-center w-full">
+          <p class="text-xs font-light flex gap-2">
+            <nuxt-link class="block" to="/"><svg class=" fill-gray-500" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg></nuxt-link> >
+            <nuxt-link class="block" :to="`/spaces/${space.slug}`">{{ space.name }}</nuxt-link>
           </p>
       </div>
 
-      <div>
+      <div class="">
          <!-- product details -->
-        <div class="container mx-auto flex flex-col md:flex-row justify-center items-center md:gap-4">
+        <div class="container mb-24 mx-auto flex flex-col md:flex-row justify-center items-center md:gap-4">
 
           <!--the product details section-->
 
@@ -89,22 +89,22 @@
             <div class="flex flex-wrap mb-2 items-center gap-2">
               
               <!-- product category -->
-              <h2 class="text-sm title-font text-gray-500 tracking-widest">
-                {{ space.collections[0].name }}
+              <h2 v-for="collection in getCollectionsForSpace(space)" class="text-sm title-font text-gray-500 tracking-widest">
+                {{ collection.name }}
               </h2>
 
               <!-- Reviews -->
               <div class="flex items-center text-sm text-yellow-500">
                 <p class="flex items-center gap-1 mx-1"><svg stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="fill-yellow-500 w-5 h-5" viewBox="0 0 24 24"> <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
                     {{ space.review.rating.toFixed(1) }} 
-                    ({{ space.review.reviews.length }} <span>Reviews</span>)
+                    ({{ space.review.reviews.length }} <span>{{$settings.sections.productdescription.reviews.label}}</span>)
                 </p>
               </div>
 
               <!-- social media share -->
-              <span class="flex py-2">
+              <!-- <span class="flex py-2"> -->
                 <!-- facebook -->
-                <a class="text-gray-500 fill-amber-500">
+                <!-- <a class="text-gray-500 fill-amber-500">
                   <svg
                     fill="currentColor"
                     stroke-linecap="round"
@@ -117,9 +117,9 @@
                       d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
                     ></path>
                   </svg>
-                </a>
+                </a> -->
                 <!-- twitter -->
-                <a class="ml-2 text-gray-500">
+                <!-- <a class="ml-2 text-gray-500">
                   <svg
                     fill="currentColor"
                     stroke-linecap="round"
@@ -132,9 +132,9 @@
                       d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
                     ></path>
                   </svg>
-                </a>
+                </a> -->
                 <!-- whatsapp -->
-                <a class="ml-2 text-gray-500">
+                <!-- <a class="ml-2 text-gray-500">
                   <svg
                     fill="currentColor"
                     stroke-linecap="round"
@@ -148,7 +148,7 @@
                     ></path>
                   </svg>
                 </a>
-              </span>
+              </span> -->
 
             </div>
 
@@ -169,13 +169,15 @@
               ></si-product-price>
 
               <si-product-quantity
+              v-if="$settings.sections.productQuantity.active"
               @selected="quantitySelected"
               :quantity="space.quantity"
               ></si-product-quantity>
 
               <!-- wishlist button -->
-              <!-- v-if="$settings.sections.products.add_to_wishlist.active" -->
-              <div>
+              <!--  -->
+              <div v-if="$settings.sections.add_to_wishlist.active">
+                
                 <button
                   v-if="$store.state.wishlist.find((i) => i._id == space._id)"
                   @click="removeFromWishlist"
@@ -219,17 +221,17 @@
 
             </div>
 
-            <!-- check availability button-->
+            <!-- book now button-->
             <button class="flex my-2 w-full justify-center text-white bg-amber-600 border-0 py-2 focus:outline-none hover:bg-amber-700 rounded">
-              check availability
+              {{ $settings.sections.productdescription.bookbutton }}
             </button>
 
             <!-- services -->
             <div class="w-full grid grid-cols-2 lg:grid-cols-3 text-xs font-light text-gray-500 my-4">
-              Available services:
+              
               <p
                 v-for="collection in getServicesForSpace(space)"
-                class="block border rounded-md p-1"
+                class="block border text-center py-auto rounded-md p-1"
               >
                 {{ collection.name }}
               </p>
@@ -240,10 +242,11 @@
         </div>
 
         <!-- product description -->
-        <div class="max-w-6xl mx-auto my-6">
+        <div class=" my-12 max-w-6xl mx-auto ">
           <!-- Navigation Bar -->
           <div class="flex justify-center mb-4">
             <button
+              v-if="$settings.sections.spacegallery.active"
               :class="{
                 'font-semibold text-amber-500': activeSection === 'gallery',
                 'font-normal text-gray-500': activeSection !== 'gallery',
@@ -251,9 +254,10 @@
               @click="setActiveSection('gallery')"
               class="px-4 py-2 mr-2 rounded focus:outline-none"
             >
-              Gallery
+              {{$settings.sections.productdescription.gallery.label}}
             </button>
             <button
+              v-if="$settings.sections.spacedescription.active"
               :class="{
                 'font-semibold text-amber-500': activeSection === 'description',
                 'font-normal text-gray-500': activeSection !== 'description',
@@ -261,9 +265,10 @@
               @click="setActiveSection('description')"
               class="px-4 py-2 ml-2 rounded focus:outline-none"
             >
-              Description
+              {{$settings.sections.productdescription.description.label}}
             </button>
             <button
+              v-if="$settings.sections.spacereviews.active"
               :class="{
                 'font-semibold text-amber-500': activeSection === 'reviews',
                 'font-normal text-gray-500': activeSection !== 'reviews',
@@ -271,17 +276,18 @@
               @click="setActiveSection('reviews')"
               class="px-4 py-2 ml-2 rounded focus:outline-none"
             >
-              Reviews
+            {{$settings.sections.productdescription.reviews.label}}
             </button>
           </div>
 
           <!-- Image Gallery Section -->
-          <div v-show="activeSection === 'gallery'">
-            <si-carousel :list="space.images"></si-carousel>
+          <div v-if="$settings.sections.spacegallery.active" v-show="activeSection === 'gallery'" class=" overflow-hidden mx-auto">
+            <!-- <si-ImageTrack  class="invisible lg:visible" :list="space.images"></si-ImageTrack> -->
+            <si-carousel  :list="space.images"></si-carousel>
           </div>
 
           <!-- Description Section -->
-          <div v-show="activeSection === 'description'">
+          <div v-if="$settings.sections.spacedescription.active" v-show="activeSection === 'description'">
             <p class="mb-6">{{ space.description }}</p>
             <!-- <iframe :src="``" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
 
@@ -289,7 +295,7 @@
           </div>
 
           <!-- Reviews section -->
-          <div v-show="activeSection === 'reviews'">
+          <div v-if="$settings.sections.spacereviews.active" v-show="activeSection === 'reviews'">
             <sections-Reviews :item="space" />
           </div>
         </div>
@@ -297,7 +303,7 @@
       </div>
 
      
-      <sections-spaces />
+      <sections-spaces v-if="$settings.sections.relateditems.active" />
     </section>
   </div>
 </template>
@@ -318,6 +324,7 @@ export default {
       outofstock: false,
       services: this.$settings.sections.services,
       locations: this.$settings.sections.locations,
+      collections: this.$settings.sections.collections,
     };
   },
 
@@ -444,6 +451,16 @@ export default {
       try {
         return this.locations.filter((location) => {
           return space.collections.some((item) => item.slug === location.slug);
+        });
+      } catch (e) {
+        console.log(e);
+        return e;
+      }
+    },
+    getCollectionsForSpace(space) {
+      try {
+        return this.collections.filter((collection) => {
+          return space.collections.some((item) => item.slug === collection.slug);
         });
       } catch (e) {
         console.log(e);

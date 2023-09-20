@@ -1,6 +1,6 @@
 <template>
-   <div class="mt-12 object-center relative w-screen px-6 sm:px-12  lg:px-24 py-12 bg-cover bg-center overflow-hidden" 
-   :style="` background-image: url('${$settings.header.banner.blog.src}');`">
+   <div class="mt-12 object-center relative w-full px-6 sm:px-12  lg:px-24 py-12 bg-cover bg-center overflow-hidden" 
+   :style=" ` background-image: url('${$settings.header.banner.shop.src}');`">
       <div class="absolute inset-0 bg-black opacity-50"></div>
   
 
