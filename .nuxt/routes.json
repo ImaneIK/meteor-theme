@@ -3,48 +3,56 @@
     "name": "about",
     "path": "/about",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\about\\\\index.vue",
-    "chunkName": "pages/about/index"
+    "chunkName": "pages/about/index",
+    "_name": "_239ba8ba"
   },
   {
     "name": "blog",
     "path": "/blog",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\blog\\\\index.vue",
-    "chunkName": "pages/blog/index"
+    "chunkName": "pages/blog/index",
+    "_name": "_02b22aeb"
   },
   {
     "name": "shop",
     "path": "/shop",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\shop\\\\index.vue",
-    "chunkName": "pages/shop/index"
+    "chunkName": "pages/shop/index",
+    "_name": "_8fe839d2"
   },
   {
     "name": "wishlist",
     "path": "/wishlist",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\wishlist\\\\index.vue",
-    "chunkName": "pages/wishlist/index"
+    "chunkName": "pages/wishlist/index",
+    "_name": "_396f5768"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_793c558d"
   },
   {
     "name": "collections-slug",
     "path": "/collections/:slug?",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\collections\\\\_slug.vue",
-    "chunkName": "pages/collections/_slug"
+    "chunkName": "pages/collections/_slug",
+    "_name": "_36e59eaa"
   },
   {
     "name": "posts-slug",
     "path": "/posts/:slug?",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\posts\\\\_slug.vue",
-    "chunkName": "pages/posts/_slug"
+    "chunkName": "pages/posts/_slug",
+    "_name": "_7ad7e76c"
   },
   {
     "name": "spaces-slug",
     "path": "/spaces/:slug?",
     "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\spaces\\\\_slug.vue",
-    "chunkName": "pages/spaces/_slug"
+    "chunkName": "pages/spaces/_slug",
+    "_name": "_a7ccb110"
   }
 ]

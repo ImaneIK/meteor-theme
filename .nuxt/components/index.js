@@ -1,37 +1,37 @@
-export { default as SectionsAbout } from '../..\\components\\sections\\about.vue'
-export { default as SectionsBanner } from '../..\\components\\sections\\Banner.vue'
-export { default as SectionsBlog } from '../..\\components\\sections\\Blog.vue'
-export { default as SectionsCategories } from '../..\\components\\sections\\Categories.vue'
-export { default as SectionsCollections } from '../..\\components\\sections\\Collections.vue'
-export { default as SectionsContact } from '../..\\components\\sections\\Contact.vue'
-export { default as SectionsFaq } from '../..\\components\\sections\\Faq.vue'
-export { default as SectionsFeatures } from '../..\\components\\sections\\Features.vue'
-export { default as SectionsFooter } from '../..\\components\\sections\\Footer.vue'
-export { default as SectionsHeader } from '../..\\components\\sections\\Header.vue'
-export { default as SectionsLocations } from '../..\\components\\sections\\Locations.vue'
-export { default as SectionsNavbar } from '../..\\components\\sections\\Navbar.vue'
-export { default as SectionsRelatedPosts } from '../..\\components\\sections\\RelatedPosts.vue'
-export { default as SectionsReviews } from '../..\\components\\sections\\Reviews.vue'
-export { default as SectionsSpaces } from '../..\\components\\sections\\Spaces.vue'
-export { default as SectionsTeam } from '../..\\components\\sections\\Team.vue'
-export { default as SiAppLoader } from '../..\\components\\si\\AppLoader.vue'
-export { default as SiBottomDropDown } from '../..\\components\\si\\BottomDropDown.vue'
-export { default as SiBottomNav } from '../..\\components\\si\\BottomNav.vue'
-export { default as SiCarousel } from '../..\\components\\si\\carousel.vue'
-export { default as SiCollection } from '../..\\components\\si\\collection.vue'
-export { default as SiFilters } from '../..\\components\\si\\Filters.vue'
-export { default as SiFilterToggle } from '../..\\components\\si\\FilterToggle.vue'
-export { default as SiGallery } from '../..\\components\\si\\Gallery.vue'
-export { default as SiImageTrack } from '../..\\components\\si\\ImageTrack.vue'
-export { default as SiLoader } from '../..\\components\\si\\Loader.vue'
-export { default as SiPopup } from '../..\\components\\si\\Popup.vue'
-export { default as SiProductCard } from '../..\\components\\si\\ProductCard.vue'
-export { default as SiProductPrice } from '../..\\components\\si\\ProductPrice.vue'
-export { default as SiProductQuantity } from '../..\\components\\si\\ProductQuantity.vue'
-export { default as SiProductVariantes } from '../..\\components\\si\\ProductVariantes.vue'
-export { default as SiSearchBar } from '../..\\components\\si\\SearchBar.vue'
-export { default as SiSearchPost } from '../..\\components\\si\\SearchPost.vue'
-export { default as SiStatisticBlock } from '../..\\components\\si\\StatisticBlock.vue'
+export const SectionsAbout = () => import('../..\\components\\sections\\about.vue' /* webpackChunkName: "components/sections-about" */).then(c => wrapFunctional(c.default || c))
+export const SectionsBanner = () => import('../..\\components\\sections\\Banner.vue' /* webpackChunkName: "components/sections-banner" */).then(c => wrapFunctional(c.default || c))
+export const SectionsBlog = () => import('../..\\components\\sections\\Blog.vue' /* webpackChunkName: "components/sections-blog" */).then(c => wrapFunctional(c.default || c))
+export const SectionsCategories = () => import('../..\\components\\sections\\Categories.vue' /* webpackChunkName: "components/sections-categories" */).then(c => wrapFunctional(c.default || c))
+export const SectionsCollections = () => import('../..\\components\\sections\\Collections.vue' /* webpackChunkName: "components/sections-collections" */).then(c => wrapFunctional(c.default || c))
+export const SectionsContact = () => import('../..\\components\\sections\\Contact.vue' /* webpackChunkName: "components/sections-contact" */).then(c => wrapFunctional(c.default || c))
+export const SectionsFaq = () => import('../..\\components\\sections\\Faq.vue' /* webpackChunkName: "components/sections-faq" */).then(c => wrapFunctional(c.default || c))
+export const SectionsFeatures = () => import('../..\\components\\sections\\Features.vue' /* webpackChunkName: "components/sections-features" */).then(c => wrapFunctional(c.default || c))
+export const SectionsFooter = () => import('../..\\components\\sections\\Footer.vue' /* webpackChunkName: "components/sections-footer" */).then(c => wrapFunctional(c.default || c))
+export const SectionsHeader = () => import('../..\\components\\sections\\Header.vue' /* webpackChunkName: "components/sections-header" */).then(c => wrapFunctional(c.default || c))
+export const SectionsLocations = () => import('../..\\components\\sections\\Locations.vue' /* webpackChunkName: "components/sections-locations" */).then(c => wrapFunctional(c.default || c))
+export const SectionsNavbar = () => import('../..\\components\\sections\\Navbar.vue' /* webpackChunkName: "components/sections-navbar" */).then(c => wrapFunctional(c.default || c))
+export const SectionsRelatedPosts = () => import('../..\\components\\sections\\RelatedPosts.vue' /* webpackChunkName: "components/sections-related-posts" */).then(c => wrapFunctional(c.default || c))
+export const SectionsReviews = () => import('../..\\components\\sections\\Reviews.vue' /* webpackChunkName: "components/sections-reviews" */).then(c => wrapFunctional(c.default || c))
+export const SectionsSpaces = () => import('../..\\components\\sections\\Spaces.vue' /* webpackChunkName: "components/sections-spaces" */).then(c => wrapFunctional(c.default || c))
+export const SectionsTeam = () => import('../..\\components\\sections\\Team.vue' /* webpackChunkName: "components/sections-team" */).then(c => wrapFunctional(c.default || c))
+export const SiAppLoader = () => import('../..\\components\\si\\AppLoader.vue' /* webpackChunkName: "components/si-app-loader" */).then(c => wrapFunctional(c.default || c))
+export const SiBottomDropDown = () => import('../..\\components\\si\\BottomDropDown.vue' /* webpackChunkName: "components/si-bottom-drop-down" */).then(c => wrapFunctional(c.default || c))
+export const SiBottomNav = () => import('../..\\components\\si\\BottomNav.vue' /* webpackChunkName: "components/si-bottom-nav" */).then(c => wrapFunctional(c.default || c))
+export const SiCarousel = () => import('../..\\components\\si\\carousel.vue' /* webpackChunkName: "components/si-carousel" */).then(c => wrapFunctional(c.default || c))
+export const SiCollection = () => import('../..\\components\\si\\collection.vue' /* webpackChunkName: "components/si-collection" */).then(c => wrapFunctional(c.default || c))
+export const SiFilters = () => import('../..\\components\\si\\Filters.vue' /* webpackChunkName: "components/si-filters" */).then(c => wrapFunctional(c.default || c))
+export const SiFilterToggle = () => import('../..\\components\\si\\FilterToggle.vue' /* webpackChunkName: "components/si-filter-toggle" */).then(c => wrapFunctional(c.default || c))
+export const SiGallery = () => import('../..\\components\\si\\Gallery.vue' /* webpackChunkName: "components/si-gallery" */).then(c => wrapFunctional(c.default || c))
+export const SiImageTrack = () => import('../..\\components\\si\\ImageTrack.vue' /* webpackChunkName: "components/si-image-track" */).then(c => wrapFunctional(c.default || c))
+export const SiLoader = () => import('../..\\components\\si\\Loader.vue' /* webpackChunkName: "components/si-loader" */).then(c => wrapFunctional(c.default || c))
+export const SiPopup = () => import('../..\\components\\si\\Popup.vue' /* webpackChunkName: "components/si-popup" */).then(c => wrapFunctional(c.default || c))
+export const SiProductCard = () => import('../..\\components\\si\\ProductCard.vue' /* webpackChunkName: "components/si-product-card" */).then(c => wrapFunctional(c.default || c))
+export const SiProductPrice = () => import('../..\\components\\si\\ProductPrice.vue' /* webpackChunkName: "components/si-product-price" */).then(c => wrapFunctional(c.default || c))
+export const SiProductQuantity = () => import('../..\\components\\si\\ProductQuantity.vue' /* webpackChunkName: "components/si-product-quantity" */).then(c => wrapFunctional(c.default || c))
+export const SiProductVariantes = () => import('../..\\components\\si\\ProductVariantes.vue' /* webpackChunkName: "components/si-product-variantes" */).then(c => wrapFunctional(c.default || c))
+export const SiSearchBar = () => import('../..\\components\\si\\SearchBar.vue' /* webpackChunkName: "components/si-search-bar" */).then(c => wrapFunctional(c.default || c))
+export const SiSearchPost = () => import('../..\\components\\si\\SearchPost.vue' /* webpackChunkName: "components/si-search-post" */).then(c => wrapFunctional(c.default || c))
+export const SiStatisticBlock = () => import('../..\\components\\si\\StatisticBlock.vue' /* webpackChunkName: "components/si-statistic-block" */).then(c => wrapFunctional(c.default || c))
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {
