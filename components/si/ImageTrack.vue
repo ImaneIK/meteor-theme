@@ -7,6 +7,7 @@
       :style="{ transform: `translate(${percentage}%, 0%)` }"
     >
       <nuxt-img
+      v-if="item"
       v-for="(item,i) in items" :key='i' :src="`${item.src}`"
       class="image transition-object duration-500 ease-in-out"
       draggable="false"

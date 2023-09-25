@@ -1,7 +1,7 @@
 <template>
     <div class="zoom relative w-full flex flex-col h-full bg-white overflow-hidden">
         <nuxt-link class="flex pb-full relative" :to="item.childrens.length > 0 ? `/collections/${item.slug}` : `/shop/${item.slug}`">
-            <si-image width="400" height="400" class="image_zoom h-full w-full absolute inset-0 object-cover" :src="item.image ? item.image.src : null" :alt="item.name" srcset=""/>
+            <si-image v-if="item.image" width="400" height="400" class="image_zoom h-full w-full absolute inset-0 object-cover" :src="item.image.src" :alt="item.name"/>
         </nuxt-link>
         <div class="text_card">
           <nuxt-link :to="item.childrens.length > 0 ? `/collections/${item.slug}` : `/shop/${item.slug}`">

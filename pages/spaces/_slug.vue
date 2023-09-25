@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="loading && $settings.sections.spaceContent.active" class="flex justify-center items-center h-screen px-6">
+    <div v-if="loading " class="flex justify-center items-center h-screen px-6">
       <si-Loader />
     </div>
 
@@ -30,13 +30,14 @@
               <nuxt-img
                 alt="Main Image"
                 class="w-full object-cover object-center rounded border border-gray-200"
-                :src="space.images[selectedImageIndex].src"
+                :src="space.images ? space.images[selectedImageIndex].src : ''"
               />
             </div>
 
             <!-- Grouping of other images -->
             <div class="flex flex-row">
               <div
+                v-if=" space && space.images"
                 v-for="(image, index) in space.images"
                 :key="index"
                 @click="selectImage(index)"
@@ -44,7 +45,7 @@
               >
                 <!-- Looping on every image -->
                 <nuxt-img
-                  :src="image.src"
+                  :src="image ? image.src : ''"
                   :alt="`Thumbnail ${index + 1}`"
                   :class="{
                     'border-amber-600 border-2': selectedImageIndex === index,
@@ -61,23 +62,28 @@
             <!-- location -->
             <div class="flex text-sm title-font text-gray-500 tracking-widest">
               <svg
-                class="fill-amber-500"
                 xmlns="http://www.w3.org/2000/svg"
                 height="1em"
+                class="fill-amber-600"
                 viewBox="0 0 384 512"
               >
-                <style>
-                  svg {
-                    fill: #ff8000;
-                  }
-                </style>
                 <path
                   d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
                 />
               </svg>
-              <p v-for="location in getLocationsForSpace(space)" class="block mx-4">
+
+              <span
+                v-for="location in getLocationsForSpace(space)"
+                class="rounded-full px-1 text-xs text-gray-500 font-light"
+              >
                 {{ location.name }}
-              </p>
+              </span>
+              <span
+                v-if="getLocationsForSpace(space).length === 0"
+                class="px-1 text-gray-400 text-xs font-light"
+              >
+                no location allocated
+              </span>
             </div>
 
             <!-- product name -->
@@ -92,12 +98,19 @@
               <h2 v-for="collection in getCollectionsForSpace(space)" class="text-sm title-font text-gray-500 tracking-widest">
                 {{ collection.name }}
               </h2>
+              <h2 v-if="getCollectionsForSpace(space).length === 0" class="text-sm title-font text-gray-500 tracking-widest">
+                no collection allocated
+              </h2>
+
 
               <!-- Reviews -->
               <div class="flex items-center text-sm text-yellow-500">
                 <p class="flex items-center gap-1 mx-1"><svg stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="fill-yellow-500 w-5 h-5" viewBox="0 0 24 24"> <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
                     {{ space.review.rating.toFixed(1) }} 
-                    ({{ space.review.reviews.length }} <span>{{$settings.sections.productdescription.reviews.label}}</span>)
+                    ({{ space.review.reviews.length }}
+                     <span>
+                    {{$settings.sections.space.reviews.label}}
+                    </span>)
                 </p>
               </div>
 
@@ -169,14 +182,14 @@
               ></si-product-price>
 
               <si-product-quantity
-              v-if="$settings.sections.productQuantity.active"
+              
               @selected="quantitySelected"
               :quantity="space.quantity"
               ></si-product-quantity>
 
               <!-- wishlist button -->
               <!--  -->
-              <div v-if="$settings.sections.add_to_wishlist.active">
+              <div>
                 
                 <button
                   v-if="$store.state.wishlist.find((i) => i._id == space._id)"
@@ -223,19 +236,21 @@
 
             <!-- book now button-->
             <button class="flex my-2 w-full justify-center text-white bg-amber-600 border-0 py-2 focus:outline-none hover:bg-amber-700 rounded">
-              {{ $settings.sections.productdescription.bookbutton }}
+              {{ $settings.sections.buttons.booknow.text }}
             </button>
 
             <!-- services -->
-            <div class="w-full grid grid-cols-2 lg:grid-cols-3 text-xs font-light text-gray-500 my-4">
-              
-              <p
-                v-for="collection in getServicesForSpace(space)"
-                class="block border text-center py-auto rounded-md p-1"
-              >
-                {{ collection.name }}
-              </p>
-            </div>
+              <div class="w-full grid grid-cols-2 lg:grid-cols-3 text-xs font-light text-gray-500 my-4">
+                  <p v-for="collection in getServicesForSpace(space)" class="block border text-center py-auto rounded-md p-1" >
+                    {{ collection.name }}
+                  </p>
+              </div>
+              <span
+                class="flex block rounded-md m-1 justify-center border-gray-300 border px-3 py-1 text-gray-400 text-xs font-light"
+                v-html=" $settings.sections.services != null  ? servicesSVG : 'no services found' " >
+              </span>
+        </div>
+
             
           </div>
 
@@ -246,7 +261,7 @@
           <!-- Navigation Bar -->
           <div class="flex justify-center mb-4">
             <button
-              v-if="$settings.sections.spacegallery.active"
+              v-if="$settings.sections.space.gallery.active"
               :class="{
                 'font-semibold text-amber-500': activeSection === 'gallery',
                 'font-normal text-gray-500': activeSection !== 'gallery',
@@ -254,10 +269,10 @@
               @click="setActiveSection('gallery')"
               class="px-4 py-2 mr-2 rounded focus:outline-none"
             >
-              {{$settings.sections.productdescription.gallery.label}}
+              {{$settings.sections.space.gallery.label}}
             </button>
             <button
-              v-if="$settings.sections.spacedescription.active"
+             v-if="$settings.sections.space.description.active"
               :class="{
                 'font-semibold text-amber-500': activeSection === 'description',
                 'font-normal text-gray-500': activeSection !== 'description',
@@ -265,10 +280,10 @@
               @click="setActiveSection('description')"
               class="px-4 py-2 ml-2 rounded focus:outline-none"
             >
-              {{$settings.sections.productdescription.description.label}}
+              {{$settings.sections.space.description.label}}
             </button>
             <button
-              v-if="$settings.sections.spacereviews.active"
+             v-if="$settings.sections.space.reviews.active"
               :class="{
                 'font-semibold text-amber-500': activeSection === 'reviews',
                 'font-normal text-gray-500': activeSection !== 'reviews',
@@ -276,35 +291,28 @@
               @click="setActiveSection('reviews')"
               class="px-4 py-2 ml-2 rounded focus:outline-none"
             >
-            {{$settings.sections.productdescription.reviews.label}}
+            {{$settings.sections.space.reviews.label}}
             </button>
           </div>
 
           <!-- Image Gallery Section -->
-          <div v-if="$settings.sections.spacegallery.active" v-show="activeSection === 'gallery'" class=" overflow-hidden mx-auto">
+          <div v-if="$settings.sections.space.gallery.active" v-show="activeSection === 'gallery'" class=" overflow-hidden mx-auto">
             <!-- <si-ImageTrack  class="invisible lg:visible" :list="space.images"></si-ImageTrack> -->
             <si-carousel  :list="space.images"></si-carousel>
           </div>
 
           <!-- Description Section -->
-          <div v-if="$settings.sections.spacedescription.active" v-show="activeSection === 'description'">
+          <div v-if="$settings.sections.space.description.active" v-show="activeSection === 'description'">
             <p class="mb-6">{{ space.description }}</p>
-            <!-- <iframe :src="``" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
-
-            <!-- <div v-html="space.description"></div> -->
           </div>
 
           <!-- Reviews section -->
-          <div v-if="$settings.sections.spacereviews.active" v-show="activeSection === 'reviews'">
+          <div v-if="$settings.sections.space.reviews.active" v-show="activeSection === 'reviews'">
             <sections-Reviews :item="space" />
           </div>
         </div>
-
-      </div>
-
      
-      <sections-spaces v-if="$settings.sections.relateditems.active" />
-    </section>
+        <sections-spaces v-if="$settings.sections.space.featured.active" /></section>
   </div>
 </template>
 
@@ -393,15 +401,15 @@ export default {
     }
   },
 
-  computed: {
-    price() {
-      if (this.variant) {
-        return this.variant.price.salePrice * this.quantity;
-      } else {
-        return this.space.price.salePrice * this.quantity;
-      }
-    },
-  },
+  // computed: {
+  //   price() {
+  //     if (this.variant) {
+  //       return this.variant.price.salePrice * this.quantity;
+  //     } else {
+  //       return this.space.price.salePrice * this.quantity;
+  //     }
+  //   },
+  // },
 
   methods: {
     quantitySelected(quantity) {
@@ -439,19 +447,39 @@ export default {
     },
     getServicesForSpace(space) {
       try {
-        return this.services.filter((service) => {
-          return space.collections.some((item) => item.slug === service.slug);
-        });
+        if (this.$settings.sections.services != null) {
+          const filteredServices = this.$settings.sections.services
+            .filter((service) => {
+              return space.collections.some(
+                (item) => item.slug === service.slug
+              );
+            })
+            .slice(0, 3); // Displaying only 3 results to avoid different card scales
+
+          if (filteredServices.length === 0) {
+            return "[]"; // Return an empty array when no services are found
+          }
+
+          return filteredServices;
+        } else {
+          return [];
+        }
       } catch (e) {
-        console.log(e);
-        return e;
+        console.error(e);
+        return []; // Return an empty array in case of an error
       }
     },
     getLocationsForSpace(space) {
       try {
-        return this.locations.filter((location) => {
-          return space.collections.some((item) => item.slug === location.slug);
-        });
+        if (this.$settings.sections.locations != null) {
+          return this.$settings.sections.locations.filter((location) => {
+            return space.collections.some(
+              (item) => item.slug === location.slug
+            );
+          });
+        } else {
+          return [];
+        }
       } catch (e) {
         console.log(e);
         return e;
@@ -459,9 +487,15 @@ export default {
     },
     getCollectionsForSpace(space) {
       try {
-        return this.collections.filter((collection) => {
-          return space.collections.some((item) => item.slug === collection.slug);
-        });
+        if (this.$settings.sections.collections != null) {
+          return this.$settings.sections.collections.filter((collection) => {
+            return space.collections.some(
+              (item) => item.slug === collection.slug
+            );
+          });
+        } else {
+          return []; // Return an empty array or handle it as needed
+        }
       } catch (e) {
         console.log(e);
         return e;

@@ -6,7 +6,9 @@
       </div>
 
       <div v-if="!loading">
-        <h2 class="text-xl font-semibold mb-4 text-center ">{{$settings.sections.posts.relatedposts}}</h2>
+        <h2 class="text-xl font-semibold mb-4 text-center ">
+        {{$settings.sections.post.blocks.related.title}}
+        </h2>
         <ul v-for="post in posts">
           <li class="p-2">
             <NuxtLink :to="`/posts/${post.slug}`" class="text-xs text-left text-neutral-400 hover:underline"> > {{
@@ -44,7 +46,7 @@ export default {
         this.posts = data.results.slice(0, 3);
         // console.log(this.posts[0]);
       } catch (e) {
-        console.log(this.$settings.header.menu);
+        // console.log(this.$settings.header.menu);
       }
       this.loading = false;
     },

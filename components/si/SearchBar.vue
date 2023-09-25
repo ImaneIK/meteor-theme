@@ -1,5 +1,5 @@
 <template>
-  <div v-if="$settings.sections.searchbar.active" class="flex-col shadow-md rounded-md search-bar flex justify-center items-center gap-4 p-5 w-full xl:flex-row">
+  <div  class="flex-col shadow-md rounded-md search-bar flex justify-center items-center gap-4 p-5 w-full xl:flex-row">
 
     <!-- from /to date range fields -->
     <div id="date-picker" class="flex flex-col md:flex-row justify-center gap-4 w-full ">
@@ -7,7 +7,9 @@
       <div
         class="search-field bg-white bg-opacity-30 backdrop-blur rounded-lg p-2 flex items-center w-full"
       >
-        <label for="from-date" class="text-white ">{{$settings.header.searchbar.fromdate.label}}:</label>
+        <label for="from-date" class="text-white ">
+        {{$settings.sections.home.hero.searchbar.fromLabel}}:
+        </label>
         <input
           type="date"
           id="from-date"
@@ -19,7 +21,9 @@
       <div
         class="search-field bg-white bg-opacity-30 backdrop-blur rounded-lg p-2 flex items-center w-full"
       >
-        <label for="from-date" class="text-white">{{$settings.header.searchbar.todate.label}}:</label>
+        <label for="from-date" class="text-white">
+        {{$settings.sections.home.hero.searchbar.toLabel}}:
+        </label>
         <input
           type="date"
           id="to-date"
@@ -35,12 +39,16 @@
       <div
         class="search-field bg-white bg-opacity-30 backdrop-blur rounded-lg p-2 flex items-center w-full"
       >
-        <!-- <label for="location" class="text-white">{{$settings.header.searchbar.location.label}}:</label> -->
+        <label for="location" class="text-white">
+          {{$settings.sections.home.hero.searchbar.locationLabel}}:
+        </label>
         <select
           v-model="selectedLocation"
           class="w-full text-white border-none p-2 rounded bg-transparent focus:ring-amber-400"
         >
-        <option class="text-white text-xs bg-black" value="">{{$settings.header.searchbar.location.label}}</option>
+        <option class="text-white text-xs bg-black" value="">
+        <!-- {{$settings.header.searchbar.location.label}} -->
+        </option>
 
           <option
             class="text-white text-xs bg-black"
@@ -56,12 +64,14 @@
       <div
         class="search-field bg-white bg-opacity-30 backdrop-blur rounded-lg p-2 flex items-center w-full"
       >
-        <!-- <label for="category" class="text-white">{{$settings.header.searchbar.category.label}}:</label> -->
+        <label for="category" class="text-white">{{$settings.sections.home.hero.searchbar.collectionLabel}}:</label>
         <select
           v-model="selectedCategory"
           class="w-full text-white border-none p-2 rounded bg-transparent focus:ring-amber-400"
         >
-          <option class="text-white text-xs bg-black" value="">{{$settings.header.searchbar.category.label}}</option>
+          <option class="text-white text-xs bg-black" value="">
+          <!-- {{$settings.header.searchbar.category.label}} -->
+          </option>
           <option
             class="text-white text-xs bg-black"
             v-for="collection in collections"

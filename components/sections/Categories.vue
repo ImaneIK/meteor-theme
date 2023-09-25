@@ -1,8 +1,7 @@
 <template>
-  <div v-if="$settings.sections.post.categories.active" class="mb-8 text-center p-2 ">
+  <div  class="mb-8 text-center p-2 ">
     <h2 class="text-xl font-semibold mb-4 p-2">Categories</h2>
     <div v-for="category in posts.flatMap((post) => post.categories)" :key="category.id">
-    <!-- :style="`background-image: url(${category.image.src}); filter: brightness(0.8);`" -->
       <nuxt-link :to="`/categories/${category.slug}`">
         <div 
           class="p-2 text-xs text-neutral-400 hover:underline">
@@ -30,7 +29,7 @@ export default {
       try {
         const { data } = await this.$storeino.pages.search(filter);
         this.posts = data.results.slice(0, 3);
-        console.log(this.posts[0]);
+        // console.log(this.posts[0]);
       } catch (e) {
         console.log(this.$settings.header.menu);
       }

@@ -1,11 +1,11 @@
 <template>
-  <div class="mx-8 lg:mx-24 my-24 overflow-hidden">
+  <div v-if="$settings.sections.home.blog.active" class="mx-8 lg:mx-24 my-24 overflow-hidden">
     
     <!-- heading -->
     <div class="flex flex-col gap-4 md:flex-row  md:justify-between  items-center">
         <div class="flex flex-col justify-items-center lg:justify-start">
               <h1 class="text-2xl font-normal text-gray-800 lg:text-3xl">
-                {{$settings.sections.posts.title}}
+                {{$settings.sections.home.blog.title}}
               </h1>
 
               <div class="mt-2 mx-auto md:mx-0">
@@ -14,18 +14,20 @@
                 <span class="inline-block w-1 h-1 ml-1 bg-amber-500 rounded-full"></span>
               </div>
         </div>
-        <nuxt-link :to="`/blog`" class="text-sm text-amber-500 underline decoration-amber-500 p-2 ">{{$settings.sections.posts.button.text}}</nuxt-link>
+        <nuxt-link :to="`/blog`" class="text-sm text-amber-500 underline decoration-amber-500 p-2 ">
+        {{$settings.sections.buttons.explore.text}}
+        </nuxt-link>
     </div>
 
         <!-- the articles grid -->
-        <div class="flex flex-no-wrap overflow-x-scroll scrolling-touch lg:overflow-x-auto lg:scrolling-auto md:grid md:grid-cols-3 gap-4 my-8">
+        <div v-if="posts.length > 0" class="flex flex-no-wrap overflow-x-scroll scrolling-touch lg:overflow-x-auto lg:scrolling-auto md:grid md:grid-cols-3 gap-4 my-8">
         <nuxt-link :to="`/posts/${post.slug}`" v-for="post in posts"
               :key="post.id" class="relative shadow-md rounded-md flex-shrink-0 w-full lg:w-auto m-2" >
                    
                     <nuxt-link class="block"  :to="`/posts/${post.slug}`">
                       <nuxt-img
                         class="block rounded-t-lg w-full"
-                        :src="post.image.url"
+                        :src="post.image ? post.image.url : ''"
                         alt=""
                       />
                     </nuxt-link>
@@ -49,8 +51,8 @@
                         :to="`/posts/${post.slug}`"
                         class="bg-amber-600 text-white focus:ring-4 font-light rounded-lg text-xs px-3 py-2 text-center inline-flex items-center"
                       >
-                       {{$settings.sections.posts.button.text}} ...
-                        <!-- <svg
+                       {{$settings.sections.buttons.readmore.text}} 
+                        <svg
                           class="fill-white -mr-1 ml-2 h-3 w-3"
                           fill="currentColor"
                           viewBox="0 0 20 20"
@@ -61,7 +63,7 @@
                             d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
                             clip-rule="evenodd"
                           ></path>
-                        </svg> -->
+                        </svg>
                       </nuxt-link>
                     </div>
                 </nuxt-link>
@@ -91,7 +93,7 @@ export default {
         this.posts = data.results.slice(0, 3);
         // console.log(this.posts[0]);
       } catch (e) {
-        console.log(this.$settings.header.menu);
+        // console.log(this.$settings.header.menu);
       }
       this.loading = false;
     },

@@ -1,16 +1,18 @@
 <template>
-  <div>
+  <div v-if="$settings.sections.home.featured.active">
+    
     <div v-if="loading" class="flex justify-center items-center h-screen">
       <si-Loader />
     </div>
 
-    <div v-if="!loading && cards != null" class="container mx-auto px-5 py-8 md:px-12">
+    <!-- if the store has more than 6 spaces -->
+    <div v-if="loading && cards.length >= 6" class="container mx-auto px-5 py-8 md:px-12">
       <div
         class="flex flex-col gap-4 md:flex-row justify-start md:justify-between items-center"
       >
         <div>
           <h1 class="text-2xl font-normal text-gray-800 capitalize lg:text-3xl">
-            {{ $settings.sections.spaces.heading }}
+            {{ $settings.sections.home.featured.title}}
           </h1>
 
           <div class="mt-2">
@@ -22,10 +24,10 @@
         <nuxt-link
           :to="`/shop`"
           class="text-sm text-amber-500 underline decoration-amber-500 p-2"
-          >{{$settings.sections.posts.button.text}}
+          >
+          {{$settings.sections.buttons.explore.text}}
           </nuxt-link>
       </div>
-
      
       <div class="flex flex-col lg:flex-row gap-2 my-12">
         <div  class="flex flex-col gap-2 w-full lg:w-1/2  overflow-hidden">
@@ -37,7 +39,7 @@
             <nuxt-img
               alt="gallery"
               class="block rounded-tr-md rounded-tl-md h-3/4 lg:h-full w-full object-cover object-center  lg:group-hover:h-3/4 transition-all duration-300 overflow-hidden"
-              :src="cards[0].images[0].src"
+              :src="cards[0].images[0] ? cards[0].images[0].src : ''"
             />
             <div
               class="p-2 rounded-br-md rounded-bl-md flex flex-col w-full duration-300 bg-black text-white"
@@ -59,7 +61,7 @@
             <nuxt-img
               alt="gallery"
               class="block rounded-tr-md rounded-tl-md h-3/4 lg:h-full w-full object-cover object-center  lg:group-hover:h-3/4 transition-all duration-300 overflow-hidden"
-              :src="cards[1].images[0].src"
+              :src="cards[1].images[0] ? cards[1].images[0].src : ''"
             />
             <div
               class="p-2 rounded-br-md rounded-bl-md flex flex-col w-full duration-300 bg-black text-white"
@@ -82,7 +84,7 @@
             <nuxt-img
               alt="gallery"
               class="block lg:h-full w-full h-full object-cover object-center lg:group-hover:h-5/6 transition-all duration-300 overflow-hidden"
-              :src="cards[2].images[0].src"
+              :src="cards[2].images[0] ? cards[2].images[0].src : ''"
             />
             <div
               class=" p-2 flex flex-col w-full bg-black text-white rounded-br-md rounded-bl-md"
@@ -95,7 +97,7 @@
                 <span class="block">{{ cards[2].price.salePrice }}{{ $store.state.currency.symbol }}</span>
               </div>
             </div>
-            </nuxt-link>
+          </nuxt-link>
         </div>
 
         <div class="flex flex-col gap-2 w-full lg:w-1/2  overflow-hidden">
@@ -106,7 +108,7 @@
             <nuxt-img
               alt="gallery"
               class="block rounded-tr-md rounded-tl-md lg:h-full w-full object-cover object-center  lg:group-hover:h-5/6 transition-all duration-300 overflow-hidden"
-              :src="cards[3].images[0].src"
+              :src="cards[3].images[0] ? cards[3].images[0].src : ''"
             />
             <div
               class=" p-2 flex flex-col w-full bg-black text-white rounded-br-md rounded-bl-md"
@@ -123,51 +125,60 @@
 
           <div class="flex flex-col md:flex-row gap-2">
             <nuxt-link
-            :to="`/spaces/${cards[0].slug}`"
+            :to="`/spaces/${cards[4].slug}`"
             class="relative rounded-md w-full lg:w-1/2 transition-all duration-300 group overflow-hidden"
           >
             <nuxt-img
               alt="gallery"
               class="block rounded-tr-md rounded-tl-md h-3/4 lg:h-full w-full object-cover object-center  lg:group-hover:h-3/4 transition-all duration-300 overflow-hidden"
-              :src="cards[0].images[2].src"
+              :src="cards[4].images[0] ? cards[4].images[0].src : ''"
             />
             <div
               class="p-2 rounded-br-md rounded-bl-md flex flex-col w-full duration-300 bg-black text-white"
             >
               <span class="star-rating">
-                {{ displayStars(cards[0].review.rating) }}
+                {{ displayStars(cards[4].review.rating) }}
               </span>
               <div class="text-xs font-semibold flex justify-between">
-                <span class="block">{{ cards[0].name }}</span>
-                <span class="block">{{ cards[0].price.salePrice }}{{ $store.state.currency.symbol }}</span>
+                <span class="block">{{ cards[4].name }}</span>
+                <span class="block">{{ cards[4].price.salePrice }}{{ $store.state.currency.symbol }}</span>
               </div>
             </div>
             </nuxt-link>
 
             <nuxt-link
-            :to="`/spaces/${cards[0].slug}`"
-            class="relative rounded-md w-full lg:w-1/2 transition-all duration-300 group overflow-hidden"
-          >
+            :to="`/spaces/${cards[5].slug}`"
+            class="relative rounded-md w-full lg:w-1/2 transition-all duration-300 group overflow-hidden" >
             <nuxt-img
               alt="gallery"
               class="block rounded-tr-md rounded-tl-md h-3/4 lg:h-full w-full object-cover object-center  lg:group-hover:h-3/4 transition-all duration-300 overflow-hidden"
-              :src="cards[0].images[1].src"
-            />
+              :src="cards[5].images[0] ? cards[5].images[0].src : ''" />
+            
             <div
-              class="p-2 rounded-br-md rounded-bl-md flex flex-col w-full duration-300 bg-black text-white"
-            >
+              class="p-2 rounded-br-md rounded-bl-md flex flex-col w-full duration-300 bg-black text-white" >
               <span class="star-rating">
-                {{ displayStars(cards[0].review.rating) }}
+                {{ displayStars(cards[5].review.rating) }}
               </span>
               <div class="text-xs font-semibold flex justify-between">
-                <span class="block">{{ cards[0].name }}</span>
-                <span class="block">{{ cards[0].price.salePrice }}{{ $store.state.currency.symbol }}</span>
+                <span class="block">{{ cards[5].name }}</span>
+                <span class="block">{{ cards[5].price.salePrice }}{{ $store.state.currency.symbol }}</span>
               </div>
             </div>
             </nuxt-link>
           </div>
         </div>
       </div>
+      
+      
+    </div>
+
+    <!-- if the store has less than 6 spaces -->
+    <sections-Spaces v-if="cards.length >= 1 && cards.length < 6"></sections-Spaces>
+
+
+    <!-- if the store if empty -->
+    <div v-if="cards.length == 0" class="my-6 h-72 flex justify-center text-center items-center bg-gray-200">
+      <p>No products found</p>
     </div>
   </div>
 </template>

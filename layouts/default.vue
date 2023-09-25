@@ -1,9 +1,9 @@
 <template >
     <div :class="$store.state.showHeaderMenu ? 'to-right' : ''" class="flex flex-col min-h-screen">
-    <sections-navbar v-if="$settings.sections.navbar.active"></sections-navbar>
+    <sections-navbar></sections-navbar>
     <Nuxt />
     
-    <sections-footer v-if="$settings.sections.foooter.active" class="relative bottom-0 mb-0"></sections-footer>
+    <sections-footer  class="relative bottom-0 mb-0"></sections-footer>
     </div>
 </template>
 

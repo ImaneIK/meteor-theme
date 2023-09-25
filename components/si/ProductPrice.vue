@@ -34,10 +34,10 @@ export default {
         price: Object,
         originalPrice: { type: Object, default: null },
         variants: { type: Array, default: [] },
-        quantity: 1 
     },
     data() {
         return {
+            quantity: 1,
             minPrice : this.type == 'variable' ? Math.min(...this.variants.map(v=>v.price.salePrice)) : 0,
             maxPrice : this.type == 'variable' ? Math.max(...this.variants.map(v=>v.price.salePrice)) : 0,
         }

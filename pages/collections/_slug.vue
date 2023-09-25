@@ -1,6 +1,15 @@
 <template>
   <div>
-    <sections-banner v-if="$settings.sections.shopBanner.active"/>
+    <div v-if="$settings.sections.collection.banner.active" class="mt-12 object-center relative w-full px-6 sm:px-12  lg:px-24 py-12 bg-cover bg-center overflow-hidden" 
+        :style="$settings.sections.collection.banner.background.active && $settings.sections.shop.banner.background.image ? ` background-image: url('${this.$settings.sections.shop.banner.background.image.src}');` : `background:grey;`" >
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+      <div class="relative flex flex-col inset-0 flex items-center justify-center">
+      <h1 class="text-sm lg:text-3xl m-8 w-full lg:w-1/2 opacity-75 text-center text-white ">
+        {{ this.$settings.sections.collection.banner.content.title }}
+      </h1>
+      <si-SearchBar v-if="this.$settings.sections.collection.banner.content.searchbar.active" class="mx-12"  style="z-index: 1"/>
+  </div>
+</div>
 
     <!-- loader -->
     <div v-if="loading" class="flex justify-center items-center h-screen">
@@ -18,11 +27,11 @@
 
       <!-- the route like heading -->
       <div class="flex justify-between py-4">
-        <div v-if="filteredProducts" class="flex justify-start items-center w-full">
+        <div  class="flex justify-start items-center w-full">
           <div class="flex flex-col lg:flex-row">
             <p class="text-xs font-light flex gap-2">
-              <nuxt-link class="block" to="/"><svg class=" fill-gray-500" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg></nuxt-link> >
-              <nuxt-link class="block" :to="`/collections/${
+              <nuxt-link class="block" to="/"><svg class=" fill-gray-500" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg></nuxt-link> >
+              <nuxt-link v-if="filteredProducts.length > 0" class="block" :to="`/collections/${
                 item.locations ? item.locations.slug : item.collections.slug
               }`">{{
                 item.locations ? item.locations.name : item.collections.name
@@ -32,7 +41,10 @@
 
         </div>
 
-        <h2 class="block text-end w-full text-xs font-light">{{ filteredProducts.length }} {{$settings.sections.productdescription.items.label}}</h2>
+        <h2 class="block text-end w-full text-xs font-light">
+          {{ filteredProducts.length }} 
+          {{$settings.sections.collection.labels.itemsfound.text}}
+        </h2>
       </div>
 
       <!-- list of spaces and the filters -->
@@ -47,20 +59,24 @@
         ></si-Filters>
 
         <!-- the cards -->
-        <div class="w-full flex flex-col">
-          <nuxt-link :to="`/spaces/${card.slug}`"
-            v-for="(card, i) in filteredProducts"
-            :key="i">
-            <si-ProductCard 
-              :card="card"
-              :src="card.images[0].src" 
-              :title="card.name" 
-              :rating="card.review.rating.toFixed(1)"
-              :price="card.price.salePrice" />
-          </nuxt-link>
+        <div v-if="filteredProducts.length > 0" class="w-full flex flex-col">
+                  <nuxt-link :to="`/spaces/${card.slug}`"
+                  v-for="(card, i) in filteredProducts"
+                  :key="i">
+          <si-ProductCard 
+            :card="card"
+            :src="card.images ? card.images[0].src : ''"
+            :title="card.name" 
+            :rating="card.review.rating.toFixed(1)"
+            :price="card.price.salePrice" />
+        </nuxt-link>
 
           <!-- there should be paginations in here... -->
           <!-- <div class="text-center font-light text-xs my-6">you've reached the end</div> -->
+        </div>
+
+        <div v-if="filteredProducts.length == 0" class="bg-gray-100 h-40 p-12 w-full flex items-center text-center justify-center text-sm font-light">
+          <p>no products are aligned to your search query<br> try again </p>
         </div>
 
         <!-- Drawer filter -->
@@ -95,7 +111,7 @@
 
       </div>
 
-      <sections-spaces v-if="$settings.sections.relateditems.active"/>
+      <sections-spaces v-if="$settings.sections.collection.spaces.active" />
 
     </div>
   </div>
@@ -131,20 +147,31 @@ export default {
 
     const collectionSlug = this.$route.params.slug;
 
-    // Select the collection menu (categories)
-    this.selectedCategory = this.$settings.sections.collections.find(
-      (collection) => collection.slug === collectionSlug
-    );
+// Select the collection menu (categories)
+if(this.$settings.sections.collections != null){
+  this.selectedCategory = this.$settings.sections.collections.find(
+  (collection) => collection.slug === collectionSlug
+);
+}else{
+  this.selectedCategory=[];
+}
 
-    // Select the location menu
-    this.selectedLocation = this.$settings.sections.locations.find(
-      (location) => location.slug === collectionSlug
-    );
 
-    this.item = {
-      collections: this.selectedCategory,
-      locations: this.selectedLocation,
-    };
+// Select the location menu
+if(this.$settings.sections.locations != null){
+  this.selectedLocation = this.$settings.sections.locations.find(
+  (location) => location.slug === collectionSlug
+);
+}else{
+  this.selectedCategory=[];
+}
+
+
+this.item = {
+  collections: this.selectedCategory,
+  locations: this.selectedLocation,
+};
+
 
     // Filter products based on selected location and/or category
     if (!this.selectedLocation && !this.selectedCategory) {
@@ -216,7 +243,6 @@ export default {
         return true; // Include the products if all filters match
       });
 
-      console.log("waaaaaaaa", this.spaces);
       this.filteredProducts = this.filtered;
     },
 

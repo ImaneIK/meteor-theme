@@ -1,23 +1,23 @@
 <template>
-  <div
-    class="fixed w-full bg-white z-10"
-    style="padding: 0 16px"
-    :class="[
-      'navbar',
-      {
-        'navbar-transparent': $route.path === '/' && !scrolled,
-        'navbar-white': $route.path !== '/' || scrolled,
-      },
-    ]"
-  >
+  <div class="fixed w-full bg-white z-10" style="padding: 0 16px" :class="[
+    'navbar',
+    {
+      'navbar-transparent': $route.path === '/' && !scrolled,
+      'navbar-white': $route.path !== '/' || scrolled,
+    },
+  ]">
     <div class="flex items-center justify-center md:justify-between">
       <!-- Header logo -->
-      <div class="font-bold text-amber-600">
-        <a href="/"><nuxt-img class="w-24" :src="$settings.header.logo.src" /></a>
+      <div class="p-4">
+        <template v-if="logo != null">
+          <a href="/"><nuxt-img class="w-24" :src="logo.src" /></a>
+        </template>
+        <template v-else>
+          <span>No_logo</span>
+        </template>
       </div>
 
       <!-- Mobile toggle -->
-
       <!-- <div class="md:hidden">
         <button @click="drawer">
           <svg
@@ -36,49 +36,41 @@
 
       <!-- Navbar -->
       <div class="hidden md:block" style="padding: 0 3rem">
-        <ul class="capitalize flex gap-6 text-xs justify-center">
-          <li v-for="link in $settings.header.menu.items">
-            <NuxtLink
-              :to="link.url"
-              :class="{
-                'text-amber-500 underline decoration-solid decoration-amber underline-offset-4 decoration-2':
-                  $route.path === link.url,
-                'text-gray-400 font-light': $route.path !== link.url,
-              }"
-              >{{ link.text }}</NuxtLink
-            >
-          </li>
+          <ul class="capitalize flex gap-6 text-xs justify-center">
+            <template v-if="menu">
+              <li
+                v-for="(item, i) in $settings.sections.header.menu.items"
+                :key="i"
+                :class="{
+                  'text-amber-500 underline decoration-solid decoration-amber underline-offset-4 decoration-2': $route.path === item.url,
+                  'text-gray-400 font-light': $route.path !== item.url,
+                }" >
+                <a :href="item.url">{{ item.text }}</a>
+              </li>
+            </template>
 
-          <li>
+              <template v-else>
+                <p>No_menu</p>
+              </template>
+
+          <!-- language -->
+          <li v-if="$settings.sections.header.icons.language.active">
             <div class="relative">
               <div class="flex gap-2 cursor-pointer" @click="toggleLanguageDropdown">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="1em"
-                  viewBox="0 0 512 512"
-                  :class="isLanguageDropdownVisible ? 'fill-amber-500' : 'fill-gray-400'"
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
+                  :class="isLanguageDropdownVisible ? 'fill-amber-500' : 'fill-gray-400'">
                   <path
-                    d="M57.7 193l9.4 16.4c8.3 14.5 21.9 25.2 38 29.8L163 255.7c17.2 4.9 29 20.6 29 38.5v39.9c0 11 6.2 21 16 25.9s16 14.9 16 25.9v39c0 15.6 14.9 26.9 29.9 22.6c16.1-4.6 28.6-17.5 32.7-33.8l2.8-11.2c4.2-16.9 15.2-31.4 30.3-40l8.1-4.6c15-8.5 24.2-24.5 24.2-41.7v-8.3c0-12.7-5.1-24.9-14.1-33.9l-3.9-3.9c-9-9-21.2-14.1-33.9-14.1H257c-11.1 0-22.1-2.9-31.8-8.4l-34.5-19.7c-4.3-2.5-7.6-6.5-9.2-11.2c-3.2-9.6 1.1-20 10.2-24.5l5.9-3c6.6-3.3 14.3-3.9 21.3-1.5l23.2 7.7c8.2 2.7 17.2-.4 21.9-7.5c4.7-7 4.2-16.3-1.2-22.8l-13.6-16.3c-10-12-9.9-29.5 .3-41.3l15.7-18.3c8.8-10.3 10.2-25 3.5-36.7l-2.4-4.2c-3.5-.2-6.9-.3-10.4-.3C163.1 48 84.4 108.9 57.7 193zM464 256c0-36.8-9.6-71.4-26.4-101.5L412 164.8c-15.7 6.3-23.8 23.8-18.5 39.8l16.9 50.7c3.5 10.4 12 18.3 22.6 20.9l29.1 7.3c1.2-9 1.8-18.2 1.8-27.5zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"
-                  />
+                    d="M57.7 193l9.4 16.4c8.3 14.5 21.9 25.2 38 29.8L163 255.7c17.2 4.9 29 20.6 29 38.5v39.9c0 11 6.2 21 16 25.9s16 14.9 16 25.9v39c0 15.6 14.9 26.9 29.9 22.6c16.1-4.6 28.6-17.5 32.7-33.8l2.8-11.2c4.2-16.9 15.2-31.4 30.3-40l8.1-4.6c15-8.5 24.2-24.5 24.2-41.7v-8.3c0-12.7-5.1-24.9-14.1-33.9l-3.9-3.9c-9-9-21.2-14.1-33.9-14.1H257c-11.1 0-22.1-2.9-31.8-8.4l-34.5-19.7c-4.3-2.5-7.6-6.5-9.2-11.2c-3.2-9.6 1.1-20 10.2-24.5l5.9-3c6.6-3.3 14.3-3.9 21.3-1.5l23.2 7.7c8.2 2.7 17.2-.4 21.9-7.5c4.7-7 4.2-16.3-1.2-22.8l-13.6-16.3c-10-12-9.9-29.5 .3-41.3l15.7-18.3c8.8-10.3 10.2-25 3.5-36.7l-2.4-4.2c-3.5-.2-6.9-.3-10.4-.3C163.1 48 84.4 108.9 57.7 193zM464 256c0-36.8-9.6-71.4-26.4-101.5L412 164.8c-15.7 6.3-23.8 23.8-18.5 39.8l16.9 50.7c3.5 10.4 12 18.3 22.6 20.9l29.1 7.3c1.2-9 1.8-18.2 1.8-27.5zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z" />
                 </svg>
-                <p
-                  :class="isLanguageDropdownVisible ? 'text-amber-500' : 'text-gray-400'"
-                >
+                <p :class="isLanguageDropdownVisible ? 'text-amber-500' : 'text-gray-400'">
                   {{ this.$store.state.language.code }}
                 </p>
               </div>
-              <div
-                v-if="isLanguageDropdownVisible"
-                class="absolute top-full left-0 min-w-full z-10 transition-transform transform"
-              >
+              <div v-if="isLanguageDropdownVisible"
+                class="absolute top-full left-0 min-w-full z-10 transition-transform transform">
                 <ul class="bg-white border rounded shadow p-2">
-                  <li
-                    v-for="(l, i) in $settings.store_languages"
-                    :key="i"
-                    @click="changeLanguage(l.code)"
-                    class="cursor-pointer hover:bg-gray-100 p-2"
-                  >
+                  <li v-for="(l, i) in $settings.store_languages" :key="i" @click="changeLanguage(l.code)"
+                    class="cursor-pointer hover:bg-gray-100 p-2">
                     {{ l.name }}
                   </li>
                 </ul>
@@ -86,36 +78,24 @@
             </div>
           </li>
 
+          <!-- currency -->
           <li>
-            <div class="relative">
+            <div v-if="$settings.sections.header.icons.currency.active" class="relative">
               <div class="flex gap-2 cursor-pointer" @click="toggleCurrencyDropdown">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="1em"
-                  viewBox="0 0 512 512"
-                  :class="isCurrencyDropdownVisible ? 'fill-amber-500' : 'fill-gray-400'"
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
+                  :class="isCurrencyDropdownVisible ? 'fill-amber-500' : 'fill-gray-400'">
                   <path
-                    d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V192c0-35.3-28.7-64-64-64H80c-8.8 0-16-7.2-16-16s7.2-16 16-16H448c17.7 0 32-14.3 32-32s-14.3-32-32-32H64zM416 272a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"
-                  />
+                    d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V192c0-35.3-28.7-64-64-64H80c-8.8 0-16-7.2-16-16s7.2-16 16-16H448c17.7 0 32-14.3 32-32s-14.3-32-32-32H64zM416 272a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" />
                 </svg>
-                <p
-                  :class="isCurrencyDropdownVisible ? 'text-amber-500' : 'text-gray-400'"
-                >
+                <p :class="isCurrencyDropdownVisible ? 'text-amber-500' : 'text-gray-400'">
                   {{ this.$store.state.currency.code }}
                 </p>
               </div>
-              <div
-                v-if="isCurrencyDropdownVisible"
-                class="absolute top-full left-0 min-w-full z-10 transition-transform transform"
-              >
+              <div v-if="isCurrencyDropdownVisible"
+                class="absolute top-full left-0 min-w-full z-10 transition-transform transform">
                 <ul class="bg-white border rounded shadow p-2">
-                  <li
-                    v-for="(l, i) in $settings.store_currencies"
-                    :key="i"
-                    @click="changeCurrency(l.code)"
-                    class="cursor-pointer hover:bg-gray-100 p-2"
-                  >
+                  <li v-for="(l, i) in $settings.store_currencies" :key="i" @click="changeCurrency(l.code)"
+                    class="cursor-pointer hover:bg-gray-100 p-2">
                     {{ l.name }}
                   </li>
                 </ul>
@@ -123,48 +103,30 @@
             </div>
           </li>
 
-          <li @click="showPopup">
-            <svg
-              :class="isPopupVisible ? 'fill-amber-500' : 'fill-gray-400'"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 512 512"
-            >
+          <!-- search icon -->
+          <li v-if="$settings.sections.header.icons.search.active" @click="showPopup">
+            <svg :class="isPopupVisible ? 'fill-amber-500' : 'fill-gray-400'" xmlns="http://www.w3.org/2000/svg"
+              height="1em" viewBox="0 0 512 512">
               <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com -->
               <!-- License - https://fontawesome.com/license (Commercial License) -->
               <!-- Copyright 2023 Fonticons, Inc. -->
               <path
-                d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
-              />
+                d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
             </svg>
           </li>
         </ul>
       </div>
 
-      
+
       <!-- Dark Background Transition -->
-      <transition
-        enter-class="opacity-0"
-        enter-active-class="ease-out transition-medium"
-        enter-to-class="opacity-100"
-        leave-class="opacity-100"
-        leave-active-class="ease-out transition-medium"
-        leave-to-class="opacity-0"
-      >
-        <div
-          @keydown.esc="isOpen = false"
-          v-show="isOpen"
-          class="z-10 fixed inset-0 transition-opacity"
-        >
-          <div
-            @click="isOpen = false"
-            class="absolute inset-0 bg-black opacity-50"
-            tabindex="0"
-          ></div>
+      <transition enter-class="opacity-0" enter-active-class="ease-out transition-medium" enter-to-class="opacity-100"
+        leave-class="opacity-100" leave-active-class="ease-out transition-medium" leave-to-class="opacity-0">
+        <div @keydown.esc="isOpen = false" v-show="isOpen" class="z-10 fixed inset-0 transition-opacity">
+          <div @click="isOpen = false" class="absolute inset-0 bg-black opacity-50" tabindex="0"></div>
         </div>
       </transition>
 
-      <si-BottomNav :openModal="showPopup" class="md:hidden"></si-BottomNav>
+      <si-BottomNav @change-color="changeLinkColor" :openModal="showPopup"  class="md:hidden"></si-BottomNav>
 
       <!-- Drawer Menu -->
       <!-- <aside
@@ -277,26 +239,40 @@
       </aside> -->
     </div>
 
-    <!-- popup -->
-    
-    <div class="fade-in-element sticky rounded-md shadow-2xl lg:mx-12" :style="{
-        'background-position': '50%',
-        'background-image': `url(${$settings.sections.popup.image.src})`,
-        'background-color': 'gray',
-        'background-blend-mode': 'multiply'
-      }" >
-      <section class="" 
-      v-if="isPopupVisible" :class="{ 'visible': isPopupVisible }">
-        <div class="p-8 text-center sm:p-12">
-          <span class="text-white" @click="closePopup"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512">
-          <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z"/></svg></span>
-          <p class="text-sm font-semibold uppercase tracking-widest text-amber-500">{{ $settings.sections.popup.title }}</p>
-          <h2 class="my-2 text-2xl text-white font-medium">{{ $settings.sections.popup.message }}</h2>
-          <si-SearchBar @search-submit="closePopup"></si-SearchBar>
-        </div>
-      </section>
-    </div>
 
+      <!-- popup -->
+      <div 
+        v-if="$settings.sections.popup.active" 
+        class="fade-in-element sticky rounded-md shadow-2xl lg:mx-12"
+        :style="$settings.sections.popup.background ?
+          { //condition on active
+            'background-position': '50%',
+            'background-image': `url(${$settings.sections.popup.background.src})`,
+            'background-color': 'gray',
+            'background-blend-mode': 'multiply'
+          }
+          : { 'background': 'gray' }">
+
+        <section class="" v-if="isPopupVisible" :class="{ 'visible': isPopupVisible }">
+          <div class="p-8 text-center sm:p-12">
+            <span class="text-white" @click="closePopup"><svg xmlns="http://www.w3.org/2000/svg" height="2em"
+                viewBox="0 0 512 512">
+                <path
+                  d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" />
+              </svg></span>
+            <p class="text-sm font-semibold uppercase tracking-widest text-amber-500">{{ $settings.sections.popup.title }}
+            </p>
+
+            <h2 
+              v-if="$settings.sections.popup.message.active" 
+              class="my-2 text-2xl text-white font-medium">
+                {{ $settings.sections.popup.message.text }}
+            </h2>
+
+            <si-SearchBar @search-submit="closePopup"></si-SearchBar>
+          </div>
+        </section>
+      </div>
   </div>
 </template>
 
@@ -306,6 +282,8 @@ export default {
     return {
       isOpen: false,
       scrolled: false,
+      logo: this.$settings.sections.header.logo,
+      menu:this.$settings.sections.header.menu,
       isLanguageDropdownVisible: false,
       isCurrencyDropdownVisible: false,
       isPopupVisible: false,
@@ -341,9 +319,17 @@ export default {
     };
   },
   methods: {
+    changeLinkColor() {
+      // Update the linkStyle object to change the color
+      this.linkStyle = {
+        fill: this.$settings.sections.styles.color.primary,
+        color: this.$settings.sections.styles.color.primary
+      };
+    },
+
     showPopup() {
       this.isPopupVisible = !this.isPopupVisible;
-      console.log("this.isPopupVisible:",this.isPopupVisible)
+      // console.log("this.isPopupVisible:", this.isPopupVisible)
     },
     closePopup() {
       this.isPopupVisible = false;
@@ -369,7 +355,7 @@ export default {
 
     drawer() {
       this.isOpen = !this.isOpen;
-      console.log(this.otherMenu[0].childrens[0].text);
+      // console.log(this.otherMenu[0].childrens[0].text);
     },
 
     handleScroll() {
@@ -401,13 +387,11 @@ export default {
 </script>
 
 <style scoped>
-
-
-
 .popup.visible {
   display: block;
   /* Add your CSS styles for the visible popup here */
 }
+
 .navbar {
   position: fixed;
   top: 0;
@@ -434,7 +418,8 @@ export default {
 }
 
 .fade-in-element {
-  animation: fadeIn 1s ease-in-out; /* You can adjust the duration and timing function */
+  animation: fadeIn 1s ease-in-out;
+  /* You can adjust the duration and timing function */
   /* Other styles for your element */
 }
 
@@ -442,6 +427,7 @@ export default {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }

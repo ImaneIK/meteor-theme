@@ -1,52 +1,4 @@
 {
-  "SectionsAbout": {
-    "description": "Auto imported from components/sections/about.vue"
-  },
-  "SectionsBanner": {
-    "description": "Auto imported from components/sections/Banner.vue"
-  },
-  "SectionsBlog": {
-    "description": "Auto imported from components/sections/Blog.vue"
-  },
-  "SectionsCategories": {
-    "description": "Auto imported from components/sections/Categories.vue"
-  },
-  "SectionsCollections": {
-    "description": "Auto imported from components/sections/Collections.vue"
-  },
-  "SectionsContact": {
-    "description": "Auto imported from components/sections/Contact.vue"
-  },
-  "SectionsFaq": {
-    "description": "Auto imported from components/sections/Faq.vue"
-  },
-  "SectionsFeatures": {
-    "description": "Auto imported from components/sections/Features.vue"
-  },
-  "SectionsFooter": {
-    "description": "Auto imported from components/sections/Footer.vue"
-  },
-  "SectionsHeader": {
-    "description": "Auto imported from components/sections/Header.vue"
-  },
-  "SectionsLocations": {
-    "description": "Auto imported from components/sections/Locations.vue"
-  },
-  "SectionsNavbar": {
-    "description": "Auto imported from components/sections/Navbar.vue"
-  },
-  "SectionsRelatedPosts": {
-    "description": "Auto imported from components/sections/RelatedPosts.vue"
-  },
-  "SectionsReviews": {
-    "description": "Auto imported from components/sections/Reviews.vue"
-  },
-  "SectionsSpaces": {
-    "description": "Auto imported from components/sections/Spaces.vue"
-  },
-  "SectionsTeam": {
-    "description": "Auto imported from components/sections/Team.vue"
-  },
   "SiAppLoader": {
     "description": "Auto imported from components/si/AppLoader.vue"
   },
@@ -77,9 +29,6 @@
   "SiLoader": {
     "description": "Auto imported from components/si/Loader.vue"
   },
-  "SiPopup": {
-    "description": "Auto imported from components/si/Popup.vue"
-  },
   "SiProductCard": {
     "description": "Auto imported from components/si/ProductCard.vue"
   },
@@ -89,9 +38,6 @@
   "SiProductQuantity": {
     "description": "Auto imported from components/si/ProductQuantity.vue"
   },
-  "SiProductVariantes": {
-    "description": "Auto imported from components/si/ProductVariantes.vue"
-  },
   "SiSearchBar": {
     "description": "Auto imported from components/si/SearchBar.vue"
   },
@@ -100,5 +46,53 @@
   },
   "SiStatisticBlock": {
     "description": "Auto imported from components/si/StatisticBlock.vue"
+  },
+  "SectionsAbout": {
+    "description": "Auto imported from components/sections/about.vue"
+  },
+  "SectionsBanner": {
+    "description": "Auto imported from components/sections/Banner.vue"
+  },
+  "SectionsBlog": {
+    "description": "Auto imported from components/sections/Blog.vue"
+  },
+  "SectionsCategories": {
+    "description": "Auto imported from components/sections/Categories.vue"
+  },
+  "SectionsCollections": {
+    "description": "Auto imported from components/sections/Collections.vue"
+  },
+  "SectionsContact": {
+    "description": "Auto imported from components/sections/Contact.vue"
+  },
+  "SectionsCulture": {
+    "description": "Auto imported from components/sections/Culture.vue"
+  },
+  "SectionsFaq": {
+    "description": "Auto imported from components/sections/Faq.vue"
+  },
+  "SectionsFeatures": {
+    "description": "Auto imported from components/sections/Features.vue"
+  },
+  "SectionsFooter": {
+    "description": "Auto imported from components/sections/Footer.vue"
+  },
+  "SectionsHeader": {
+    "description": "Auto imported from components/sections/Header.vue"
+  },
+  "SectionsLocations": {
+    "description": "Auto imported from components/sections/Locations.vue"
+  },
+  "SectionsNavbar": {
+    "description": "Auto imported from components/sections/Navbar.vue"
+  },
+  "SectionsRelatedPosts": {
+    "description": "Auto imported from components/sections/RelatedPosts.vue"
+  },
+  "SectionsReviews": {
+    "description": "Auto imported from components/sections/Reviews.vue"
+  },
+  "SectionsSpaces": {
+    "description": "Auto imported from components/sections/Spaces.vue"
   }
 }

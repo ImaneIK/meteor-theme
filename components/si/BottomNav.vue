@@ -1,41 +1,78 @@
 <!-- components/BottomBar.vue -->
 <template>
-    <div :style="`background: ${$settings.mobilenav.background}`" class=" fixed bottom-0 left-0 right-0 bg-white text-gray-600 text-xs text-center shadow-md p-4 flex justify-around items-center">
-      <!-- Bottom navigation links/icons -->
-      <nuxt-link :style="`color:${$settings.mobilenav.link.color}; `"  :to= $settings.mobilenav.home.link class="">
-        <span :style="`fill:${$settings.mobilenav.link.color};`" v-html= $settings.mobilenav.home.icon></span>
-        <span >{{$settings.mobilenav.home.label}}</span>
+   <!-- Bottom navigation links/icons -->
+  <div 
+
+    :style="`background: ${this.$settings.sections.mobilenav.styles.background}`"
+     class=" fixed bottom-0 left-0 right-0 bg-white text-gray-600 text-xs text-center shadow-md p-4 flex justify-around items-center">
+      
+      <!-- home page -->
+      <nuxt-link
+          v-if="$settings.sections.mobilenav.link_1.active"
+          class="block flex flex-col justify-center items-center"
+          :style="this.$route.path == this.$settings.sections.mobilenav.link_1.url ? `fill:${this.$settings.sections.styles.colors.primary}; color:${this.$settings.sections.styles.colors.primary};` : `fill:${this.$settings.sections.mobilenav.styles.foreground}; color:${this.$settings.sections.mobilenav.styles.foreground};  `" 
+          :to= this.$settings.sections.mobilenav.link_1.url>
+          <div  v-html= this.$settings.sections.mobilenav.link_1.icon  ></div>
+          <span >{{this.$settings.sections.mobilenav.link_1.label}}</span>
       </nuxt-link>
 
-      <nuxt-link :style="`color:${$settings.mobilenav.link.color}; `"  :to= $settings.mobilenav.settings.link class="text-gray-600">
+      <!-- search function -->
+      <div @click="openModal(); toggleColor()" v-if="$settings.sections.mobilenav.link_2.active">
+      <nuxt-link 
+        class="block flex flex-col justify-center items-center"
+        :style="clicked || $route.path == this.$settings.sections.mobilenav.link_2.url ? `fill:${this.$settings.sections.styles.colors.primary}; color:${this.$settings.sections.styles.colors.primary};` : `fill:${this.$settings.sections.mobilenav.styles.foreground}; color:${this.$settings.sections.mobilenav.styles.foreground};  `" 
+        :to= this.$settings.sections.mobilenav.link_2.url>
+        <div v-html= this.$settings.sections.mobilenav.link_2.icon  ></div>
+        <span >{{this.$settings.sections.mobilenav.link_2.label}}</span>
+      </nuxt-link>
+      </div>
+
+      <!-- shop -->
+      <nuxt-link 
+      v-if="$settings.sections.mobilenav.link_3.active"
+      class="block flex flex-col justify-center items-center"
+        :style="this.$route.path == this.$settings.sections.mobilenav.link_3.url ? `fill:${this.$settings.sections.styles.colors.primary}; color:${this.$settings.sections.styles.colors.primary};` : `fill:${this.$settings.sections.mobilenav.styles.foreground}; color:${this.$settings.sections.mobilenav.styles.foreground};  `" 
+        :to= this.$settings.sections.mobilenav.link_3.url >
+        <div v-html= this.$settings.sections.mobilenav.link_3.icon></div>
+        <span>{{this.$settings.sections.mobilenav.link_3.label}}</span>
+      </nuxt-link>
+    
+      <!-- wishlist -->
+      <nuxt-link 
+      v-if="$settings.sections.mobilenav.link_4.active"
+      class="block flex flex-col justify-center items-center"
+        :style="this.$route.path == this.$settings.sections.mobilenav.link_4.url ? `fill:${this.$settings.sections.styles.colors.primary}; color:${this.$settings.sections.styles.colors.primary};` : `fill:${this.$settings.sections.mobilenav.styles.foreground}; color:${this.$settings.sections.mobilenav.styles.foreground};  `" 
+        :to= this.$settings.sections.mobilenav.link_4.url >
+        <div v-html= this.$settings.sections.mobilenav.link_4.icon></div>
+        <span>{{this.$settings.sections.mobilenav.link_4.label}}</span>
+      </nuxt-link>
+
+      <!-- settings -->
+      <nuxt-link v-if="$settings.sections.mobilenav.link_5.active"
+      :to= this.$settings.sections.mobilenav.link_5.url >
         <siBottomDropDown></siBottomDropDown>
       </nuxt-link>
-
-      <nuxt-link :style="`color:${$settings.mobilenav.link.color}; `"  :to= $settings.mobilenav.explore.link class="text-gray-600">
-        <span class="text-gray-500" v-html= $settings.mobilenav.explore.icon></span>
-        <span>{{$settings.mobilenav.explore.label}}</span>
-      </nuxt-link>
-
-      <nuxt-link  :style="`color:${$settings.mobilenav.link.color}; `" :to= $settings.mobilenav.wishlist.link class="text-gray-600">
-        <span class="text-gray-500" v-html= $settings.mobilenav.wishlist.icon></span>
-        <span>{{$settings.mobilenav.wishlist.label}}</span>
-      </nuxt-link>
-
-      <nuxt-link :style="`color:${$settings.mobilenav.link.color}; `" :to= $settings.mobilenav.explore.link  @click="openModal" class=" text-gray-600">
-        <span class="text-gray-500" v-html= $settings.mobilenav.search.icon></span>
-        <span>{{$settings.mobilenav.search.label}}</span>
-      </nuxt-link>
-        
+         
     </div>
 </template>
-  
+
 <script>
   export default {
     props:{
       openModal:Function,
     },
-    name: 'BottomBar',
+
+    data() {
+      return {
+        clicked: false,
+      }
+    },
+
+    methods: {
+    toggleColor() {
+      this.clicked = !this.clicked
+    },
+  },
+
   };
 </script>
-
-  

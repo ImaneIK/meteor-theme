@@ -1,10 +1,12 @@
 <template>
+  
 
   <!-- background image -->
-  <div
-    class="mt-12 object-center relative w-full px-12 py-12 bg-cover bg-center"
-    :style="
-     ` background-image: url('${$settings.header.banner.blog.src}');` "
+  <!--  -->
+  <div 
+        :style=" image ? ` background-image: url('${image.src}');` : `background:grey`"
+        class="mt-12 object-center relative w-full px-12 py-12 bg-cover bg-center"
+    
   >
     <!-- dark filter -->
     <div class="absolute inset-0 bg-black opacity-50"></div>
@@ -14,12 +16,11 @@
     <div class="flex flex-col items-center gap-4">
 
       <!-- titling -->
-      <div class="text-3xl my-4 mx-auto text-center w-full opacity-75 text-white">
-        {{$settings.sections.posts.title}}
-      </div>
+      <div class="text-3xl my-4 mx-auto text-center w-full opacity-75 text-white"> {{title}} </div>
 
       <!-- search article -->
-      <div class="px-8 flex flex-col mx-2 lg:mx-12 lg:w-1/2 inset-0 flex items-center">
+      <div v-if="searchbar"
+            class="px-8 flex flex-col mx-2 lg:mx-12 lg:w-1/2 inset-0 flex items-center">
             <div
               class="bg-white bg-opacity-30 backdrop-blur rounded-lg p-2 flex items-center gap-5 w-full"
             >
@@ -32,9 +33,9 @@
                 @input="handleInput"
                 @keypress="search"
                 class="relative w-full text-white placeholder-gray-400 border-none bg-transparent focus:outline-none focus:border-transparent"
-                :placeholder= $settings.sections.header.searchbar.placeholder
-                
+                :placeholder= placeholder
               />
+              <!--  -->
 
             </div>
             <ul
@@ -68,6 +69,12 @@
 
 <script>
 export default {
+  props:{
+    image:Object,
+    title:String,
+    searchbar:Boolean,
+    placeholder:String
+  },
   data() {
     return {
       loading: true,
@@ -105,7 +112,7 @@ export default {
           .map((post) => post.slug);
         this.postSlug = filteredSlugs;
 
-        console.log(filteredSlugs);
+        // console.log(filteredSlugs);
       } catch (e) {
         // Handle error
         console.error("Error searching posts:", e);

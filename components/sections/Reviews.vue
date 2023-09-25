@@ -1,8 +1,9 @@
 <template>
+  <!--  -->
   <div v-if="item && item.review.reviews.length > 0" class="container">
     <div class="m-2">
       <h2 class="text-2xl">
-        <!-- {{ $settings.sections.product.reviews.title }} -->
+        <!-- {{ $settings.sections.space.reviews.label }} -->
       </h2>
     </div>
     <div v-if="loading" class="flex justify-center items-center my-5">
@@ -98,7 +99,7 @@ export default {
     });
     this.reviews = data;
     this.loading = false;
-    console.log(this.reviews);
+    // console.log(this.reviews);
   },
 };
 </script>

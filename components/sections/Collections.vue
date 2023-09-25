@@ -1,15 +1,16 @@
 <template>
-    <div class="py-12 px-4 ">
+    <div v-if="$settings.sections.home.collections.active" class="py-12 px-4 ">
     <div v-if="loading" class="flex justify-center items-center h-screen">
       <si-Loader />
     </div>
+
     <div v-if="!loading" class="bg-white">
     <div class="mx-auto py-4 lg:max-w-7xl lg:px-8 ">
 
       <div class="flex flex-col gap-4 md:flex-row justify-start md:justify-between items-center">
         <div>
               <h1 class="text-2xl font-normal text-gray-800 capitalize lg:text-3xl">
-                {{ $settings.sections.heading.collections}}
+                {{ $settings.sections.home.collections.title}}
               </h1>
 
               <div class="mt-2">
@@ -18,23 +19,31 @@
                 <span class="inline-block w-1 h-1 ml-1 bg-amber-500 rounded-full"></span>
               </div>
         </div>
-        <nuxt-link :to="`/shop`" class="text-sm text-amber-500 underline decoration-amber-500 p-2 ">{{$settings.sections.posts.button.text}}</nuxt-link>
+        <nuxt-link :to="`/shop`" class="text-sm text-amber-500 underline decoration-amber-500 p-2 ">
+        {{$settings.sections.buttons.explore.text}}
+        </nuxt-link>
       </div>
       
-<div class="overflow-hidden sm:overflow-auto ">
-<div  class="w-screen lg:w-full flex flex-no-wrap overflow-x-scroll scrolling-touch lg:overflow-x-auto lg:scrolling-auto mt-6 lg:grid gap-x-6 gap-y-10 lg:grid-cols-4 xl:gap-x-8">
+    <div v-if="cards.length > 0"  class="overflow-hidden sm:overflow-auto ">
+      <div  class="w-screen lg:w-full flex flex-no-wrap overflow-x-scroll scrolling-touch lg:overflow-x-auto lg:scrolling-auto mt-6 lg:grid gap-x-6 gap-y-10 lg:grid-cols-4 xl:gap-x-8">
         <div v-for="(card,index) in cards" :key="card.slug" class="group flex-shrink-0 w-full sm:w-1/2 lg:w-auto relative lg:transition-transform lg:duration-300 lg:ease-in-out lg:transform hover:-translate-y-2">
           <nuxt-link :to="`/collections/${card.slug}`" class="block rounded-md aspect-h-1 aspect-w-1 w-full overflow-hidden  bg-gray-200 lg:aspect-none  lg:h-80">
-            <nuxt-img :src="card.image.src" class="h-80 w-full object-cover object-center lg:h-full lg:w-full brightness-75 lg:group-hover:brightness-50" />
-            <p aria-hidden="true" class="lg:absolute lg:inset-0 p-4 bg-black lg:bg-transparent text-white font-medium" >{{ card.name }} <br/>{{ itemCount[index] }} {{$settings.sections.productdescription.items.label}}</p>
-            
+            <nuxt-img v-if="card.image" :src="card.image.src" class="h-80 w-full object-cover object-center lg:h-full lg:w-full brightness-75 lg:group-hover:brightness-50" />
+            <p aria-hidden="true" class="lg:absolute lg:inset-0 p-4 bg-black lg:bg-transparent text-white font-medium" >
+              {{ card.name }} <br/>{{ itemCount[index] }} 
+              {{$settings.sections.buttons.itemsfound.text}}
+            </p>
           </nuxt-link>
-        
-        
         </div>
-      </div></div>
-      
+      </div>
     </div>
+
+    <div v-else class="my-6 h-72 flex justify-center text-center items-center bg-gray-200">
+      <p>No collections found</p>
+    </div>
+  </div>
+
+    
   </div>
   </div>
 </template>
@@ -52,7 +61,7 @@ export default{
   async fetch() {
   try {
     const filter = { status: "PUBLISH" };
-    if (this.$settings.sections.locations.length > 0) {
+    if (this.$settings.sections.collections?.length > 0) {
       // Fetch locations from settings
       this.cards = this.$settings.sections.collections;
       const searchData = await this.$storeino.products.search(filter);

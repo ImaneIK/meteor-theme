@@ -1,6 +1,6 @@
 <template>
   <div>
-    <sections-banner v-if="$settings.sections.shopBanner.active" />
+    <sections-banner v-if="$settings.sections.shop.banner.active" />
 
     <!-- loader -->
     <div v-if="loading" class="flex justify-center items-center h-screen">
@@ -9,7 +9,7 @@
 
     <!-- the content -->
     <div
-      v-if="!loading && filteredProducts != null && $settings.sections.shopContent.active"
+      v-if="!loading && filteredProducts != null "
       class="flex flex-col m-4 lg:my-8 lg:mx-16 divide-y"
     >
       <!-- toggle -->
@@ -22,20 +22,25 @@
           <div class="flex flex-col lg:flex-row">
             <p class="text-xs font-light flex gap-2">
               <nuxt-link class="block" to="/"><svg class=" fill-gray-500" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg></nuxt-link> >
-              <nuxt-link class="block" :to="`/shop`">{{ $settings.sections.productdescription.all.label }}</nuxt-link>
+              <nuxt-link class="block" :to= $settings.sections.shop.labels.all.url>
+              {{ $settings.sections.shop.labels.all.text }}
+              </nuxt-link>
             </p>
           </div>
 
         </div>
 
-        <h2 class="block text-end w-full text-xs font-light">{{ cards.length }} {{ $settings.sections.productdescription.items.label }}</h2>
+        <h2 class="block text-end w-full text-xs font-light">{{ cards.length }} 
+        {{ $settings.sections.shop.labels.itemsfound.text }}
+        </h2>
       </div>
 
       <!-- list of spaces and the filters -->
       <div class="flex flex-row justify-center pt-8 gap-4">
 
         <!-- the filters -->
-        <si-Filters
+        <si-Filters 
+          v-if="$settings.sections.filter.active"
           :selectedFilters="selectedFilters"
           @apply-filters="applyFilters"
           @reset-filters="resetFilters"
@@ -44,16 +49,16 @@
 
         <!-- the cards -->
         <div class="w-full flex flex-col">
-          <nuxt-link :to="`/spaces/${card.slug}`"
+          <nuxt-link :to="`/spaces/${card.slug}`" v-if="card"
             v-for="(card, i) in filteredProducts"
             :key="i">
             <si-ProductCard 
               :card="card"
-              :src="card.images[0].src" 
+              :src="card.images ? card.images[0].src : ''" 
               :title="card.name" 
-              :rating="card.review.rating.toFixed(1)"
+              :rating="parseFloat(card.review.rating.toFixed(1))"
               :price="card.price.salePrice" />
-          </nuxt-link>
+            </nuxt-link>
 
           <!-- there should be paginations in here... -->
           <!-- <div class="text-center font-light text-xs my-6">you've reached the end</div> -->
@@ -61,6 +66,7 @@
 
         <!-- Drawer filter -->
         <aside
+          v-if="$settings.sections.filter.active"
           style="z-index: 10000"
           class="p-5 transform top-0 left-0 w-screen sm:w-1/2 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30"
           :class="isOpen ? 'translate-x-0' : '-translate-x-full'"
@@ -91,7 +97,7 @@
 
       </div>
 
-      <sections-spaces v-if="$settings.sections.relateditems.active"/>
+      <sections-spaces v-if="$settings.sections.shop.spaces.active"/>
 
     </div>
   </div>
@@ -251,11 +257,11 @@ export default {
           // Sort the filtered products based on the selected sorting order
           if (this.selectedFilters.sortOrder === 'popular') {
           filtered.sort((a, b) => b.review.rating - a.review.rating);
-          console.log(this.filteredProducts.sort((a, b) => parseFloat(b.review.rating)  - parseFloat(a.review.rating) ));
+          // console.log(this.filteredProducts.sort((a, b) => parseFloat(b.review.rating)  - parseFloat(a.review.rating) ));
           
           } else if (this.sortOrder === 'price') {
           filtered.sort((a, b) => a.price.salePrice - b.price.salePrice);
-          console.log(this.filteredProducts.sort((a, b) => b.price.salePrice - a.price.salePrice))
+          // console.log(this.filteredProducts.sort((a, b) => b.price.salePrice - a.price.salePrice))
 
       }
 
