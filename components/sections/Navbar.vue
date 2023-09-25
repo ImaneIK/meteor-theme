@@ -8,7 +8,7 @@
   ]">
     <div class="flex items-center justify-center md:justify-between">
       <!-- Header logo -->
-      <div class="p-4">
+      <div class="p-1">
         <template v-if="logo != null">
           <a href="/"><nuxt-img class="w-24" :src="logo.src" /></a>
         </template>
@@ -35,23 +35,23 @@
       </div> -->
 
       <!-- Navbar -->
-      <div class="hidden md:block" style="padding: 0 3rem">
+      <div v-if="$settings.sections.header.nav.active" class="hidden md:block" style="padding: 0 3rem">
           <ul class="capitalize flex gap-6 text-xs justify-center">
-            <template v-if="menu">
+         
               <li
-                v-for="(item, i) in $settings.sections.header.menu.items"
+                v-for="(item, i) in menu.items"
                 :key="i"
                 :class="{
                   'text-amber-500 underline decoration-solid decoration-amber underline-offset-4 decoration-2': $route.path === item.url,
                   'text-gray-400 font-light': $route.path !== item.url,
                 }" >
-                <a :href="item.url">{{ item.text }}</a>
+                <nuxt-link :to="item.url">{{ item.text }}</nuxt-link>
               </li>
-            </template>
+            
 
-              <template v-else>
+              <div v-if="!menu">
                 <p>No_menu</p>
-              </template>
+              </div>
 
           <!-- language -->
           <li v-if="$settings.sections.header.icons.language.active">
@@ -283,7 +283,7 @@ export default {
       isOpen: false,
       scrolled: false,
       logo: this.$settings.sections.header.logo,
-      menu:this.$settings.sections.header.menu,
+      menu:this.$settings.sections.header.nav.menu,
       isLanguageDropdownVisible: false,
       isCurrencyDropdownVisible: false,
       isPopupVisible: false,

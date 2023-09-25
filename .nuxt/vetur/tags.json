@@ -1,52 +1,4 @@
 {
-  "SiAppLoader": {
-    "description": "Auto imported from components/si/AppLoader.vue"
-  },
-  "SiBottomDropDown": {
-    "description": "Auto imported from components/si/BottomDropDown.vue"
-  },
-  "SiBottomNav": {
-    "description": "Auto imported from components/si/BottomNav.vue"
-  },
-  "SiCarousel": {
-    "description": "Auto imported from components/si/carousel.vue"
-  },
-  "SiCollection": {
-    "description": "Auto imported from components/si/collection.vue"
-  },
-  "SiFilters": {
-    "description": "Auto imported from components/si/Filters.vue"
-  },
-  "SiFilterToggle": {
-    "description": "Auto imported from components/si/FilterToggle.vue"
-  },
-  "SiGallery": {
-    "description": "Auto imported from components/si/Gallery.vue"
-  },
-  "SiImageTrack": {
-    "description": "Auto imported from components/si/ImageTrack.vue"
-  },
-  "SiLoader": {
-    "description": "Auto imported from components/si/Loader.vue"
-  },
-  "SiProductCard": {
-    "description": "Auto imported from components/si/ProductCard.vue"
-  },
-  "SiProductPrice": {
-    "description": "Auto imported from components/si/ProductPrice.vue"
-  },
-  "SiProductQuantity": {
-    "description": "Auto imported from components/si/ProductQuantity.vue"
-  },
-  "SiSearchBar": {
-    "description": "Auto imported from components/si/SearchBar.vue"
-  },
-  "SiSearchPost": {
-    "description": "Auto imported from components/si/SearchPost.vue"
-  },
-  "SiStatisticBlock": {
-    "description": "Auto imported from components/si/StatisticBlock.vue"
-  },
   "SectionsAbout": {
     "description": "Auto imported from components/sections/about.vue"
   },
@@ -94,5 +46,53 @@
   },
   "SectionsSpaces": {
     "description": "Auto imported from components/sections/Spaces.vue"
+  },
+  "SiAppLoader": {
+    "description": "Auto imported from components/si/AppLoader.vue"
+  },
+  "SiBottomDropDown": {
+    "description": "Auto imported from components/si/BottomDropDown.vue"
+  },
+  "SiBottomNav": {
+    "description": "Auto imported from components/si/BottomNav.vue"
+  },
+  "SiCarousel": {
+    "description": "Auto imported from components/si/carousel.vue"
+  },
+  "SiCollection": {
+    "description": "Auto imported from components/si/collection.vue"
+  },
+  "SiFilters": {
+    "description": "Auto imported from components/si/Filters.vue"
+  },
+  "SiFilterToggle": {
+    "description": "Auto imported from components/si/FilterToggle.vue"
+  },
+  "SiGallery": {
+    "description": "Auto imported from components/si/Gallery.vue"
+  },
+  "SiImageTrack": {
+    "description": "Auto imported from components/si/ImageTrack.vue"
+  },
+  "SiLoader": {
+    "description": "Auto imported from components/si/Loader.vue"
+  },
+  "SiProductCard": {
+    "description": "Auto imported from components/si/ProductCard.vue"
+  },
+  "SiProductPrice": {
+    "description": "Auto imported from components/si/ProductPrice.vue"
+  },
+  "SiProductQuantity": {
+    "description": "Auto imported from components/si/ProductQuantity.vue"
+  },
+  "SiSearchBar": {
+    "description": "Auto imported from components/si/SearchBar.vue"
+  },
+  "SiSearchPost": {
+    "description": "Auto imported from components/si/SearchPost.vue"
+  },
+  "SiStatisticBlock": {
+    "description": "Auto imported from components/si/StatisticBlock.vue"
   }
 }
