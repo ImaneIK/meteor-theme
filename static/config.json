@@ -1,1 +1,3618 @@
-{}
+{
+  "team": {
+    "_id": "5f21374a175b5e8e309be827",
+    "name": "DEVELOPMENT",
+    "url": "https://market.storeino.com/storeino/"
+  },
+  "config": {
+    "schema": {
+      "fields": {
+        "products": [],
+        "collections": [],
+        "images": [],
+        "menus": [],
+        "pages": [],
+        "brands": []
+      },
+      "ids": {
+        "collections": [],
+        "products": [],
+        "images": [],
+        "menus": [],
+        "pages": [],
+        "brands": []
+      }
+    },
+    "settings": {
+      "tabs": [
+        {
+          "name": "global_options",
+          "sections": [
+            {
+              "name": "header",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "header",
+                  "values": [
+                    {
+                      "name": "header_logo",
+                      "path": "sections.header.logo",
+                      "type": "tc_image",
+                      "value": null
+                    },
+                    {
+                      "name": "show_wishlist_icon",
+                      "path": "sections.header.icons.wishlist.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "show_search_icon",
+                      "path": "sections.header.icons.search.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "show_language",
+                      "path": "sections.header.icons.language.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "show_currency",
+                      "path": "sections.header.icons.currency.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "name": "menu",
+                  "values": [
+                    {
+                      "name": "header_menu",
+                      "path": "sections.header.nav.menu",
+                      "type": "tc_menu",
+                      "value": "64d31236ec5efb0054be9e18"
+                    },
+                    {
+                      "name": "show menu",
+                      "path": "sections.header.nav.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "footer",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "about",
+                  "values": [
+                    {
+                      "name": "footer_about",
+                      "path": "sections.footer.about",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "about us"
+                    }
+                  ]
+                },
+                {
+                  "name": "copyright",
+                  "values": [
+                    {
+                      "name": "store_name",
+                      "path": "sections.footer.copyright.store_name",
+                      "type": "tc_input",
+                      "value": "METEOR"
+                    },
+                    {
+                      "name": "copyright_text",
+                      "path": "sections.footer.copyright.text",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Copyright © 2023. All rights reserved."
+                    }
+                  ]
+                },
+                {
+                  "name": "footer styling",
+                  "values": [
+                    {
+                      "name": "background color",
+                      "path": "sections.footer.styles.background",
+                      "type": "tc_color",
+                      "value": "#000000"
+                    },
+                    {
+                      "name": "text color",
+                      "path": "sections.footer.styles.fontcolor",
+                      "type": "tc_color",
+                      "value": "#ececec"
+                    }
+                  ]
+                },
+                {
+                  "name": "footer menu",
+                  "values": [
+                    {
+                      "name": "select menu",
+                      "path": "sections.footer.menu",
+                      "type": "tc_menu",
+                      "value": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "social media",
+                  "values": [
+                    {
+                      "name": "show socials",
+                      "path": "sections.footer.social.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "collections",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "space collections",
+                  "values": [
+                    {
+                      "name": "choose a collection",
+                      "path": "sections.collections",
+                      "type": "tc_collection",
+                      "value": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "locations",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "space locations ",
+                  "values": [
+                    {
+                      "name": "choose a collection",
+                      "path": "sections.locations",
+                      "type": "tc_collection",
+                      "value": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "services",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "space amenities",
+                  "values": [
+                    {
+                      "name": "choose a collection",
+                      "path": "sections.services",
+                      "type": "tc_collection",
+                      "value": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "buttons",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "explore_more_button",
+                  "values": [
+                    {
+                      "name": "Explore more",
+                      "path": "sections.buttons.explore.text",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Explore more"
+                    }
+                  ]
+                },
+                {
+                  "name": "items found",
+                  "values": [
+                    {
+                      "name": "items_found_label",
+                      "path": "sections.buttons.itemsfound.text",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "spaces found"
+                    }
+                  ]
+                },
+                {
+                  "name": "Blog button",
+                  "values": [
+                    {
+                      "name": "read_more_button",
+                      "path": "sections.buttons.readmore.text",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "More"
+                    }
+                  ]
+                },
+                {
+                  "name": "form button",
+                  "values": [
+                    {
+                      "name": "form button",
+                      "path": "sections.buttons.formbutton.text",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "send"
+                    }
+                  ]
+                },
+                {
+                  "name": "book now button",
+                  "values": [
+                    {
+                      "name": "button label",
+                      "path": "sections.buttons.booknow.text",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Book now"
+                    }
+                  ]
+                },
+                {
+                  "name": "back to shop button",
+                  "values": [
+                    {
+                      "name": "button label",
+                      "path": "sections.buttons.backtoshop.text",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "back to shop"
+                    }
+                  ]
+                },
+                {
+                  "name": "back home button",
+                  "values": [
+                    {
+                      "name": "button label",
+                      "path": "sections.buttons.backhome.text",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Go back home"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "styles",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "colors",
+                  "values": [
+                    {
+                      "name": "primary_color",
+                      "path": "sections.styles.colors.primary",
+                      "type": "tc_color",
+                      "value": "#fd990b"
+                    },
+                    {
+                      "name": "secondary_color",
+                      "path": "sections.styles.colors.secondary",
+                      "type": "tc_color",
+                      "value": "#f1f1f1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "bottom_mobile _navbar",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "link_1",
+                  "values": [
+                    {
+                      "name": "link_1_label",
+                      "path": "sections.mobilenav.link_1.label",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Home"
+                    },
+                    {
+                      "name": "link_1_icon",
+                      "path": "sections.mobilenav.link_1.icon",
+                      "type": "tc_input",
+                      "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 576 512\"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d=\"M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z\"/></svg>"
+                    },
+                    {
+                      "name": "link_1_url",
+                      "path": "sections.mobilenav.link_1.url",
+                      "type": "tc_input",
+                      "value": "/"
+                    },
+                    {
+                      "name": "show link_1",
+                      "path": "sections.mobilenav.link_1.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "name": "link_2",
+                  "values": [
+                    {
+                      "name": "link_2_label",
+                      "path": "sections.mobilenav.link_2.label",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Search"
+                    },
+                    {
+                      "name": "link_2_icon",
+                      "path": "sections.mobilenav.link_2.icon",
+                      "type": "tc_input",
+                      "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 512 512\"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d=\"M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z\"/></svg>"
+                    },
+                    {
+                      "name": "link_2_url",
+                      "path": "sections.mobilenav.link_2.url",
+                      "type": "tc_input",
+                      "value": ""
+                    },
+                    {
+                      "name": "show link_2",
+                      "path": "sections.mobilenav.link_2.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "name": "link_3",
+                  "values": [
+                    {
+                      "name": "link_3_label",
+                      "path": "sections.mobilenav.link_3.label",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Explore"
+                    },
+                    {
+                      "name": "link_3_icon",
+                      "path": "sections.mobilenav.link_3.icon",
+                      "type": "tc_input",
+                      "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 576 512\"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d=\"M547.6 103.8L490.3 13.1C485.2 5 476.1 0 466.4 0H109.6C99.9 0 90.8 5 85.7 13.1L28.3 103.8c-29.6 46.8-3.4 111.9 51.9 119.4c4 .5 8.1 .8 12.1 .8c26.1 0 49.3-11.4 65.2-29c15.9 17.6 39.1 29 65.2 29c26.1 0 49.3-11.4 65.2-29c15.9 17.6 39.1 29 65.2 29c26.2 0 49.3-11.4 65.2-29c16 17.6 39.1 29 65.2 29c4.1 0 8.1-.3 12.1-.8c55.5-7.4 81.8-72.5 52.1-119.4zM499.7 254.9l-.1 0c-5.3 .7-10.7 1.1-16.2 1.1c-12.4 0-24.3-1.9-35.4-5.3V384H128V250.6c-11.2 3.5-23.2 5.4-35.6 5.4c-5.5 0-11-.4-16.3-1.1l-.1 0c-4.1-.6-8.1-1.3-12-2.3V384v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V384 252.6c-4 1-8 1.8-12.3 2.3z\"/></svg>"
+                    },
+                    {
+                      "name": "link_3_url",
+                      "path": "sections.mobilenav.link_3.url",
+                      "type": "tc_input",
+                      "value": "/shop"
+                    },
+                    {
+                      "name": "show link_3",
+                      "path": "sections.mobilenav.link_3.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "name": "link_4",
+                  "values": [
+                    {
+                      "name": "link_4_label",
+                      "path": "sections.mobilenav.link_4.label",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Wishlist"
+                    },
+                    {
+                      "name": "link_4_icon",
+                      "path": "sections.mobilenav.link_4.icon",
+                      "type": "tc_input",
+                      "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 384 512\"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d=\"M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z\"/></svg>"
+                    },
+                    {
+                      "name": "link_4_url",
+                      "path": "sections.mobilenav.link_4.url",
+                      "type": "tc_input",
+                      "value": "/wishlist"
+                    },
+                    {
+                      "name": "show link_4",
+                      "path": "sections.mobilenav.link_4.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "name": "link_5",
+                  "values": [
+                    {
+                      "name": "link_5_label",
+                      "path": "sections.mobilenav.link_5.label",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Settings"
+                    },
+                    {
+                      "name": "link_5_icon",
+                      "path": "sections.mobilenav.link_5.icon",
+                      "type": "tc_input",
+                      "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 512 512\"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d=\"M0 416c0 17.7 14.3 32 32 32l54.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 448c17.7 0 32-14.3 32-32s-14.3-32-32-32l-246.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 384c-17.7 0-32 14.3-32 32zm128 0a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM320 256a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm32-80c-32.8 0-61 19.7-73.3 48L32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l246.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48l54.7 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-54.7 0c-12.3-28.3-40.5-48-73.3-48zM192 128a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm73.3-64C253 35.7 224.8 16 192 16s-61 19.7-73.3 48L32 64C14.3 64 0 78.3 0 96s14.3 32 32 32l86.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 128c17.7 0 32-14.3 32-32s-14.3-32-32-32L265.3 64z\"/></svg>"
+                    },
+                    {
+                      "name": "link_5_url",
+                      "path": "sections.mobilenav.link_5.url",
+                      "type": "tc_input",
+                      "value": ""
+                    },
+                    {
+                      "name": "show_language_settings",
+                      "path": "sections.mobilenav.link_5.language.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "language_settings",
+                      "path": "sections.mobilenav.link_5.language.label",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Language"
+                    },
+                    {
+                      "name": "show_currency_settings",
+                      "path": "sections.mobilenav.link_5.currency.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "currency_settings",
+                      "path": "sections.mobilenav.link_5.currency.label",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Currency"
+                    },
+                    {
+                      "name": "show link_5",
+                      "path": "sections.mobilenav.link_5.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "name": "bottom_mobile _navbar_styles",
+                  "values": [
+                    {
+                      "name": "background color",
+                      "path": "sections.mobilenav.styles.background",
+                      "type": "tc_color",
+                      "value": "#e9e9e9"
+                    },
+                    {
+                      "name": "text and icon color",
+                      "path": "sections.mobilenav.styles.foreground",
+                      "type": "tc_color",
+                      "value": "#000000"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "search popup",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "show popup",
+                  "values": [
+                    {
+                      "name": "active",
+                      "path": "sections.popup.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "name": "background image",
+                  "values": [
+                    {
+                      "name": "choose an image",
+                      "path": "sections.popup.background",
+                      "type": "tc_image",
+                      "value": null
+                    }
+                  ]
+                },
+                {
+                  "name": "popup title",
+                  "values": [
+                    {
+                      "name": "title",
+                      "path": "sections.popup.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Browse spaces"
+                    }
+                  ]
+                },
+                {
+                  "name": "popup message",
+                  "values": [
+                    {
+                      "name": "show message",
+                      "path": "sections.popup.message.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "message text",
+                      "path": "sections.popup.message.text",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Choose the space that suits you and your team"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Filters",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "Filter options",
+                  "values": [
+                    {
+                      "name": "show filter",
+                      "path": "sections.filter.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "filter label",
+                      "path": "sections.filter.label",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Filter by"
+                    }
+                  ]
+                },
+                {
+                  "name": "price filter",
+                  "values": [
+                    {
+                      "name": "show price filter",
+                      "path": "sections.filter.price.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "label",
+                      "path": "sections.filter.price.label",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Price"
+                    },
+                    {
+                      "name": "min price placeholder",
+                      "path": "sections.filter.price.min",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "From"
+                    },
+                    {
+                      "name": "max price placeholder",
+                      "path": "sections.filter.price.max",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "To"
+                    }
+                  ]
+                },
+                {
+                  "name": "sort by filter",
+                  "values": [
+                    {
+                      "name": "show sorting filter",
+                      "path": "sections.filter.sort.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "default option label",
+                      "path": "sections.filter.sort.default",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "All"
+                    },
+                    {
+                      "name": "popularity option label",
+                      "path": "sections.filter.sort.popular",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Popular"
+                    },
+                    {
+                      "name": "price option label",
+                      "path": "sections.filter.sort.price",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Price"
+                    }
+                  ]
+                },
+                {
+                  "name": "collection filter",
+                  "values": [
+                    {
+                      "name": "show collection filter",
+                      "path": "sections.filter.collection.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "collection filter label",
+                      "path": "sections.filter.sort.label",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Collections"
+                    }
+                  ]
+                },
+                {
+                  "name": "locations filter",
+                  "values": [
+                    {
+                      "name": "show locations filter",
+                      "path": "sections.filter.locations.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "locations filter label",
+                      "path": "sections.filter.locations.label",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Locations"
+                    }
+                  ]
+                },
+                {
+                  "name": "services filter",
+                  "values": [
+                    {
+                      "name": "show services filter",
+                      "path": "sections.filter.services.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "services filter label",
+                      "path": "sections.filter.services.label",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Services"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "social media",
+              "icon": "select_all",
+              "blocks": [],
+              "pushable": true,
+              "default": {
+                "name": "items[9]",
+                "values": [
+                  {
+                    "name": "link icon",
+                    "path": "sections.social.item[0].icon",
+                    "type": "tc_input",
+                    "value": "                        <svg :style=\"{fill: text_color ? text_color : 'gray'}\" xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 512 512\"><path d=\"M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z\"/></svg>"
+                  },
+                  {
+                    "name": "link url",
+                    "path": "sections.social.item[0].url",
+                    "type": "tc_input",
+                    "value": "https://www.facebook.com/"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "home_page",
+          "sections": [
+            {
+              "name": "hero_section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "hero_section_background",
+                  "values": [
+                    {
+                      "name": "show_background",
+                      "path": "sections.home.hero.background.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "select_background_image",
+                      "path": "sections.home.hero.background.image",
+                      "type": "tc_image",
+                      "value": null
+                    }
+                  ]
+                },
+                {
+                  "name": "hero_headings",
+                  "values": [
+                    {
+                      "name": "active_hero_main_title",
+                      "path": "sections.home.hero.title.main.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "hero_main_title_text",
+                      "path": "sections.home.hero.title.main.text",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Choose and place your coworking space reservation today"
+                    },
+                    {
+                      "name": "active_hero_sub_title",
+                      "path": "sections.home.hero.title.sub.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "hero_sub_title_text",
+                      "path": "sections.home.hero.title.sub.text",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Choose and book your space and stay productive with your team"
+                    },
+                    {
+                      "name": "active_hero_third_title",
+                      "path": "sections.home.hero.title.third.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "hero_third_title_text",
+                      "path": "sections.home.hero.title.third.text",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Welcome to METEOR"
+                    }
+                  ]
+                },
+                {
+                  "name": "searchbar",
+                  "values": [
+                    {
+                      "name": "show_searchbar",
+                      "path": "sections.home.hero.searchbar.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "from_label",
+                      "path": "sections.home.hero.searchbar.fromLabel",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "from"
+                    },
+                    {
+                      "name": "to_label",
+                      "path": "sections.home.hero.searchbar.toLabel",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "to"
+                    },
+                    {
+                      "name": "location_label",
+                      "path": "sections.home.hero.searchbar.locationLabel",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "location"
+                    },
+                    {
+                      "name": "collection_label",
+                      "path": "sections.home.hero.searchbar.collectionLabel",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "collection"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "stats_section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "stats_section",
+                  "values": [
+                    {
+                      "name": "show stats",
+                      "path": "sections.home.stats.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "stat_1_value",
+                      "path": "sections.home.stats.stat1.value",
+                      "type": "tc_input",
+                      "value": "100",
+                      "inputType": "number"
+                    },
+                    {
+                      "name": "stat_1_text",
+                      "path": "sections.home.stats.stat1.text",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Active members"
+                    },
+                    {
+                      "name": "stat_2_value",
+                      "path": "sections.home.stats.stat2.value",
+                      "type": "tc_input",
+                      "value": "50",
+                      "inputType": "number"
+                    },
+                    {
+                      "name": "stat_2_text",
+                      "path": "sections.home.stats.stat2.text",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Available spaces"
+                    },
+                    {
+                      "name": "stat_3_value",
+                      "path": "sections.home.stats.stat3.value",
+                      "type": "tc_input",
+                      "value": "100",
+                      "inputType": "number"
+                    },
+                    {
+                      "name": "stat_3_text",
+                      "path": "sections.home.stats.stat3.text",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Positive reviews"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "collections_section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "show_collections_section",
+                  "values": [
+                    {
+                      "name": "show_collections_section",
+                      "path": "sections.home.collections.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "name": "collections_section_title",
+                  "values": [
+                    {
+                      "name": "collections_section_title",
+                      "path": "sections.home.collections.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Explore our categories"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "featured_products",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "show_featured_products",
+                  "values": [
+                    {
+                      "name": "show_featured_products",
+                      "path": "sections.home.featured.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "name": "featured_products_title",
+                  "values": [
+                    {
+                      "name": "title",
+                      "path": "sections.home.featured.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Choose the space that suits you and your team"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "locations_section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "locations_section",
+                  "values": [
+                    {
+                      "name": "show_locations_section",
+                      "path": "sections.home.locations.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "locations_section_title",
+                      "path": "sections.home.locations.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Work wherever you are"
+                    },
+                    {
+                      "name": "locations_section_bakground_color",
+                      "path": "sections.home.locations.background",
+                      "type": "tc_color",
+                      "value": "#000000"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "services_section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "services_section",
+                  "values": [
+                    {
+                      "name": "show_services_section",
+                      "path": "sections.home.services.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "services_section_title",
+                      "path": "sections.home.services.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Explore our amenities"
+                    },
+                    {
+                      "name": "services_section_description",
+                      "path": "sections.home.services.description",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Our spaces are well equipped to suit your team's workflow and enhance productivity"
+                    },
+                    {
+                      "name": "services_section_button",
+                      "path": "sections.home.services.button",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Explore more"
+                    },
+                    {
+                      "name": "services_section_backgroundcolorcolor",
+                      "path": "sections.home.services.background",
+                      "type": "tc_color",
+                      "value": "#000000"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "blog_section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "blog_section",
+                  "values": [
+                    {
+                      "name": "show_blog_section",
+                      "path": "sections.home.blog.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "blog_section_title",
+                      "path": "sections.home.blog.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Lastest news from us"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "contact_section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "show contact section",
+                  "values": [
+                    {
+                      "name": "show section",
+                      "path": "sections.home.contact.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "name": "contact section background image",
+                  "values": [
+                    {
+                      "name": "background image",
+                      "path": "sections.home.contact.backgroundimage",
+                      "type": "tc_image",
+                      "value": null
+                    }
+                  ]
+                },
+                {
+                  "name": "contact section title",
+                  "values": [
+                    {
+                      "name": "title",
+                      "path": "sections.home.contact.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Keep in touch"
+                    }
+                  ]
+                },
+                {
+                  "name": "field_1",
+                  "values": [
+                    {
+                      "name": "field_1_icon",
+                      "path": "sections.home.contact.field_1.icon",
+                      "type": "tc_input",
+                      "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 512 512\"><path d=\"M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z\"/></svg>"
+                    },
+                    {
+                      "name": "field_1_title",
+                      "path": "sections.home.contact.field_1.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Call center"
+                    },
+                    {
+                      "name": "field_1_email",
+                      "path": "sections.home.contact.field_1.email",
+                      "type": "tc_input",
+                      "value": "example@email.com"
+                    },
+                    {
+                      "name": "field_1_phone",
+                      "path": "sections.home.contact.field_1.phone",
+                      "type": "tc_input",
+                      "value": "+1112384924"
+                    }
+                  ]
+                },
+                {
+                  "name": "field_2",
+                  "values": [
+                    {
+                      "name": "field_2_icon",
+                      "path": "sections.home.contact.field_2.icon",
+                      "type": "tc_input",
+                      "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 512 512\"><path d=\"M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z\"/></svg>"
+                    },
+                    {
+                      "name": "field_2_title",
+                      "path": "sections.home.contact.field_2.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Call center"
+                    },
+                    {
+                      "name": "field_2_email",
+                      "path": "sections.home.contact.field_2.email",
+                      "type": "tc_input",
+                      "value": "email@email.com"
+                    },
+                    {
+                      "name": "field_2_phone",
+                      "path": "sections.home.contact.field_2.phone",
+                      "type": "tc_input",
+                      "value": "+11547575789"
+                    }
+                  ]
+                },
+                {
+                  "name": "field_3",
+                  "values": [
+                    {
+                      "name": "field_3_icon",
+                      "path": "sections.home.contact.field_3.icon",
+                      "type": "tc_input",
+                      "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 512 512\"><path d=\"M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z\"/></svg>"
+                    },
+                    {
+                      "name": "field_3_title",
+                      "path": "sections.home.contact.field_3.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Call center"
+                    },
+                    {
+                      "name": "field_3_email",
+                      "path": "sections.home.contact.field_3.email",
+                      "type": "tc_input",
+                      "value": "example@email.com"
+                    },
+                    {
+                      "name": "field_3_phone",
+                      "path": "sections.home.contact.field_3.phone",
+                      "type": "tc_input",
+                      "value": "+1126374238443"
+                    }
+                  ]
+                },
+                {
+                  "name": "field_4",
+                  "values": [
+                    {
+                      "name": "field_4_icon",
+                      "path": "sections.home.contact.field_4.icon",
+                      "type": "tc_input",
+                      "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 512 512\"><path d=\"M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z\"/></svg>"
+                    },
+                    {
+                      "name": "field_4_title",
+                      "path": "sections.home.contact.field_4.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Call center"
+                    },
+                    {
+                      "name": "field_4_email",
+                      "path": "sections.home.contact.field_4.email",
+                      "type": "tc_input",
+                      "value": "example@email.com"
+                    },
+                    {
+                      "name": "field_4_phone",
+                      "path": "sections.home.contact.field_4.phone",
+                      "type": "tc_input",
+                      "value": "+11182732834"
+                    }
+                  ]
+                },
+                {
+                  "name": "contact_form",
+                  "values": [
+                    {
+                      "name": "contact_form_name",
+                      "path": "sections.home.contact.form.name",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "name"
+                    },
+                    {
+                      "name": "contact_form_email",
+                      "path": "sections.home.contact.form.email",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Email"
+                    },
+                    {
+                      "name": "contact_form_message",
+                      "path": "sections.home.contact.form.message",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Message"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "space_page",
+          "sections": [
+            {
+              "name": "space_details_section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "show_wishlist_button",
+                  "values": [
+                    {
+                      "name": "show_wishlist_button",
+                      "path": "sections.space.wishlist.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "description_section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "description_section",
+                  "values": [
+                    {
+                      "name": "show_description_section",
+                      "path": "sections.space.description.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "title",
+                      "path": "sections.space.description.label",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Space Details"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "space_gallery_section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "space_gallery_section",
+                  "values": [
+                    {
+                      "name": "show_space_gallery",
+                      "path": "sections.space.gallery.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "space_gallery_label",
+                      "path": "sections.space.gallery.label",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Gallery"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "space_reviews_section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "space_reviews_section",
+                  "values": [
+                    {
+                      "name": "show_space_reviews",
+                      "path": "sections.space.reviews.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "space_reviews_title",
+                      "path": "sections.space.reviews.label",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Reviews"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "featured_items_section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "show_featured_items",
+                  "values": [
+                    {
+                      "name": "show_featured_items",
+                      "path": "sections.space.featured.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "name": "show_featured_title",
+                  "values": [
+                    {
+                      "name": "title",
+                      "path": "sections.space.featured.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Our customers also liked"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "post_page",
+          "sections": [
+            {
+              "name": "banner_section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "show_banner_section",
+                  "values": [
+                    {
+                      "name": "show_banner",
+                      "path": "sections.post.banner.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "name": "banner details",
+                  "values": [
+                    {
+                      "name": "show_banner_background",
+                      "path": "sections.post.banner.background.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "background_image",
+                      "path": "sections.post.banner.background.image",
+                      "type": "tc_image",
+                      "value": null
+                    },
+                    {
+                      "name": "Title",
+                      "path": "sections.post.banner.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Lastest articles from Meteor"
+                    },
+                    {
+                      "name": "show searchbar",
+                      "path": "sections.post.banner.searchbar.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "placeholder value",
+                      "path": "sections.post.banner.searchbar.placeholder",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Search for articles"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "blocks_section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "about_block",
+                  "values": [
+                    {
+                      "name": "show_about_block",
+                      "path": "sections.post.blocks.about.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "about_block_title",
+                      "path": "sections.post.blocks.about.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Learn more about us"
+                    },
+                    {
+                      "name": "about_block_image",
+                      "path": "sections.post.blocks.about.image",
+                      "type": "tc_image",
+                      "value": null
+                    },
+                    {
+                      "name": "about_block_description",
+                      "path": "sections.post.blocks.about.description",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Visit our about page to learn more and join our community"
+                    },
+                    {
+                      "name": "about_block_button",
+                      "path": "sections.post.blocks.about.button",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Learn more"
+                    }
+                  ]
+                },
+                {
+                  "name": "related_posts_block",
+                  "values": [
+                    {
+                      "name": "show_related_posts",
+                      "path": "sections.post.blocks.related.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "related_posts_title",
+                      "path": "sections.post.blocks.related.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Related articles"
+                    }
+                  ]
+                },
+                {
+                  "name": "follow_us_block",
+                  "values": [
+                    {
+                      "name": "show_follow_us",
+                      "path": "sections.post.blocks.social.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "follow_us_title",
+                      "path": "sections.post.blocks.social.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Follow us"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "blog section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "show blog section",
+                  "values": [
+                    {
+                      "name": "new value",
+                      "path": "sections.post.blogSection.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "shop_page",
+          "sections": [
+            {
+              "name": "banner_section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "show_banner",
+                  "values": [
+                    {
+                      "name": "show_banner",
+                      "path": "sections.shop.banner.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "name": "banner_background",
+                  "values": [
+                    {
+                      "name": "show_banner_background",
+                      "path": "sections.shop.banner.background.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "banner_background_image",
+                      "path": "sections.shop.banner.background.image",
+                      "type": "tc_image",
+                      "value": null
+                    }
+                  ]
+                },
+                {
+                  "name": "banner_content",
+                  "values": [
+                    {
+                      "name": "banner_title",
+                      "path": "sections.shop.banner.content.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Explore our variety spaces"
+                    },
+                    {
+                      "name": "banner_searchbar",
+                      "path": "sections.shop.banner.content.searchbar.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "shop page labels",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "All spaces label",
+                  "values": [
+                    {
+                      "name": "label",
+                      "path": "sections.shop.labels.all.text",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "All spaces"
+                    },
+                    {
+                      "name": "url",
+                      "path": "sections.shop.labels.all.url",
+                      "type": "tc_input",
+                      "value": "/shop"
+                    }
+                  ]
+                },
+                {
+                  "name": "items found",
+                  "values": [
+                    {
+                      "name": "label",
+                      "path": "sections.shop.labels.itemsfound.text",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Items found"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "spaces section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "show spaces section",
+                  "values": [
+                    {
+                      "name": "show spaces section",
+                      "path": "sections.shop.spaces.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "wishlist_page",
+          "sections": [
+            {
+              "name": "banner_section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "show_banner_section",
+                  "values": [
+                    {
+                      "name": "show_banner",
+                      "path": "sections.wishlist.banner.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "name": "banner_section_title",
+                  "values": [
+                    {
+                      "name": "title",
+                      "path": "sections.wishlist.banner.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "WISHLIST"
+                    }
+                  ]
+                },
+                {
+                  "name": "banner_section_description",
+                  "values": [
+                    {
+                      "name": "description",
+                      "path": "sections.wishlist.banner.description",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "your wishlist items appear here"
+                    }
+                  ]
+                },
+                {
+                  "name": "banner_section_background",
+                  "values": [
+                    {
+                      "name": "show_backround",
+                      "path": "sections.wishlist.banner.background.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "background_image",
+                      "path": "sections.wishlist.banner.background.image",
+                      "type": "tc_image",
+                      "value": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "about_page",
+          "sections": [
+            {
+              "name": "about_section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "show_about_section",
+                  "values": [
+                    {
+                      "name": "show_about_section",
+                      "path": "sections.about.aboutSection.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "name": "about_section_title",
+                  "values": [
+                    {
+                      "name": "title",
+                      "path": "sections.about.aboutSection.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "About Us"
+                    }
+                  ]
+                },
+                {
+                  "name": "about_section_text",
+                  "values": [
+                    {
+                      "name": "content",
+                      "path": "sections.about.aboutSection.text",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Who are we, our mission, and the value we hold..."
+                    }
+                  ]
+                },
+                {
+                  "name": "about_section_image",
+                  "values": [
+                    {
+                      "name": "select image",
+                      "path": "sections.about.aboutSection.image",
+                      "type": "tc_image",
+                      "value": null
+                    }
+                  ]
+                },
+                {
+                  "name": "about_section_cta",
+                  "values": [
+                    {
+                      "name": "button1",
+                      "path": "sections.about.aboutSection.cta",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Join our community"
+                    }
+                  ]
+                },
+                {
+                  "name": "about_section_tour",
+                  "values": [
+                    {
+                      "name": "button2",
+                      "path": "sections.about.aboutSection.tour",
+                      "type": "tc_input",
+                      "value": "your value"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "culture_section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "show_culture_section",
+                  "values": [
+                    {
+                      "name": "show_culture_section",
+                      "path": "sections.about.cultureSection.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "name": "culture_section_title",
+                  "values": [
+                    {
+                      "name": "culture_section_title",
+                      "path": "sections.about.cultureSection.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Our values and culture"
+                    }
+                  ]
+                },
+                {
+                  "name": "culture_section_text",
+                  "values": [
+                    {
+                      "name": "culture_section_text",
+                      "path": "sections.about.cultureSection.text",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Lorem ipsum"
+                    }
+                  ]
+                },
+                {
+                  "name": "culture_section_image",
+                  "values": [
+                    {
+                      "name": "culture_section_image",
+                      "path": "sections.about.cultureSection.image",
+                      "type": "tc_input",
+                      "value": "your value"
+                    }
+                  ]
+                },
+                {
+                  "name": "culture_section_cta",
+                  "values": [
+                    {
+                      "name": "cta_button",
+                      "path": "sections.about.cultureSection.button",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Join the community"
+                    }
+                  ]
+                },
+                {
+                  "name": "culture section bloc_1",
+                  "values": [
+                    {
+                      "name": "show bloc_1",
+                      "path": "sections.about.cultureSection.bloc1.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "icon",
+                      "path": "sections.about.cultureSection.bloc1.icon",
+                      "type": "tc_input",
+                      "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 448 512\"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d=\"M159.3 5.4c7.8-7.3 19.9-7.2 27.7 .1c27.6 25.9 53.5 53.8 77.7 84c11-14.4 23.5-30.1 37-42.9c7.9-7.4 20.1-7.4 28 .1c34.6 33 63.9 76.6 84.5 118c20.3 40.8 33.8 82.5 33.8 111.9C448 404.2 348.2 512 224 512C98.4 512 0 404.1 0 276.5c0-38.4 17.8-85.3 45.4-131.7C73.3 97.7 112.7 48.6 159.3 5.4zM225.7 416c25.3 0 47.7-7 68.8-21c42.1-29.4 53.4-88.2 28.1-134.4c-4.5-9-16-9.6-22.5-2l-25.2 29.3c-6.6 7.6-18.5 7.4-24.7-.5c-16.5-21-46-58.5-62.8-79.8c-6.3-8-18.3-8.1-24.7-.1c-33.8 42.5-50.8 69.3-50.8 99.4C112 375.4 162.6 416 225.7 416z\"/></svg>"
+                    },
+                    {
+                      "name": "title",
+                      "path": "sections.about.cultureSection.bloc1.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Accessibility"
+                    },
+                    {
+                      "name": "description",
+                      "path": "sections.about.cultureSection.bloc1.description",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Ensure that coworking spaces are accessible to individuals of all backgrounds, abilities, and needs. Consider inclusivity in design and services."
+                    }
+                  ]
+                },
+                {
+                  "name": "culture section bloc_2",
+                  "values": [
+                    {
+                      "name": "show bloc_2",
+                      "path": "sections.about.cultureSection.bloc2.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "Icon",
+                      "path": "sections.about.cultureSection.bloc2.icon",
+                      "type": "tc_input",
+                      "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 512 512\"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d=\"M493.7 .9L299.4 75.6l2.3-29.3c1-12.8-12.8-21.5-24-15.1L101.3 133.4C38.6 169.7 0 236.6 0 309C0 421.1 90.9 512 203 512c72.4 0 139.4-38.6 175.7-101.3L480.8 234.3c6.5-11.1-2.2-25-15.1-24l-29.3 2.3L511.1 18.3c.6-1.5 .9-3.2 .9-4.8C512 6 506 0 498.5 0c-1.7 0-3.3 .3-4.8 .9zM192 192a128 128 0 1 1 0 256 128 128 0 1 1 0-256zm0 96a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm16 96a16 16 0 1 0 0-32 16 16 0 1 0 0 32z\"/></svg>"
+                    },
+                    {
+                      "name": "title",
+                      "path": "sections.about.cultureSection.bloc2.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Crew Well-Being"
+                    },
+                    {
+                      "name": "description",
+                      "path": "sections.about.cultureSection.bloc2.description",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Prioritize the well-being of employees to ensure they are motivated, engaged, and capable of delivering outstanding service."
+                    }
+                  ]
+                },
+                {
+                  "name": "culture section bloc_3",
+                  "values": [
+                    {
+                      "name": "show bloc_3",
+                      "path": "sections.about.cultureSection.bloc3.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "Icon",
+                      "path": "sections.about.cultureSection.bloc3.icon",
+                      "type": "tc_input",
+                      "value": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 512 512\"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d=\"M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8l0 0z\"/></svg>"
+                    },
+                    {
+                      "name": "title",
+                      "path": "sections.about.cultureSection.bloc3.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Security"
+                    },
+                    {
+                      "name": "description",
+                      "path": "sections.about.cultureSection.bloc3.description",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Prioritize the safety and security of co-working members and their belongings. Implement robust security measures to protect the workspace."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "services_section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "show_services_section",
+                  "values": [
+                    {
+                      "name": "show_services_section",
+                      "path": "sections.about.servicesSection.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "faq_section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "show faq section",
+                  "values": [
+                    {
+                      "name": "show faq section",
+                      "path": "sections.about.faq.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "name": "faq section content",
+                  "values": [
+                    {
+                      "name": "title",
+                      "path": "sections.about.faq.title",
+                      "type": "tc_input",
+                      "value": "your value",
+                      "inputType": "number"
+                    },
+                    {
+                      "name": "description",
+                      "path": "sections.about.faq.description",
+                      "type": "tc_input",
+                      "value": "your value"
+                    }
+                  ]
+                },
+                {
+                  "name": "items[2]",
+                  "values": [
+                    {
+                      "name": "question",
+                      "path": "sections.about.faq.item[2].question",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "What is a coworking space reservation service?"
+                    },
+                    {
+                      "name": "answer",
+                      "path": "sections.about.faq.item[2].answer",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "A coworking space reservation service is a platform that allows individuals and businesses to book flexible workspace options, such as shared offices, meeting rooms, or workstations, on-demand"
+                    }
+                  ]
+                },
+                {
+                  "name": "items[3]",
+                  "values": [
+                    {
+                      "name": "question",
+                      "path": "sections.about.faq.item[3].question",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "What is a coworking space reservation service?"
+                    },
+                    {
+                      "name": "answer",
+                      "path": "sections.about.faq.item[3].answer",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "A coworking space reservation service is a platform that allows individuals and businesses to book flexible workspace options, such as shared offices, meeting rooms, or workstations, on-demand"
+                    }
+                  ]
+                },
+                {
+                  "name": "items[4]",
+                  "values": [
+                    {
+                      "name": "question",
+                      "path": "sections.about.faq.item[4].question",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "What is a coworking space reservation service?"
+                    },
+                    {
+                      "name": "answer",
+                      "path": "sections.about.faq.item[4].answer",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "A coworking space reservation service is a platform that allows individuals and businesses to book flexible workspace options, such as shared offices, meeting rooms, or workstations, on-demand"
+                    }
+                  ]
+                }
+              ],
+              "pushable": true,
+              "default": {
+                "name": "items[9]",
+                "values": [
+                  {
+                    "name": "question",
+                    "path": "sections.about.faq.item[0].question",
+                    "type": "tc_input",
+                    "translatable": true,
+                    "value": "What is a coworking space reservation service?",
+                    "inputType": false,
+                    "frValue": "Qu'est-ce qu'un service de réservation d'espace de coworking ?",
+                    "arValue": "ما هي خدمة حجز مساحة العمل المشترك؟"
+                  },
+                  {
+                    "name": "answer",
+                    "path": "sections.about.faq.item[0].answer",
+                    "type": "tc_input",
+                    "translatable": true,
+                    "value": "A coworking space reservation service is a platform that allows individuals and businesses to book flexible workspace options, such as shared offices, meeting rooms, or workstations, on-demand",
+                    "arValue": "خدمة حجز مساحة العمل المشترك هي عبارة عن منصة تسمح للأفراد والشركات بحجز خيارات مساحة عمل مرنة، مثل المكاتب المشتركة أو غرف الاجتماعات أو محطات العمل، حسب الطلب",
+                    "frValue": "Un service de réservation d'espace de coworking est une plateforme qui permet aux particuliers et aux entreprises de réserver des options d'espace de travail flexibles, telles que des bureaux partagés, des salles de réunion ou des postes de travail, à la demande."
+                  }
+                ]
+              }
+            },
+            {
+              "name": "blog section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "show blog section",
+                  "values": [
+                    {
+                      "name": "show blog section",
+                      "path": "sections.about.blog.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "banner section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "show banner section",
+                  "values": [
+                    {
+                      "name": "show banner section",
+                      "path": "sections.about.banner.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "name": "banner image",
+                  "values": [
+                    {
+                      "name": "new value",
+                      "path": "sections.about.banner.background",
+                      "type": "tc_image",
+                      "value": null
+                    }
+                  ]
+                },
+                {
+                  "name": "banner content",
+                  "values": [
+                    {
+                      "name": "title",
+                      "path": "sections.about.banner.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Choose the space you see fit"
+                    },
+                    {
+                      "name": "show searchbar",
+                      "path": "sections.about.banner.search.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "blog_page",
+          "sections": [
+            {
+              "name": "banner_section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "show_blog_banner",
+                  "values": [
+                    {
+                      "name": "show_blog_banner",
+                      "path": "sections.blog.banner.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "name": "banner_section_background",
+                  "values": [
+                    {
+                      "name": "background_image",
+                      "path": "sections.blog.banner.background.image",
+                      "type": "tc_image",
+                      "value": null
+                    },
+                    {
+                      "name": "show_background_image",
+                      "path": "sections.blog.banner.background.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "name": "banner_section_title",
+                  "values": [
+                    {
+                      "name": "banner_title_text",
+                      "path": "sections.blog.banner.title.text",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "lastest articles from Meteor"
+                    }
+                  ]
+                },
+                {
+                  "name": "banner_section_searchbar",
+                  "values": [
+                    {
+                      "name": "show_banner_searchbar",
+                      "path": "sections.blog.banner.searchbar.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "banner_placeholder",
+                      "path": "sections.blog.banner.searchbar.placeholder",
+                      "type": "tc_input",
+                      "value": "search post"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "blog_section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "show_blog_articles",
+                  "values": [
+                    {
+                      "name": "show_blog_articles",
+                      "path": "sections.blog.articles.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "name": "blog section title",
+                  "values": [
+                    {
+                      "name": "title",
+                      "path": "sections.blog.articles.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Explore our lastest articles"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "collections_page",
+          "sections": [
+            {
+              "name": "banner_section",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "show_banner",
+                  "values": [
+                    {
+                      "name": "show_banner",
+                      "path": "sections.collection.banner.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "name": "banner_background",
+                  "values": [
+                    {
+                      "name": "show_banner_background",
+                      "path": "sections.collection.banner.background.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    },
+                    {
+                      "name": "banner_background_image",
+                      "path": "sections.collection.banner.background.image",
+                      "type": "tc_image",
+                      "value": null
+                    }
+                  ]
+                },
+                {
+                  "name": "banner_content",
+                  "values": [
+                    {
+                      "name": "banner_title",
+                      "path": "sections.collection.banner.content.title",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Explore our variety spaces"
+                    },
+                    {
+                      "name": "banner_searchbar",
+                      "path": "sections.collection.banner.content.searchbar.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "collection page labels",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "items found label",
+                  "values": [
+                    {
+                      "name": "label",
+                      "path": "sections.collection.labels.itemsfound.text",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "Items found"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "section spaces",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "show section spaces",
+                  "values": [
+                    {
+                      "name": "active",
+                      "path": "sections.collection.spaces.active",
+                      "type": "tc_checkbox",
+                      "value": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "error_page",
+          "sections": [
+            {
+              "name": "_404_texts",
+              "icon": "select_all",
+              "blocks": [
+                {
+                  "name": "_404_title",
+                  "values": [
+                    {
+                      "name": "title",
+                      "path": "sections._404.title",
+                      "type": "tc_input",
+                      "value": "Uh-oh!"
+                    }
+                  ]
+                },
+                {
+                  "name": "_404_text",
+                  "values": [
+                    {
+                      "name": "description",
+                      "path": "sections._404.description",
+                      "type": "tc_input",
+                      "translatable": true,
+                      "value": "We can't find this page"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "currentLang": null
+    },
+    "current": {
+      "translates": [
+        {
+          "language": "FR",
+          "properties": [
+            {
+              "name": "sections.footer.about",
+              "value": "à propos"
+            },
+            {
+              "name": "sections.footer.copyright.text",
+              "value": "Copyright © 2023. Tous les droits réservés. <a href='//storeino.com'>storeino.com</a>."
+            },
+            {
+              "name": "sections.buttons.explore.text",
+              "value": "Explorer plus"
+            },
+            {
+              "name": "sections.buttons.itemsfound.text",
+              "value": "espaces trouvés"
+            },
+            {
+              "name": "sections.buttons.readmore.text",
+              "value": "En savoir plus"
+            },
+            {
+              "name": "sections.buttons.formbutton.text",
+              "value": "envoyer"
+            },
+            {
+              "name": "sections.buttons.booknow.text",
+              "value": "Reserver maintenant"
+            },
+            {
+              "name": "sections.buttons.backtoshop.text",
+              "value": "retour à la boutique"
+            },
+            {
+              "name": "sections.buttons.backhome.text",
+              "value": "Retourner à la page d'accueil"
+            },
+            {
+              "name": "sections.mobilenav.link_1.label",
+              "value": "accueil"
+            },
+            {
+              "name": "sections.mobilenav.link_2.label",
+              "value": "Recherche"
+            },
+            {
+              "name": "sections.mobilenav.link_3.label",
+              "value": "Explorer"
+            },
+            {
+              "name": "sections.mobilenav.link_4.label",
+              "value": "favoris"
+            },
+            {
+              "name": "sections.mobilenav.link_5.label",
+              "value": "Paramètres"
+            },
+            {
+              "name": "sections.mobilenav.link_5.language.label",
+              "value": "langue"
+            },
+            {
+              "name": "sections.mobilenav.link_5.currency.label",
+              "value": "Devise"
+            },
+            {
+              "name": "sections.popup.title",
+              "value": "Naviguer dans les espaces"
+            },
+            {
+              "name": "sections.popup.message.text",
+              "value": "Choisissez l'espace qui convient à vous et à votre équipe"
+            },
+            {
+              "name": "sections.filter.label",
+              "value": "Filtrer par"
+            },
+            {
+              "name": "sections.filter.price.label",
+              "value": "Prix"
+            },
+            {
+              "name": "sections.filter.price.min",
+              "value": "De"
+            },
+            {
+              "name": "sections.filter.price.max",
+              "value": "à"
+            },
+            {
+              "name": "sections.filter.sort.default",
+              "value": "Tout"
+            },
+            {
+              "name": "sections.filter.sort.popular",
+              "value": "Populaire"
+            },
+            {
+              "name": "sections.filter.sort.price",
+              "value": "Prix"
+            },
+            {
+              "name": "sections.filter.sort.label",
+              "value": "Collections"
+            },
+            {
+              "name": "sections.filter.locations.label",
+              "value": "Localisation"
+            },
+            {
+              "name": "sections.filter.services.label",
+              "value": "Services"
+            },
+            {
+              "name": "sections.home.hero.title.main.text",
+              "value": "Choisissez et réserver votre espace de coworking aujourd'hui"
+            },
+            {
+              "name": "sections.home.hero.title.sub.text",
+              "value": "Choisissez et réservez votre espace et restez productif avec votre équipe"
+            },
+            {
+              "name": "sections.home.hero.title.third.text",
+              "value": "Bienvenu sur METEOR"
+            },
+            {
+              "name": "sections.home.hero.searchbar.fromLabel",
+              "value": "De"
+            },
+            {
+              "name": "sections.home.hero.searchbar.toLabel",
+              "value": "à"
+            },
+            {
+              "name": "sections.home.hero.searchbar.locationLabel",
+              "value": "Localisation"
+            },
+            {
+              "name": "sections.home.hero.searchbar.collectionLabel",
+              "value": "collection"
+            },
+            {
+              "name": "sections.home.stats.stat1.text",
+              "value": "Membres actifs"
+            },
+            {
+              "name": "sections.home.stats.stat2.text",
+              "value": "Places disponibles"
+            },
+            {
+              "name": "sections.home.stats.stat3.text",
+              "value": "Commentaires positifs"
+            },
+            {
+              "name": "sections.home.collections.title",
+              "value": "Explorez nos catégories"
+            },
+            {
+              "name": "sections.home.featured.title",
+              "value": "Choisissez l'espace qui convient à vous et à votre équipe"
+            },
+            {
+              "name": "sections.home.locations.title",
+              "value": "Travaillez où que vous soyez"
+            },
+            {
+              "name": "sections.home.services.title",
+              "value": "Découvrez nos commodités"
+            },
+            {
+              "name": "sections.home.services.description",
+              "value": "Nos espaces sont bien équipés pour s'adapter au flux de travail de votre équipe et améliorer la productivité"
+            },
+            {
+              "name": "sections.home.services.button",
+              "value": "Explore plus"
+            },
+            {
+              "name": "sections.home.blog.title",
+              "value": "Dernières nouvelles de nous"
+            },
+            {
+              "name": "sections.home.contact.title",
+              "value": "Rester en contact"
+            },
+            {
+              "name": "sections.home.contact.field_1.title",
+              "value": "Centre d'appel"
+            },
+            {
+              "name": "sections.home.contact.field_2.title",
+              "value": "Centre d'appel"
+            },
+            {
+              "name": "sections.home.contact.field_3.title",
+              "value": "Centre d'appel"
+            },
+            {
+              "name": "sections.home.contact.field_4.title",
+              "value": "Centre d'appel"
+            },
+            {
+              "name": "sections.home.contact.form.name",
+              "value": "nom"
+            },
+            {
+              "name": "sections.home.contact.form.email",
+              "value": "Email"
+            },
+            {
+              "name": "sections.home.contact.form.message",
+              "value": "Message"
+            },
+            {
+              "name": "sections.space.description.label",
+              "value": "Détails de l'espace"
+            },
+            {
+              "name": "sections.space.gallery.label",
+              "value": "Galerie"
+            },
+            {
+              "name": "sections.space.reviews.label",
+              "value": "Commentaires"
+            },
+            {
+              "name": "sections.space.featured.title",
+              "value": "Nos clients ont également aimé"
+            },
+            {
+              "name": "sections.post.banner.title",
+              "value": "Derniers articles de Meteore"
+            },
+            {
+              "name": "sections.post.banner.searchbar.placeholder",
+              "value": "Rechercher des articles"
+            },
+            {
+              "name": "sections.post.blocks.about.title",
+              "value": "En savoir plus sur nous"
+            },
+            {
+              "name": "sections.post.blocks.about.description",
+              "value": "Visitez notre page à propos pour en savoir plus et rejoindre notre communauté"
+            },
+            {
+              "name": "sections.post.blocks.about.button",
+              "value": "Explore plus"
+            },
+            {
+              "name": "sections.post.blocks.related.title",
+              "value": "Articles Liés"
+            },
+            {
+              "name": "sections.post.blocks.social.title",
+              "value": "Suivez-nous"
+            },
+            {
+              "name": "sections.shop.banner.content.title",
+              "value": "Explorez nos espaces variétés"
+            },
+            {
+              "name": "sections.shop.labels.all.text",
+              "value": "Tous les espaces"
+            },
+            {
+              "name": "sections.shop.labels.itemsfound.text",
+              "value": "Objets trouvés"
+            },
+            {
+              "name": "sections.wishlist.banner.title",
+              "value": "Favoris"
+            },
+            {
+              "name": "sections.wishlist.banner.description",
+              "value": "les articles de votre liste de souhaits apparaissent ici"
+            },
+            {
+              "name": "sections.about.aboutSection.title",
+              "value": "À propos de nous"
+            },
+            {
+              "name": "sections.about.aboutSection.text",
+              "value": "Qui sommes-nous, notre mission et la valeur que nous détenons..."
+            },
+            {
+              "name": "sections.about.aboutSection.cta",
+              "value": "Rejoignez notre communauté"
+            },
+            {
+              "name": "sections.about.cultureSection.title",
+              "value": "Nos valeurs et notre culture"
+            },
+            {
+              "name": "sections.about.cultureSection.text",
+              "value": "Lorem ipsum"
+            },
+            {
+              "name": "sections.about.cultureSection.button",
+              "value": "Rejoignez la communauté"
+            },
+            {
+              "name": "sections.about.cultureSection.bloc1.title",
+              "value": "Accessibilité"
+            },
+            {
+              "name": "sections.about.cultureSection.bloc1.description",
+              "value": "Veiller à ce que les espaces de coworking soient accessibles aux personnes de tous horizons, capacités et besoins. Envisagez l’inclusivité dans la conception et les services."
+            },
+            {
+              "name": "sections.about.cultureSection.bloc2.title",
+              "value": "Bien-être de l'équipage"
+            },
+            {
+              "name": "sections.about.cultureSection.bloc2.description",
+              "value": "Donnez la priorité au bien-être des employés pour vous assurer qu’ils sont motivés, engagés et capables de fournir un service exceptionnel."
+            },
+            {
+              "name": "sections.about.cultureSection.bloc3.title",
+              "value": "Securité"
+            },
+            {
+              "name": "sections.about.cultureSection.bloc3.description",
+              "value": "Donnez la priorité à la sûreté et à la sécurité des membres du coworking et de leurs biens. Mettez en œuvre des mesures de sécurité robustes pour protéger l’espace de travail."
+            },
+            {
+              "name": "sections.about.faq.item[2].question",
+              "value": "Qu'est-ce qu'un service de réservation d'espace de coworking ?"
+            },
+            {
+              "name": "sections.about.faq.item[2].answer",
+              "value": "Un service de réservation d'espace de coworking est une plateforme qui permet aux particuliers et aux entreprises de réserver des options d'espace de travail flexibles, telles que des bureaux partagés, des salles de réunion ou des postes de travail, à la demande."
+            },
+            {
+              "name": "sections.about.faq.item[3].question",
+              "value": "Qu'est-ce qu'un service de réservation d'espace de coworking ?"
+            },
+            {
+              "name": "sections.about.faq.item[3].answer",
+              "value": "Un service de réservation d'espace de coworking est une plateforme qui permet aux particuliers et aux entreprises de réserver des options d'espace de travail flexibles, telles que des bureaux partagés, des salles de réunion ou des postes de travail, à la demande."
+            },
+            {
+              "name": "sections.about.faq.item[4].question",
+              "value": "Qu'est-ce qu'un service de réservation d'espace de coworking ?"
+            },
+            {
+              "name": "sections.about.faq.item[4].answer",
+              "value": "Un service de réservation d'espace de coworking est une plateforme qui permet aux particuliers et aux entreprises de réserver des options d'espace de travail flexibles, telles que des bureaux partagés, des salles de réunion ou des postes de travail, à la demande."
+            },
+            {
+              "name": "sections.about.banner.title",
+              "value": "Choisissez l'espace qui vous convient"
+            },
+            {
+              "name": "sections.blog.banner.title.text",
+              "value": "derniers articles de Meteor"
+            },
+            {
+              "name": "sections.blog.articles.title",
+              "value": "Découvrez nos derniers articles"
+            },
+            {
+              "name": "sections.collection.banner.content.title",
+              "value": "Explorez nos espaces variétés"
+            },
+            {
+              "name": "sections.collection.labels.itemsfound.text",
+              "value": "Objets trouvés"
+            },
+            {
+              "name": "sections._404.description",
+              "value": "Nous ne trouvons pas cette page"
+            }
+          ]
+        },
+        {
+          "language": "AR",
+          "properties": [
+            {
+              "name": "sections.footer.about",
+              "value": "نبذة عنا"
+            },
+            {
+              "name": "sections.footer.copyright.text",
+              "value": "Copyright © 2023. جميع الحقوق محفوظة <a href='//storeino.com'>storeino.com</a>"
+            },
+            {
+              "name": "sections.buttons.explore.text",
+              "value": "اكتشف المزيد"
+            },
+            {
+              "name": "sections.buttons.itemsfound.text",
+              "value": "عناصر"
+            },
+            {
+              "name": "sections.buttons.readmore.text",
+              "value": "More"
+            },
+            {
+              "name": "sections.buttons.formbutton.text",
+              "value": "إرسال"
+            },
+            {
+              "name": "sections.buttons.booknow.text",
+              "value": "احجز الآن"
+            },
+            {
+              "name": "sections.buttons.backtoshop.text",
+              "value": "العودة إلى المتجر"
+            },
+            {
+              "name": "sections.buttons.backhome.text",
+              "value": "العودة إلى الصفحة الرئيسية"
+            },
+            {
+              "name": "sections.mobilenav.link_1.label",
+              "value": "الرئيسية"
+            },
+            {
+              "name": "sections.mobilenav.link_2.label",
+              "value": "Recherche"
+            },
+            {
+              "name": "sections.mobilenav.link_3.label",
+              "value": "المتجر"
+            },
+            {
+              "name": "sections.mobilenav.link_4.label",
+              "value": "المفضلة"
+            },
+            {
+              "name": "sections.mobilenav.link_5.label",
+              "value": "إعدادات"
+            },
+            {
+              "name": "sections.mobilenav.link_5.language.label",
+              "value": "اللغات"
+            },
+            {
+              "name": "sections.mobilenav.link_5.currency.label",
+              "value": "Currency"
+            },
+            {
+              "name": "sections.popup.title",
+              "value": "تصفح المساحات"
+            },
+            {
+              "name": "sections.popup.message.text",
+              "value": "إختر المساحة التي تناسبك أنت وفريقك"
+            },
+            {
+              "name": "sections.filter.label",
+              "value": "تصفية حسب"
+            },
+            {
+              "name": "sections.filter.price.label",
+              "value": "حدد الثمن"
+            },
+            {
+              "name": "sections.filter.price.min",
+              "value": "من"
+            },
+            {
+              "name": "sections.filter.price.max",
+              "value": "إلى"
+            },
+            {
+              "name": "sections.filter.sort.default",
+              "value": "الكل "
+            },
+            {
+              "name": "sections.filter.sort.popular",
+              "value": "رائج"
+            },
+            {
+              "name": "sections.filter.sort.price",
+              "value": "الثمن"
+            },
+            {
+              "name": "sections.filter.sort.label",
+              "value": "المجموعات"
+            },
+            {
+              "name": "sections.filter.locations.label",
+              "value": "المواقع"
+            },
+            {
+              "name": "sections.filter.services.label",
+              "value": "الخدمات"
+            },
+            {
+              "name": "sections.home.hero.title.main.text",
+              "value": "اختر وقم بحجز مساحة العمل المشتركة الخاصة بك اليوم"
+            },
+            {
+              "name": "sections.home.hero.title.sub.text",
+              "value": "اختر مساحتك واحجزها وحافظ على إنتاجيتك مع فريقك"
+            },
+            {
+              "name": "sections.home.hero.title.third.text",
+              "value": "مرحبا بكم في METEOR"
+            },
+            {
+              "name": "sections.home.hero.searchbar.fromLabel",
+              "value": "من"
+            },
+            {
+              "name": "sections.home.hero.searchbar.toLabel",
+              "value": "إلى"
+            },
+            {
+              "name": "sections.home.hero.searchbar.locationLabel",
+              "value": "موقع"
+            },
+            {
+              "name": "sections.home.hero.searchbar.collectionLabel",
+              "value": "فئة"
+            },
+            {
+              "name": "sections.home.stats.stat1.text",
+              "value": "أعضاء فاعلين"
+            },
+            {
+              "name": "sections.home.stats.stat2.text",
+              "value": "المساحات المتاحة"
+            },
+            {
+              "name": "sections.home.stats.stat3.text",
+              "value": "تقييمات إيجابية"
+            },
+            {
+              "name": "sections.home.collections.title",
+              "value": "اكتشف فئاتنا"
+            },
+            {
+              "name": "sections.home.featured.title",
+              "value": "اختر المساحة التي تناسبك وفريقك"
+            },
+            {
+              "name": "sections.home.locations.title",
+              "value": "العمل أينما كنت"
+            },
+            {
+              "name": "sections.home.services.title",
+              "value": "اكتشف وسائل الراحة لدينا"
+            },
+            {
+              "name": "sections.home.services.description",
+              "value": "مساحاتنا مجهزة تجهيزًا جيدًا لتناسب سير عمل فريقك وتعزز الإنتاجية"
+            },
+            {
+              "name": "sections.home.services.button",
+              "value": "استكشاف المزيد"
+            },
+            {
+              "name": "sections.home.blog.title",
+              "value": "آخر الأخبار منا"
+            },
+            {
+              "name": "sections.home.contact.title",
+              "value": "أبق على اتصال"
+            },
+            {
+              "name": "sections.home.contact.field_1.title",
+              "value": "مركز الاتصال"
+            },
+            {
+              "name": "sections.home.contact.field_2.title",
+              "value": "مركز الاتصال"
+            },
+            {
+              "name": "sections.home.contact.field_3.title",
+              "value": "مركز الاتصال"
+            },
+            {
+              "name": "sections.home.contact.field_4.title",
+              "value": "مركز الاتصال"
+            },
+            {
+              "name": "sections.home.contact.form.name",
+              "value": "الاسم"
+            },
+            {
+              "name": "sections.home.contact.form.email",
+              "value": "البريد الإلكتروني"
+            },
+            {
+              "name": "sections.home.contact.form.message",
+              "value": "الرسالة"
+            },
+            {
+              "name": "sections.space.description.label",
+              "value": "تفاصيل الفضاء"
+            },
+            {
+              "name": "sections.space.gallery.label",
+              "value": "صالة عرض"
+            },
+            {
+              "name": "sections.space.reviews.label",
+              "value": "التعليقات"
+            },
+            {
+              "name": "sections.space.featured.title",
+              "value": "كما أحب عملاؤنا"
+            },
+            {
+              "name": "sections.post.banner.title",
+              "value": "أحدث المقالات من METEOR"
+            },
+            {
+              "name": "sections.post.banner.searchbar.placeholder",
+              "value": "البحث عن المقالات"
+            },
+            {
+              "name": "sections.post.blocks.about.title",
+              "value": "تعرف على المزيد عنا"
+            },
+            {
+              "name": "sections.post.blocks.about.description",
+              "value": "تفضل بزيارة صفحتنا لمعرفة المزيد والانضمام إلى مجتمعنا"
+            },
+            {
+              "name": "sections.post.blocks.about.button",
+              "value": "اكتشف المزيد"
+            },
+            {
+              "name": "sections.post.blocks.related.title",
+              "value": "مقالات ذات صلة"
+            },
+            {
+              "name": "sections.post.blocks.social.title",
+              "value": "تابعنا"
+            },
+            {
+              "name": "sections.shop.banner.content.title",
+              "value": "اكتشف مساحاتنا المتنوعة"
+            },
+            {
+              "name": "sections.shop.labels.all.text",
+              "value": "جميع المساحات"
+            },
+            {
+              "name": "sections.shop.labels.itemsfound.text",
+              "value": "العناصر التي تم العثور عليها"
+            },
+            {
+              "name": "sections.wishlist.banner.title",
+              "value": "المفضلة"
+            },
+            {
+              "name": "sections.wishlist.banner.description",
+              "value": "تظهر عناصر قائمة الرغبات الخاصة بك هنا"
+            },
+            {
+              "name": "sections.about.aboutSection.title",
+              "value": "نبذة عنا"
+            },
+            {
+              "name": "sections.about.aboutSection.text",
+              "value": "من نحن، مهمتنا، والقيمة التي نحملها..."
+            },
+            {
+              "name": "sections.about.aboutSection.cta",
+              "value": "انضم إلى مجتمعنا"
+            },
+            {
+              "name": "sections.about.cultureSection.title",
+              "value": "قيمنا وثقافتنا"
+            },
+            {
+              "name": "sections.about.cultureSection.text",
+              "value": "Lorem ipsum"
+            },
+            {
+              "name": "sections.about.cultureSection.button",
+              "value": "الانضمام إلى المجتمع"
+            },
+            {
+              "name": "sections.about.cultureSection.bloc1.title",
+              "value": "سهولة الوصول"
+            },
+            {
+              "name": "sections.about.cultureSection.bloc1.description",
+              "value": "التأكد من أن مساحات العمل المشتركة متاحة للأفراد من جميع الخلفيات والقدرات والاحتياجات. النظر في الشمولية في التصميم والخدمات."
+            },
+            {
+              "name": "sections.about.cultureSection.bloc2.title",
+              "value": "رفاهية الطاقم"
+            },
+            {
+              "name": "sections.about.cultureSection.bloc2.description",
+              "value": "إعطاء الأولوية لرفاهية الموظفين للتأكد من أنهم متحمسون ومشاركون وقادرون على تقديم خدمة متميزة."
+            },
+            {
+              "name": "sections.about.cultureSection.bloc3.title",
+              "value": "حماية"
+            },
+            {
+              "name": "sections.about.cultureSection.bloc3.description",
+              "value": "إعطاء الأولوية لسلامة وأمن أعضاء العمل وممتلكاتهم. تنفيذ تدابير أمنية قوية لحماية مساحة العمل."
+            },
+            {
+              "name": "sections.about.faq.item[2].question",
+              "value": "ما هي خدمة حجز مساحة العمل المشترك؟"
+            },
+            {
+              "name": "sections.about.faq.item[2].answer",
+              "value": "خدمة حجز مساحة العمل المشترك هي عبارة عن منصة تسمح للأفراد والشركات بحجز خيارات مساحة عمل مرنة، مثل المكاتب المشتركة أو غرف الاجتماعات أو محطات العمل، حسب الطلب"
+            },
+            {
+              "name": "sections.about.faq.item[3].question",
+              "value": "ما هي خدمة حجز مساحة العمل المشترك؟"
+            },
+            {
+              "name": "sections.about.faq.item[3].answer",
+              "value": "خدمة حجز مساحة العمل المشترك هي عبارة عن منصة تسمح للأفراد والشركات بحجز خيارات مساحة عمل مرنة، مثل المكاتب المشتركة أو غرف الاجتماعات أو محطات العمل، حسب الطلب"
+            },
+            {
+              "name": "sections.about.faq.item[4].question",
+              "value": "ما هي خدمة حجز مساحة العمل المشترك؟"
+            },
+            {
+              "name": "sections.about.faq.item[4].answer",
+              "value": "خدمة حجز مساحة العمل المشترك هي عبارة عن منصة تسمح للأفراد والشركات بحجز خيارات مساحة عمل مرنة، مثل المكاتب المشتركة أو غرف الاجتماعات أو محطات العمل، حسب الطلب"
+            },
+            {
+              "name": "sections.about.banner.title",
+              "value": "اختر المساحة التي تراها مناسبةاختر المساحة التي تراها مناسبة"
+            },
+            {
+              "name": "sections.blog.banner.title.text",
+              "value": "أحدث المقالات من METEOR"
+            },
+            {
+              "name": "sections.blog.articles.title",
+              "value": "اكتشف أحدث مقالاتنا"
+            },
+            {
+              "name": "sections.collection.banner.content.title",
+              "value": "اكتشف مساحاتنا المتنوعة"
+            },
+            {
+              "name": "sections.collection.labels.itemsfound.text",
+              "value": "عناصر"
+            },
+            {
+              "name": "sections._404.description",
+              "value": "لا يمكننا العثور على هذه الصفحة."
+            }
+          ]
+        }
+      ],
+      "sections": {
+        "header": {
+          "logo": null,
+          "icons": {
+            "wishlist": {
+              "active": true
+            },
+            "search": {
+              "active": true
+            },
+            "language": {
+              "active": true
+            },
+            "currency": {
+              "active": true
+            }
+          },
+          "nav": {
+            "menu": null,
+            "active": true
+          }
+        },
+        "footer": {
+          "about": "about us",
+          "copyright": {
+            "store_name": "METEOR",
+            "text": "Copyright © 2023. All rights reserved."
+          },
+          "styles": {
+            "background": "#000000",
+            "fontcolor": "#ececec"
+          },
+          "menu": "",
+          "social": {
+            "active": true
+          }
+        },
+        "collections": null,
+        "locations": null,
+        "services": null,
+        "buttons": {
+          "explore": {
+            "text": "Explore more"
+          },
+          "itemsfound": {
+            "text": "spaces found"
+          },
+          "readmore": {
+            "text": "More"
+          },
+          "formbutton": {
+            "text": "send"
+          },
+          "booknow": {
+            "text": "Book now"
+          },
+          "backtoshop": {
+            "text": "back to shop"
+          },
+          "backhome": {
+            "text": "Go back home"
+          }
+        },
+        "styles": {
+          "colors": {
+            "primary": "#fd990b",
+            "secondary": "#f1f1f1"
+          }
+        },
+        "mobilenav": {
+          "link_1": {
+            "label": "Home",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 576 512\"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d=\"M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z\"/></svg>",
+            "url": "/",
+            "active": true
+          },
+          "link_2": {
+            "label": "Search",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 512 512\"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d=\"M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z\"/></svg>",
+            "url": "",
+            "active": true
+          },
+          "link_3": {
+            "label": "Explore",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 576 512\"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d=\"M547.6 103.8L490.3 13.1C485.2 5 476.1 0 466.4 0H109.6C99.9 0 90.8 5 85.7 13.1L28.3 103.8c-29.6 46.8-3.4 111.9 51.9 119.4c4 .5 8.1 .8 12.1 .8c26.1 0 49.3-11.4 65.2-29c15.9 17.6 39.1 29 65.2 29c26.1 0 49.3-11.4 65.2-29c15.9 17.6 39.1 29 65.2 29c26.2 0 49.3-11.4 65.2-29c16 17.6 39.1 29 65.2 29c4.1 0 8.1-.3 12.1-.8c55.5-7.4 81.8-72.5 52.1-119.4zM499.7 254.9l-.1 0c-5.3 .7-10.7 1.1-16.2 1.1c-12.4 0-24.3-1.9-35.4-5.3V384H128V250.6c-11.2 3.5-23.2 5.4-35.6 5.4c-5.5 0-11-.4-16.3-1.1l-.1 0c-4.1-.6-8.1-1.3-12-2.3V384v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V384 252.6c-4 1-8 1.8-12.3 2.3z\"/></svg>",
+            "url": "/shop",
+            "active": true
+          },
+          "link_4": {
+            "label": "Wishlist",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 384 512\"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d=\"M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z\"/></svg>",
+            "url": "/wishlist",
+            "active": true
+          },
+          "link_5": {
+            "label": "Settings",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 512 512\"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d=\"M0 416c0 17.7 14.3 32 32 32l54.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 448c17.7 0 32-14.3 32-32s-14.3-32-32-32l-246.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 384c-17.7 0-32 14.3-32 32zm128 0a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM320 256a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm32-80c-32.8 0-61 19.7-73.3 48L32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l246.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48l54.7 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-54.7 0c-12.3-28.3-40.5-48-73.3-48zM192 128a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm73.3-64C253 35.7 224.8 16 192 16s-61 19.7-73.3 48L32 64C14.3 64 0 78.3 0 96s14.3 32 32 32l86.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 128c17.7 0 32-14.3 32-32s-14.3-32-32-32L265.3 64z\"/></svg>",
+            "url": "",
+            "language": {
+              "active": true,
+              "label": "Language"
+            },
+            "currency": {
+              "active": true,
+              "label": "Currency"
+            },
+            "active": true
+          },
+          "styles": {
+            "background": "#e9e9e9",
+            "foreground": "#000000"
+          }
+        },
+        "popup": {
+          "active": true,
+          "background": null,
+          "title": "Browse spaces",
+          "message": {
+            "active": true,
+            "text": "Choose the space that suits you and your team"
+          }
+        },
+        "filter": {
+          "active": true,
+          "label": "Filter by",
+          "price": {
+            "active": true,
+            "label": "Price",
+            "min": "From",
+            "max": "To"
+          },
+          "sort": {
+            "active": true,
+            "default": "All",
+            "popular": "Popular",
+            "price": "Price",
+            "label": "Collections"
+          },
+          "collection": {
+            "active": true
+          },
+          "locations": {
+            "active": true,
+            "label": "Locations"
+          },
+          "services": {
+            "active": true,
+            "label": "Services"
+          }
+        },
+        "home": {
+          "hero": {
+            "background": {
+              "active": true,
+              "image": null
+            },
+            "title": {
+              "main": {
+                "active": true,
+                "text": "Choose and place your coworking space reservation today"
+              },
+              "sub": {
+                "active": true,
+                "text": "Choose and book your space and stay productive with your team"
+              },
+              "third": {
+                "active": true,
+                "text": "Welcome to METEOR"
+              }
+            },
+            "searchbar": {
+              "active": true,
+              "fromLabel": "from",
+              "toLabel": "to",
+              "locationLabel": "location",
+              "collectionLabel": "collection"
+            }
+          },
+          "stats": {
+            "active": true,
+            "stat1": {
+              "value": "100",
+              "text": "Active members"
+            },
+            "stat2": {
+              "value": "50",
+              "text": "Available spaces"
+            },
+            "stat3": {
+              "value": "100",
+              "text": "Positive reviews"
+            }
+          },
+          "collections": {
+            "active": true,
+            "title": "Explore our categories"
+          },
+          "featured": {
+            "active": true,
+            "title": "Choose the space that suits you and your team"
+          },
+          "locations": {
+            "active": true,
+            "title": "Work wherever you are",
+            "background": "#000000"
+          },
+          "services": {
+            "active": true,
+            "title": "Explore our amenities",
+            "description": "Our spaces are well equipped to suit your team's workflow and enhance productivity",
+            "button": "Explore more",
+            "background": "#000000"
+          },
+          "blog": {
+            "active": true,
+            "title": "Lastest news from us"
+          },
+          "contact": {
+            "active": true,
+            "backgroundimage": null,
+            "title": "Keep in touch",
+            "field_1": {
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 512 512\"><path d=\"M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z\"/></svg>",
+              "title": "Call center",
+              "email": "example@email.com",
+              "phone": "+1112384924"
+            },
+            "field_2": {
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 512 512\"><path d=\"M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z\"/></svg>",
+              "title": "Call center",
+              "email": "email@email.com",
+              "phone": "+11547575789"
+            },
+            "field_3": {
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 512 512\"><path d=\"M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z\"/></svg>",
+              "title": "Call center",
+              "email": "example@email.com",
+              "phone": "+1126374238443"
+            },
+            "field_4": {
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 512 512\"><path d=\"M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z\"/></svg>",
+              "title": "Call center",
+              "email": "example@email.com",
+              "phone": "+11182732834"
+            },
+            "form": {
+              "name": "name",
+              "email": "Email",
+              "message": "Message"
+            }
+          }
+        },
+        "space": {
+          "wishlist": {
+            "active": true
+          },
+          "description": {
+            "active": true,
+            "label": "Space Details"
+          },
+          "gallery": {
+            "active": true,
+            "label": "Gallery"
+          },
+          "reviews": {
+            "active": true,
+            "label": "Reviews"
+          },
+          "featured": {
+            "active": true,
+            "title": "Our customers also liked"
+          }
+        },
+        "post": {
+          "banner": {
+            "active": true,
+            "background": {
+              "active": true,
+              "image": null
+            },
+            "title": "Lastest articles from Meteor",
+            "searchbar": {
+              "active": true,
+              "placeholder": "Search for articles"
+            }
+          },
+          "blocks": {
+            "about": {
+              "active": true,
+              "title": "Learn more about us",
+              "image": null,
+              "description": "Visit our about page to learn more and join our community",
+              "button": "Learn more"
+            },
+            "related": {
+              "active": true,
+              "title": "Related articles"
+            },
+            "social": {
+              "active": true,
+              "title": "Follow us"
+            }
+          },
+          "blogSection": {
+            "active": true
+          }
+        },
+        "shop": {
+          "banner": {
+            "active": true,
+            "background": {
+              "active": true,
+              "image": null
+            },
+            "content": {
+              "title": "Explore our variety spaces",
+              "searchbar": {
+                "active": true
+              }
+            }
+          },
+          "labels": {
+            "all": {
+              "text": "All spaces",
+              "url": "/shop"
+            },
+            "itemsfound": {
+              "text": "Items found"
+            }
+          },
+          "spaces": {
+            "active": true
+          }
+        },
+        "wishlist": {
+          "banner": {
+            "active": true,
+            "title": "WISHLIST",
+            "description": "your wishlist items appear here",
+            "background": {
+              "active": true,
+              "image": null
+            }
+          }
+        },
+        "about": {
+          "aboutSection": {
+            "active": true,
+            "title": "About Us",
+            "text": "Who are we, our mission, and the value we hold...",
+            "image": null,
+            "cta": "Join our community",
+            "tour": "your value"
+          },
+          "cultureSection": {
+            "active": true,
+            "title": "Our values and culture",
+            "text": "Lorem ipsum",
+            "image": "your value",
+            "button": "Join the community",
+            "bloc1": {
+              "active": true,
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 448 512\"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d=\"M159.3 5.4c7.8-7.3 19.9-7.2 27.7 .1c27.6 25.9 53.5 53.8 77.7 84c11-14.4 23.5-30.1 37-42.9c7.9-7.4 20.1-7.4 28 .1c34.6 33 63.9 76.6 84.5 118c20.3 40.8 33.8 82.5 33.8 111.9C448 404.2 348.2 512 224 512C98.4 512 0 404.1 0 276.5c0-38.4 17.8-85.3 45.4-131.7C73.3 97.7 112.7 48.6 159.3 5.4zM225.7 416c25.3 0 47.7-7 68.8-21c42.1-29.4 53.4-88.2 28.1-134.4c-4.5-9-16-9.6-22.5-2l-25.2 29.3c-6.6 7.6-18.5 7.4-24.7-.5c-16.5-21-46-58.5-62.8-79.8c-6.3-8-18.3-8.1-24.7-.1c-33.8 42.5-50.8 69.3-50.8 99.4C112 375.4 162.6 416 225.7 416z\"/></svg>",
+              "title": "Accessibility",
+              "description": "Ensure that coworking spaces are accessible to individuals of all backgrounds, abilities, and needs. Consider inclusivity in design and services."
+            },
+            "bloc2": {
+              "active": true,
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 512 512\"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d=\"M493.7 .9L299.4 75.6l2.3-29.3c1-12.8-12.8-21.5-24-15.1L101.3 133.4C38.6 169.7 0 236.6 0 309C0 421.1 90.9 512 203 512c72.4 0 139.4-38.6 175.7-101.3L480.8 234.3c6.5-11.1-2.2-25-15.1-24l-29.3 2.3L511.1 18.3c.6-1.5 .9-3.2 .9-4.8C512 6 506 0 498.5 0c-1.7 0-3.3 .3-4.8 .9zM192 192a128 128 0 1 1 0 256 128 128 0 1 1 0-256zm0 96a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm16 96a16 16 0 1 0 0-32 16 16 0 1 0 0 32z\"/></svg>",
+              "title": "Crew Well-Being",
+              "description": "Prioritize the well-being of employees to ensure they are motivated, engaged, and capable of delivering outstanding service."
+            },
+            "bloc3": {
+              "active": true,
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"1em\" viewBox=\"0 0 512 512\"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d=\"M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8l0 0z\"/></svg>",
+              "title": "Security",
+              "description": "Prioritize the safety and security of co-working members and their belongings. Implement robust security measures to protect the workspace."
+            }
+          },
+          "servicesSection": {
+            "active": true
+          },
+          "faq": {
+            "active": true,
+            "title": "your value",
+            "description": "your value",
+            "item": [
+              null,
+              null,
+              {
+                "question": "What is a coworking space reservation service?",
+                "answer": "A coworking space reservation service is a platform that allows individuals and businesses to book flexible workspace options, such as shared offices, meeting rooms, or workstations, on-demand"
+              },
+              {
+                "question": "What is a coworking space reservation service?",
+                "answer": "A coworking space reservation service is a platform that allows individuals and businesses to book flexible workspace options, such as shared offices, meeting rooms, or workstations, on-demand"
+              },
+              {
+                "question": "What is a coworking space reservation service?",
+                "answer": "A coworking space reservation service is a platform that allows individuals and businesses to book flexible workspace options, such as shared offices, meeting rooms, or workstations, on-demand"
+              }
+            ]
+          },
+          "blog": {
+            "active": true
+          },
+          "banner": {
+            "active": true,
+            "background": null,
+            "title": "Choose the space you see fit",
+            "search": {
+              "active": true
+            }
+          }
+        },
+        "blog": {
+          "banner": {
+            "active": true,
+            "background": {
+              "image": null,
+              "active": true
+            },
+            "title": {
+              "text": "lastest articles from Meteor"
+            },
+            "searchbar": {
+              "active": true,
+              "placeholder": "search post"
+            }
+          },
+          "articles": {
+            "active": true,
+            "title": "Explore our lastest articles"
+          }
+        },
+        "collection": {
+          "banner": {
+            "active": true,
+            "background": {
+              "active": true,
+              "image": null
+            },
+            "content": {
+              "title": "Explore our variety spaces",
+              "searchbar": {
+                "active": true
+              }
+            }
+          },
+          "labels": {
+            "itemsfound": {
+              "text": "Items found"
+            }
+          },
+          "spaces": {
+            "active": true
+          }
+        },
+        "_404": {
+          "title": "Uh-oh!",
+          "description": "We can't find this page"
+        }
+      }
+    }
+  },
+  "images": [
+    "https://storeno.b-cdn.net/stores/10-2021/1635522810596.png"
+  ],
+  "isActive": true,
+  "autoRenew": false,
+  "_id": "650ca0bb38f3220012262582",
+  "expiryDate": "2050-12-12T00:00:00.000Z",
+  "name": "METEOR",
+  "url": "/themes/METEOR",
+  "route": "METEOR",
+  "defaults": [],
+  "paymentType": "yearly",
+  "payments": [],
+  "price": 22,
+  "description": "✔ Simple and easy theme to use ✔ Well presented and convertible store and product page ✔ SEO optimized ✔ Responsive to all devices",
+  "publicName": "Multipurpose Responsive E-commerce Template",
+  "storeId": "64ad442c53e57422dfea1e2d",
+  "createdAt": "2023-09-21T19:59:55.176Z",
+  "updatedAt": "2023-09-25T23:03:12.441Z",
+  "__v": 0
+}
