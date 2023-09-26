@@ -37,9 +37,10 @@
             class="relative rounded-md w-full lg:w-1/2 transition-all duration-300 group overflow-hidden"
           >
             <nuxt-img
+              v-if="cards[0].images[0]"
               alt="gallery"
               class="block rounded-tr-md rounded-tl-md h-3/4 lg:h-full w-full object-cover object-center  lg:group-hover:h-3/4 transition-all duration-300 overflow-hidden"
-              :src="cards[0].images[0] ? cards[0].images[0].src : ''"
+              :src="cards[0].images[0].src"
             />
             <div
               class="p-2 rounded-br-md rounded-bl-md flex flex-col w-full duration-300 bg-black text-white"
@@ -58,10 +59,10 @@
             :to="`/spaces/${cards[1].slug}`"
             class="relative rounded-md w-full lg:w-1/2 transition-all duration-300 group overflow-hidden"
           >
-            <nuxt-img
+            <nuxt-img v-if="cards[1].images[0]"
               alt="gallery"
               class="block rounded-tr-md rounded-tl-md h-3/4 lg:h-full w-full object-cover object-center  lg:group-hover:h-3/4 transition-all duration-300 overflow-hidden"
-              :src="cards[1].images[0] ? cards[1].images[0].src : ''"
+              :src="cards[1].images[0].src"
             />
             <div
               class="p-2 rounded-br-md rounded-bl-md flex flex-col w-full duration-300 bg-black text-white"
@@ -82,9 +83,10 @@
             class="relative rounded-md w-full transition-all duration-300 group overflow-hidden"
           >
             <nuxt-img
+              v-if="cards[2].images[0]"
               alt="gallery"
               class="block lg:h-full w-full h-full object-cover object-center lg:group-hover:h-5/6 transition-all duration-300 overflow-hidden"
-              :src="cards[2].images[0] ? cards[2].images[0].src : ''"
+              :src="cards[2].images[0].src"
             />
             <div
               class=" p-2 flex flex-col w-full bg-black text-white rounded-br-md rounded-bl-md"
@@ -106,9 +108,10 @@
             class="relative rounded-md w-full h-full transition-all duration-300 group overflow-hidden"
           >
             <nuxt-img
+              v-if="cards[3].images[0]"
               alt="gallery"
               class="block rounded-tr-md rounded-tl-md lg:h-full w-full object-cover object-center  lg:group-hover:h-5/6 transition-all duration-300 overflow-hidden"
-              :src="cards[3].images[0] ? cards[3].images[0].src : ''"
+              :src="cards[3].images[0].src"
             />
             <div
               class=" p-2 flex flex-col w-full bg-black text-white rounded-br-md rounded-bl-md"
@@ -129,9 +132,10 @@
             class="relative rounded-md w-full lg:w-1/2 transition-all duration-300 group overflow-hidden"
           >
             <nuxt-img
+              v-if="cards[4].images[0]"
               alt="gallery"
               class="block rounded-tr-md rounded-tl-md h-3/4 lg:h-full w-full object-cover object-center  lg:group-hover:h-3/4 transition-all duration-300 overflow-hidden"
-              :src="cards[4].images[0] ? cards[4].images[0].src : ''"
+              :src="cards[4].images[0].src"
             />
             <div
               class="p-2 rounded-br-md rounded-bl-md flex flex-col w-full duration-300 bg-black text-white"
@@ -150,9 +154,10 @@
             :to="`/spaces/${cards[5].slug}`"
             class="relative rounded-md w-full lg:w-1/2 transition-all duration-300 group overflow-hidden" >
             <nuxt-img
+              v-if="cards[5].images[0]"
               alt="gallery"
               class="block rounded-tr-md rounded-tl-md h-3/4 lg:h-full w-full object-cover object-center  lg:group-hover:h-3/4 transition-all duration-300 overflow-hidden"
-              :src="cards[5].images[0] ? cards[5].images[0].src : ''" />
+              :src="cards[5].images[0].src" />
             
             <div
               class="p-2 rounded-br-md rounded-bl-md flex flex-col w-full duration-300 bg-black text-white" >

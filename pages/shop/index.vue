@@ -48,7 +48,7 @@
         ></si-Filters>
 
         <!-- the cards -->
-        <div class="w-full flex flex-col">
+        <div v-if="filteredProducts.length > 0" class="w-full flex flex-col">
           <nuxt-link :to="`/spaces/${card.slug}`" v-if="card"
             v-for="(card, i) in filteredProducts"
             :key="i">
@@ -62,6 +62,10 @@
 
           <!-- there should be paginations in here... -->
           <!-- <div class="text-center font-light text-xs my-6">you've reached the end</div> -->
+        </div>
+
+        <div v-else class="bg-gray-100 h-40 p-12 w-full flex items-center text-center justify-center text-sm font-light">
+          <p>no products found </p>
         </div>
 
         <!-- Drawer filter -->

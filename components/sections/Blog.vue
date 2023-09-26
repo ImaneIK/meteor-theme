@@ -25,9 +25,9 @@
               :key="post.id" class="relative shadow-md rounded-md flex-shrink-0 w-full lg:w-auto m-2" >
                    
                     <nuxt-link class="block"  :to="`/posts/${post.slug}`">
-                      <nuxt-img
+                      <nuxt-img v-if="post.image"
                         class="block rounded-t-lg w-full"
-                        :src="post.image ? post.image.url : ''"
+                        :src="post.image.url"
                         alt=""
                       />
                     </nuxt-link>
@@ -68,6 +68,10 @@
                     </div>
                 </nuxt-link>
       </div>
+
+      <div v-else class="my-6 h-72 flex justify-center text-center items-center bg-gray-200">
+      <p>No articles found</p>
+    </div>
       
   </div>
 </template>

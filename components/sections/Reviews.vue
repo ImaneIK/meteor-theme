@@ -12,6 +12,7 @@
     <div class="bg-white rounded-md p-2 my-3 mx-2 reviews" id="reviews">
       <div class="flex flex-no-wrap overflow-x-scroll scrolling-touch lg:snap-mandatory lg:overflow-x-auto lg:scrolling-auto">
         <div
+          v-if="reviews && reviews.results.length > 0"
           v-for="(review, index) in reviews.results"
           :key="index"
           class="w-full md:w-1/2 flex-shrink-0 w-full"

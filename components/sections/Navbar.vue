@@ -9,12 +9,10 @@
     <div class="flex items-center justify-center md:justify-between">
       <!-- Header logo -->
       <div class="p-1">
-        <template v-if="logo != null">
-          <a href="/"><nuxt-img class="w-24" :src="logo.src" /></a>
+        <template >
+          <a href="/"><nuxt-img class="w-24" :src="logo ? logo.src : 'https://storeno.b-cdn.net/stores/9-2023/1693533497270.png'" /></a>
         </template>
-        <template v-else>
-          <span>No_logo</span>
-        </template>
+     
       </div>
 
       <!-- Mobile toggle -->
@@ -36,9 +34,10 @@
 
       <!-- Navbar -->
       <div v-if="$settings.sections.header.nav.active" class="hidden md:block" style="padding: 0 3rem">
-          <ul class="capitalize flex gap-6 text-xs justify-center">
+          <ul v-if="menu" class="capitalize flex gap-6 text-xs justify-center">
          
               <li
+                
                 v-for="(item, i) in menu.items"
                 :key="i"
                 :class="{

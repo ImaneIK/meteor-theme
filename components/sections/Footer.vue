@@ -15,14 +15,10 @@
         class="flex flex-col lg:flex-row items-center justify-center lg:justify-between"
       >
         <div class="p-4">
-          <template v-if="logo">
-            <a href="/"><nuxt-img class="w-24" :src="logo.src" /></a>
+          <template >
+            <a href="/"><nuxt-img class="w-24" :src="logo ? logo.src : 'https://storeno.b-cdn.net/stores/9-2023/1693533497270.png'" /></a>
           </template>
-          <template v-else>
-            <span :style="{ color: text_color ? text_color : 'gray' }"
-              >No_logo</span
-            >
-          </template>
+         
           <div
             class="text-xs font-light py-4"
             :style="{ color: text_color ? text_color : 'gray' }"

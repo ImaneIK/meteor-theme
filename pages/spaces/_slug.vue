@@ -28,9 +28,10 @@
             <!-- Main image -->
             <div class="mb-4" style="flex: 0 0 40%">
               <nuxt-img
+                v-if="space.images.length > 0"
                 alt="Main Image"
                 class="w-full object-cover object-center rounded border border-gray-200"
-                :src="space.images ? space.images[selectedImageIndex].src : ''"
+                :src="space.images[selectedImageIndex].src"
               />
             </div>
 
@@ -45,7 +46,8 @@
               >
                 <!-- Looping on every image -->
                 <nuxt-img
-                  :src="image ? image.src : ''"
+                  v-if="image"
+                  :src="image.src"
                   :alt="`Thumbnail ${index + 1}`"
                   :class="{
                     'border-amber-600 border-2': selectedImageIndex === index,
