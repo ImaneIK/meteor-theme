@@ -4,14 +4,14 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _239ba8ba = () => interopDefault(import('..\\pages\\about\\index.vue' /* webpackChunkName: "pages/about/index" */))
-const _02b22aeb = () => interopDefault(import('..\\pages\\blog\\index.vue' /* webpackChunkName: "pages/blog/index" */))
-const _8fe839d2 = () => interopDefault(import('..\\pages\\shop\\index.vue' /* webpackChunkName: "pages/shop/index" */))
-const _396f5768 = () => interopDefault(import('..\\pages\\wishlist\\index.vue' /* webpackChunkName: "pages/wishlist/index" */))
-const _793c558d = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
-const _36e59eaa = () => interopDefault(import('..\\pages\\collections\\_slug.vue' /* webpackChunkName: "pages/collections/_slug" */))
-const _7ad7e76c = () => interopDefault(import('..\\pages\\posts\\_slug.vue' /* webpackChunkName: "pages/posts/_slug" */))
-const _a7ccb110 = () => interopDefault(import('..\\pages\\spaces\\_slug.vue' /* webpackChunkName: "pages/spaces/_slug" */))
+const _bde12dca = () => interopDefault(import('..\\pages\\about\\index.vue' /* webpackChunkName: "pages/about/index" */))
+const _1f845a6a = () => interopDefault(import('..\\pages\\blog\\index.vue' /* webpackChunkName: "pages/blog/index" */))
+const _5643dad4 = () => interopDefault(import('..\\pages\\shop\\index.vue' /* webpackChunkName: "pages/shop/index" */))
+const _3a8faf67 = () => interopDefault(import('..\\pages\\wishlist\\index.vue' /* webpackChunkName: "pages/wishlist/index" */))
+const _25685f68 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _49c5d24b = () => interopDefault(import('..\\pages\\collections\\_slug.vue' /* webpackChunkName: "pages/collections/_slug" */))
+const _0f68b066 = () => interopDefault(import('..\\pages\\posts\\_slug.vue' /* webpackChunkName: "pages/posts/_slug" */))
+const _45c41992 = () => interopDefault(import('..\\pages\\spaces\\_slug.vue' /* webpackChunkName: "pages/spaces/_slug" */))
 
 const emptyFn = () => {}
 
@@ -26,35 +26,35 @@ export const routerOptions = {
 
   routes: [{
     path: "/about",
-    component: _239ba8ba,
+    component: _bde12dca,
     name: "about"
   }, {
     path: "/blog",
-    component: _02b22aeb,
+    component: _1f845a6a,
     name: "blog"
   }, {
     path: "/shop",
-    component: _8fe839d2,
+    component: _5643dad4,
     name: "shop"
   }, {
     path: "/wishlist",
-    component: _396f5768,
+    component: _3a8faf67,
     name: "wishlist"
   }, {
     path: "/",
-    component: _793c558d,
+    component: _25685f68,
     name: "index"
   }, {
     path: "/collections/:slug?",
-    component: _36e59eaa,
+    component: _49c5d24b,
     name: "collections-slug"
   }, {
     path: "/posts/:slug?",
-    component: _7ad7e76c,
+    component: _0f68b066,
     name: "posts-slug"
   }, {
     path: "/spaces/:slug?",
-    component: _a7ccb110,
+    component: _45c41992,
     name: "spaces-slug"
   }],
 

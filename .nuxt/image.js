@@ -3,8 +3,8 @@ import { createImage} from '~image'
 import NuxtImg from '~image/components/nuxt-img.vue'
 import NuxtPicture from '~image/components/nuxt-picture.vue'
 
-import * as staticRuntime$c405 from 'C:/Users/Imane/Bureau/meteor-theme/meteor/node_modules/@nuxt/image/dist/runtime/providers/static.js'
-import * as ipxRuntime$52f0 from 'C:/Users/Imane/Bureau/meteor-theme/meteor/node_modules/@nuxt/image/dist/runtime/providers/ipx.js'
+import * as staticRuntime$acbf from 'C:/Users/abdel/OneDrive/Desktop/Storeino/Themes/Dev-Themes/meteor-theme/node_modules/@nuxt/image/dist/runtime/providers/static.js'
+import * as ipxRuntime$9ed5 from 'C:/Users/abdel/OneDrive/Desktop/Storeino/Themes/Dev-Themes/meteor-theme/node_modules/@nuxt/image/dist/runtime/providers/ipx.js'
 
 const imageOptions = {
   "screens": {
@@ -23,8 +23,8 @@ const imageOptions = {
 }
 
 imageOptions.providers = {
-  ['static']: { provider: staticRuntime$c405, defaults: {} },
-  ['ipx']: { provider: ipxRuntime$52f0, defaults: {} }
+  ['static']: { provider: staticRuntime$acbf, defaults: {} },
+  ['ipx']: { provider: ipxRuntime$9ed5, defaults: {} }
 }
 
 Vue.component(NuxtImg.name, NuxtImg)

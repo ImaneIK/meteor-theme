@@ -2,57 +2,49 @@
   {
     "name": "about",
     "path": "/about",
-    "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\about\\\\index.vue",
-    "chunkName": "pages/about/index",
-    "_name": "_239ba8ba"
+    "component": "C:\\\\Users\\\\abdel\\\\OneDrive\\\\Desktop\\\\Storeino\\\\Themes\\\\Dev-Themes\\\\meteor-theme\\\\pages\\\\about\\\\index.vue",
+    "chunkName": "pages/about/index"
   },
   {
     "name": "blog",
     "path": "/blog",
-    "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\blog\\\\index.vue",
-    "chunkName": "pages/blog/index",
-    "_name": "_02b22aeb"
+    "component": "C:\\\\Users\\\\abdel\\\\OneDrive\\\\Desktop\\\\Storeino\\\\Themes\\\\Dev-Themes\\\\meteor-theme\\\\pages\\\\blog\\\\index.vue",
+    "chunkName": "pages/blog/index"
   },
   {
     "name": "shop",
     "path": "/shop",
-    "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\shop\\\\index.vue",
-    "chunkName": "pages/shop/index",
-    "_name": "_8fe839d2"
+    "component": "C:\\\\Users\\\\abdel\\\\OneDrive\\\\Desktop\\\\Storeino\\\\Themes\\\\Dev-Themes\\\\meteor-theme\\\\pages\\\\shop\\\\index.vue",
+    "chunkName": "pages/shop/index"
   },
   {
     "name": "wishlist",
     "path": "/wishlist",
-    "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\wishlist\\\\index.vue",
-    "chunkName": "pages/wishlist/index",
-    "_name": "_396f5768"
+    "component": "C:\\\\Users\\\\abdel\\\\OneDrive\\\\Desktop\\\\Storeino\\\\Themes\\\\Dev-Themes\\\\meteor-theme\\\\pages\\\\wishlist\\\\index.vue",
+    "chunkName": "pages/wishlist/index"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_793c558d"
+    "component": "C:\\\\Users\\\\abdel\\\\OneDrive\\\\Desktop\\\\Storeino\\\\Themes\\\\Dev-Themes\\\\meteor-theme\\\\pages\\\\index.vue",
+    "chunkName": "pages/index"
   },
   {
     "name": "collections-slug",
     "path": "/collections/:slug?",
-    "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\collections\\\\_slug.vue",
-    "chunkName": "pages/collections/_slug",
-    "_name": "_36e59eaa"
+    "component": "C:\\\\Users\\\\abdel\\\\OneDrive\\\\Desktop\\\\Storeino\\\\Themes\\\\Dev-Themes\\\\meteor-theme\\\\pages\\\\collections\\\\_slug.vue",
+    "chunkName": "pages/collections/_slug"
   },
   {
     "name": "posts-slug",
     "path": "/posts/:slug?",
-    "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\posts\\\\_slug.vue",
-    "chunkName": "pages/posts/_slug",
-    "_name": "_7ad7e76c"
+    "component": "C:\\\\Users\\\\abdel\\\\OneDrive\\\\Desktop\\\\Storeino\\\\Themes\\\\Dev-Themes\\\\meteor-theme\\\\pages\\\\posts\\\\_slug.vue",
+    "chunkName": "pages/posts/_slug"
   },
   {
     "name": "spaces-slug",
     "path": "/spaces/:slug?",
-    "component": "C:\\\\Users\\\\Imane\\\\Bureau\\\\meteor-theme\\\\meteor\\\\pages\\\\spaces\\\\_slug.vue",
-    "chunkName": "pages/spaces/_slug",
-    "_name": "_a7ccb110"
+    "component": "C:\\\\Users\\\\abdel\\\\OneDrive\\\\Desktop\\\\Storeino\\\\Themes\\\\Dev-Themes\\\\meteor-theme\\\\pages\\\\spaces\\\\_slug.vue",
+    "chunkName": "pages/spaces/_slug"
   }
 ]
